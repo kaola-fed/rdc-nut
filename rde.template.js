@@ -1,6 +1,5 @@
 module.exports = {
     framework: 'vue',
-    extend: 'rdt-vuecli-basic',
     spa: true,
     docs: {
         logo: 'https://cli.vuejs.org/favicon.png',
@@ -9,7 +8,7 @@ module.exports = {
     render: {
         includes: ['.js', '.json', '.html'],
         mock: {
-            name: 'hello world'
+            name: 'Hello World'
         }
     },
     mappings: [
@@ -17,5 +16,4 @@ module.exports = {
         { from: 'router.js', to: 'src/router.js' },
         { from: 'store.js', to: 'src/store.js' },
     ],
-
 };
