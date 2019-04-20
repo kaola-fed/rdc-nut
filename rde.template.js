@@ -12,7 +12,7 @@ module.exports = {
             name: 'hello world'
         }
     },
-    mapping: [
+    mappings: [
         { from: 'views', to: 'src/views' },
         { from: 'router.js', to: 'src/router.js' },
         { from: 'store.js', to: 'src/store.js' },
