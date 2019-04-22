@@ -8,12 +8,12 @@ module.exports = {
     render: {
         includes: ['.js', '.json', '.html'],
         mock: {
-            name: 'Hello World'
+            ProjectName: 'Hello World'
         }
     },
     mappings: [
-        { from: 'views', to: 'src/views' },
-        { from: 'router.js', to: 'src/router.js' },
-        { from: 'store.js', to: 'src/store.js' },
+        { from: 'app/views', to: 'src/views' },
+        { from: 'app/router.js', to: 'src/router.js' },
+        { from: 'app/store.js', to: 'src/store.js' },
     ],
 };
