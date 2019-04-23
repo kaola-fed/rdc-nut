@@ -1,7 +1,7 @@
 {
   "name": "@rde-pro/vue-starter-rdt",
   "description": "rdt-vue-starter rede-template",
-  "version": "0.0.2-beta.0",
+  "version": "0.0.4",
   "keywords": [
     "@rde-pro/discovery"
   ],
