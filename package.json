@@ -1,12 +1,13 @@
 {
   "name": "@rde-pro/vue-starter-rdt",
   "description": "rdt-vue-starter rede-template",
-  "version": "0.0.5",
+  "version": "0.0.2-beta.1-beta.0",
   "keywords": [
     "@rde-pro/discovery"
   ],
   "license": "MIT",
   "files": [
+    "/_docs",
     "/app",
     "/template",
     ".gitignore",
@@ -57,7 +58,5 @@
       "git add"
     ]
   },
-  "dependencies": {
-    "rdt-vuecli-basic": "0.0.3"
-  }
+  "dependencies": {}
 }
