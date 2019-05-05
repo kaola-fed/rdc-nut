@@ -1,29 +1,35 @@
-# {{ProjectName}}
+rdc-vue-starter
+====
 
-## Project setup
-```
-npm install
-```
+Project Powered by RDE
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+[![RDE](https://img.shields.io/badge/cli-oclif-brightgreen.svg)]()
 
-### Compiles and minifies for production
-```
-npm run build
-```
+* [Quick Start](#Quick Start)
+* [Commands](#Commands)
+* [FAQ](#FAQ)
 
-### Run your tests
-```
-npm run test
-```
+# Quick Start
+<!-- usage -->
+```sh-session
+* [安装node](https://nodejs.org)
+* [安装docker](https://docs.docker.com/install/)
+* [安装docker-compose](https://docs.docker.com/compose/install/)
+* 启动docker
 
-### Lints and fixes files
-```
-npm run lint
+$ docker pull node
+$ npm i -g rde
+$ rde serve
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Commands
+<!-- commands -->
+* `rde build`
+* `rde serve`
+* `rde lint`
+* `rde run CMD`
+
+# FAQ
+<!-- faq -->
+## what is RDE
+see [RDE website]() for details.
