@@ -25,7 +25,7 @@ module.exports = {
         { from: 'app/components', to: 'src/components' },
     ],
     docker: {
-        tag: 'rdebase/rdc-vue-starter:0.0.1-alpha.4',
+        tag: 'rdebase/rdc-vue-starter:0.0.1-alpha.5',
         ports: ['8080:8080']
     }
 };
