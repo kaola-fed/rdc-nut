@@ -4,9 +4,20 @@ module.exports = {
         url: 'https://rdepro.github.io/rdc-vue-starter/'
     },
     render: {
-        includes: ['.html'],
+        includes: ['.html', '.js'],
         mock: {
             title: 'Hello World'
+        },
+        dev: {
+            render: {
+                suites: [
+                    {
+                        name: 'sc-common-vue',
+                        version: '1.0',
+                        alias: 'scCommonVue'
+                    }
+                ],
+            }
         }
     },
     mappings: [
@@ -14,7 +25,7 @@ module.exports = {
         { from: 'app/components', to: 'src/components' },
     ],
     docker: {
-        tag: 'rdebase/rdc-vue-starter:0.0.1-alpha.1',
+        tag: 'rdebase/rdc-vue-starter:0.0.1-alpha.4',
         ports: ['8080:8080']
-    },
+    }
 };

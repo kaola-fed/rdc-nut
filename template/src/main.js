@@ -4,7 +4,7 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 {{#suites}}
-import {{alias}} from {{name}}
+import {{alias}} from '{{name}}'
 {{alias}}.install(Vue)
 {{/suites}}
 
