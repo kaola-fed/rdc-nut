@@ -3,7 +3,10 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-abc(123)
+{{#suites}}
+import {{alias}} from {{name}}
+{{alias}}.install(Vue)
+{{/suites}}
 
 new Vue({
   render: h => h(App),
