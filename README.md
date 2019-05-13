@@ -1,9 +1,9 @@
-rdc-vue-starter
+rdc-kaola-fed
 ====
 
 Project Powered by RDE
 
-[![RDE](https://img.shields.io/badge/cli-oclif-brightgreen.svg)]()
+[![RDE](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://github.com/kaola-fed/RDE)
 
 * [Quick Start](#Quick Start)
 * [Commands](#Commands)
@@ -32,4 +32,4 @@ $ rde serve
 # FAQ
 <!-- faq -->
 ## what is RDE
-see [RDE website]() for details.
+see [RDE website](https://github.com/kaola-fed/RDE) for details.
