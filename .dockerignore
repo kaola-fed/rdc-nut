@@ -1,6 +1,0 @@
-*
-!.cache/package.json
-!*/app
-!*/template
-!*/rdc.config.js
-!*/rda.config.js

@@ -21,10 +21,10 @@ module.exports = {
         }
     },
     mappings: [
-        { from: 'app/pages', to: 'src/pages' },
+        { from: 'app', to: 'src' },
     ],
     docker: {
         tag: 'rdebase/rdc-vue-starter:0.0.1-alpha.6',
-        ports: ['9000:9000']
+        ports: ['8080:8080']
     }
 };

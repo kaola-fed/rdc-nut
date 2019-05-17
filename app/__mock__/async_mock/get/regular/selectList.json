@@ -1,0 +1,15 @@
+{
+    "code": 200,
+    "result": {
+        "supplierList": [
+            {
+                "id": "1",
+                "name": "供应商A"
+            },
+            {
+                "id": "2",
+                "name": "供应商B"
+            }
+        ]
+    }
+}

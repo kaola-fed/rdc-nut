@@ -1,12 +1,6 @@
----
-title: regularTest
-permission: [ 'admin' ]
-cacheable: true
----
+import BaseComponent from '../common/base/BaseComponent.js'
 
-import Regular from 'regularjs'
-
-const Page = Regular.extend( {
+const Page =  BaseComponent.extends( {
   template: `
     <div class="stylus_test">
       page 2333 by regular test { count }
@@ -14,7 +8,7 @@ const Page = Regular.extend( {
   `,
 
   config() {
-    this.data.count = 0
+    this.data.count = 0;
   },
 
   init() {
@@ -25,39 +19,4 @@ const Page = Regular.extend( {
   }
 } )
 
-Page.$$nut = function ( ctx ) {
-  let instance
-
-  return {
-    beforeEnter( { next } ) {
-      next()
-    },
-
-    mount( node ) {
-      if ( !instance ) {
-        instance = new Page()
-      }
-
-      instance.$inject( node )
-    },
-
-    unmount( node ) {
-      if ( !instance ) {
-        return
-      }
-
-      instance.$inject( false )
-    },
-
-    destroy() {
-      if ( !instance ) {
-        return
-      }
-
-      instance.destroy()
-      instance = null
-    }
-  }
-}
-
-export default Page
+export default Page;

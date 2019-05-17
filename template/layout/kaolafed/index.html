@@ -1,0 +1,21 @@
+<kl-layout class="layout">
+    <kl-header height="48px" class="header">
+        <a href="/" class="header-left">
+            <i class="header-left__logo"></i>
+            <h1 class="header-left__title">网易考拉管理系统</h1>
+        </a>
+        <ul class="header-right">
+            <li class="header-right__item">用户名</li>
+            <li class="header-right__item">退出</li>
+        </ul>
+    </kl-header>
+    <kl-layout>
+        <kl-aside width="216px">
+            <kl-sidebar menus={menus} top="0px" uniqueOpened={false} bodyEl="#app" isHide={isHide} />
+        </kl-aside>
+
+        <kl-main isMaster={true} left="216px">
+            <div ref="$$mount"></div>
+        </kl-main>
+    </kl-layout>
+</kl-layout>

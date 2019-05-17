@@ -1,15 +1,11 @@
----
-title: 例子
----
-
 <template>
   <div>
     <h3 class="content">
-Hello World!
-</h3>
+      Hello World!
+    </h3>
     <button @click="sayHello">
-Click me
-</button>
+      Click me
+    </button>
   </div>
 </template>
 
