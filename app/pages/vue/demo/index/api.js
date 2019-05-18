@@ -1,7 +1,8 @@
 import { getApis } from '@@/widget/request';
 
 const list = [
-    {key: 'exportList', url: '/api/regular/demo/export', type: 'get'},
+    {key: 'getList', url: '/api/vue/demo/list', type: 'post'},
+    {key: 'exportList', url: '/api/vue/demo/export', type: 'post'},
 ];
 
 export const API = getApis(list).API;

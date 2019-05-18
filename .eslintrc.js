@@ -15,5 +15,7 @@ module.exports = {
         'no-const-assign': 'error',
         // --fix: 要求使用 let 或 const，禁止使用 var
         'no-var': 'error',
+        "vue/html-indent": [4, 'always'],
+        "vue/max-attributes-per-line": 'off'
     }
 };

@@ -2,7 +2,6 @@
 import {
     install
 } from 'nek-ui';
-import 'nek-ui/dist/css/nek-ui.default.min.css';
 
 import Regular from 'regularjs';
 import BaseMixin from './_mixin.js';

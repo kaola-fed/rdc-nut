@@ -1,8 +1,11 @@
-import BaseComponent from '@/common/base/BaseComponent';
-import template from './index.html';
+import 'element-kaola/index.scss';
+import 'nek-ui/dist/css/nek-ui.default.min.css';
+import './styles/index.scss';
 
-import '../style/index.scss';
-import './index.scss';
+import './app';
+
+import BaseComponent from './common/base/BaseComponent';
+import template from './index.html';
 
 const Layout = BaseComponent.extend({
     template,
@@ -42,16 +45,14 @@ const Layout = BaseComponent.extend({
             title: '首页',
             open: true,
             iconClass: 'icon icon-home',
-            children: [{
-                title: 'foo',
-                url: '/#/pages/foo',
+            children: [
+            {
+                title: 'regular Demo',
+                url: '/#/pages/regular/demo/index',
                 open: true
             }, {
-                title: 'regular',
-                url: '/#/pages/regular'
-            }, {
-                title: 'regular Demo',
-                url: '/#/pages/regular/demo/index'
+                title: 'vue Demo',
+                url: '/#/pages/vue/demo/index/index'
             }]
         }, {
             title: '文档',

@@ -1,7 +1,5 @@
 module.exports = function (params) {
 
-    console.log(params);
-
     return {
         code: 200,
         message: 'this is from js',

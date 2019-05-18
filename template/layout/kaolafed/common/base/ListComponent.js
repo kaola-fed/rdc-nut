@@ -1,9 +1,9 @@
 /* ListComopnent */
 import { KLNotify, KLModal } from 'nek-ui';
 import qs from 'qs';
-import _ from '@/common/widget/util';
+import _ from '../widget/util';
 import BaseComponent from './BaseComponent.js';
-import { $request } from '@/common/widget/request';
+import { $request } from '../widget/request';
 
 import nutifyRegular from './nutifyRegular';
 

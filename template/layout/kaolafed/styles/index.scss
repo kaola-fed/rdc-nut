@@ -1,8 +1,10 @@
 @charset "UTF-8";
+
 @import './f.scss';
 @import './mixins/index.scss';
 @import './element-reset.scss';
 @import './var.scss';
+@import './layout.scss';
 
 html, body {
     height: 100%;

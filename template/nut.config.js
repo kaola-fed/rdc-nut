@@ -1,8 +1,6 @@
 const path = require('path');
 const mock = require('./mock');
 
-console.log(path.resolve(__dirname, 'layout/style/mixins/index.scss'));
-
 module.exports = {
     zh: '考拉前端',
     en: 'NUT PROJECT',
@@ -15,29 +13,21 @@ module.exports = {
             enable: true
         }
     },
-    sidebar: [{
-            icon: '',
-            title: '菜单',
-            children: [{
-                    title: 'foo',
-                    path: 'pages/foo'
-                },
-                {
-                    title: 'bar',
-                    path: 'pages/bar'
-                },
-                {
-                    title: 'regular',
-                    path: 'pages/regular'
-                },
-            ]
-        },
-
+    sidebar: [
         {
             icon: '',
-            title: 'GitHub',
-            link: 'https://github.com/fengzilong/nut'
-        },
+            title: '菜单',
+            children: [
+                {
+                    title: 'regular demo',
+                    path: 'pages/regular/demo/index'
+                },
+                {
+                    title: 'vue demo',
+                    path: 'pages/vue/demo/index/index'
+                }
+            ]
+        }
     ],
     devServer: {
         before: function(app, server) {
@@ -52,6 +42,11 @@ module.exports = {
         }
     },
     configureWebpack: {
+        resolve: {
+            alias: {
+                '@@': path.resolve(__dirname, 'layout/kaolafed/common')
+            }
+        },
         module: {
             rules: [
                 {
@@ -69,8 +64,8 @@ module.exports = {
                             loader: 'style-resources-loader',
                             options: {
                                 patterns: [
-                                    path.resolve(__dirname, 'layout/style/mixins/index.scss'),
-                                    path.resolve(__dirname, 'layout/style/var.scss')
+                                    path.resolve(__dirname, 'layout/kaolafed/styles/mixins/index.scss'),
+                                    path.resolve(__dirname, 'layout/kaolafed/styles/var.scss')
                                 ]
                             }
                         }
