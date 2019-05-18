@@ -1,0 +1,35 @@
+// layout
+$html-minWidth: 1200px;
+$header-height: 48px;
+$sidebar-width: 200px;
+
+// common
+$unit: 8px;
+
+/* 状态文字默认颜色 */
+$primary-color: #00C4C0;
+$success-color: #93DD68;
+$warning-color: #FFB539;
+$info-color: #54A8F7;
+$error-color: #F86B6B;
+
+/* 状态文字悬停颜色 */
+$primary-color-hover: #21D1C8;
+$success-color-hover: #B7EB94;
+$warning-color-hover: #FFCA61;
+$info-color-hover: #80C6FF;
+$error-color-hover: #FF9A96;
+
+/* 状态文字点击颜色 */
+$primary-color-active: #009B9E;
+$success-color-active: #D14F54;
+$warning-color-active: #71B84D;
+$info-color-active: #3D84D1;
+$error-color-active: #D99125;
+
+/* 状态背景颜色 */
+$primary-color-bg: #F2FFFC;
+$success-color-bg: #F8FFF0;
+$warning-color-bg: #FFFCF0;
+$info-color-bg: #F6FCFF;
+$error-color-bg: #FFF2F0;

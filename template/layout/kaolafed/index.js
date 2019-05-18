@@ -1,8 +1,8 @@
 import BaseComponent from '@/common/base/BaseComponent';
 import template from './index.html';
 
-import '../less/base.less';
-import './index.less';
+import '../style/index.scss';
+import './index.scss';
 
 const Layout = BaseComponent.extend({
     template,

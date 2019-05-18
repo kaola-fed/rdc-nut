@@ -1,0 +1,39 @@
+@include el-b(header) { padding: 0; }
+
+@include el-b(main) { padding: 0; }
+
+@include el-b(container) { height: 100%; }
+
+@include el-b(form-item) {
+    @include e(content) {
+        font-size: 12px;
+    }
+}
+
+@include el-b('dialog') {
+    @include e('body') {
+        font-size: 12px;
+    }
+}
+
+@include el-b(select) {
+    @include e(tags-text) {
+        display: inline-block;
+        max-width: 90%;
+        overflow: hidden;
+        vertical-align: bottom;
+    }
+
+    @include e(tags) {
+        padding: 6px 2px;
+        max-width: 100%!important;
+        max-height: 84px;
+        overflow: auto;
+    }
+
+    .el-tag {
+        max-width: 90%;
+    }
+}
+
+

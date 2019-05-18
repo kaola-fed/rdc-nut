@@ -1,37 +1,38 @@
+
 #app {
     height: 100%;
 }
-.layout {
+@include b(layout) {
     height: 100%;
 }
-.header {
+@include b(header) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    line-height: 48px;
 }
-.header-left {
+@include b(header-left) {
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    .header-left__logo {
+    @include e(logo) {
         width: 62px;
         height: 34px;
         background-image: url(//haitao.nos.netease.com/a28bce24-b704-47de-9bdc-4e7b54dde91b_2875_1761.svg);
         background-size: contain;
         background-repeat: no-repeat;
     }
-    .header-left__title {
-        line-height: 48px;
+    @include e(title) {
         color: #fff;
         font-weight: normal;
     }
 }
-.header-right {
-    display: inline-bock;
+@include b(header-right) {
+    display: inline-block;
     color: #fff;
     font-size: 16px;
-    .header-right__item {
+    @include e(item) {
         display: inline-block;
         margin-left: 10px;
     }

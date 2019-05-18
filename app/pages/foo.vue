@@ -22,9 +22,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-  .content {
-    font-size: 16px;
-    font-weight: bold;
-  }
-</style>
+<style lang="scss" scoped src="./foo.scss"></style>

@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@import './f.scss';
+@import './mixins/index.scss';
+@import './element-reset.scss';
+@import './var.scss';
+
+html, body {
+    height: 100%;
+    min-width: $html-minWidth;
+    overflow-y: hidden;
+    overflow-x: auto;
+    background: #EAEDF2;
+}
+
+#app {
+    height: 100%;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 12px;
+    color: #333;
+}
+
+// helper tool默认隐藏
+.m-feedback-user-guild-btn,
+.m-multiSystemFeedbackCollectingTool {
+    display: none !important;
+}
+
+// 修正slot label padding问题
+.slot-label-fix {
+    margin-bottom: -6px;
+    margin-top: -5px;
+}
+
+.m-table {
+    table-layout: fixed;
+    width: 100%;
+
+    caption {
+        color: #999;
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 6px 8px;
+        line-height: 26px;
+        word-wrap: break-word;
+    }
+
+    thead {
+        background: #f2f6ff;
+        font-size: 12px;
+        color: #333;
+
+        th {
+            text-align: center;
+            border-right: 1px solid #d8dee4;
+            border-bottom: 2px solid #e3e7eb;
+        }
+
+        th:last-child {
+            border-right: none;
+        }
+    }
+
+    tbody {
+        font-size: 12px;
+
+        td {
+            text-align: center;
+            border-bottom: 1px solid #ecf2f9;
+        }
+    }
+
+    &-striped tbody {
+        tr:nth-of-type(2n+0) {
+            background: #f6f9fc;
+        }
+    }
+
+    &-hover tbody {
+        tr:hover {
+            background: #ecf2f9;
+        }
+    }
+}

@@ -3,6 +3,7 @@ import _ from '@/common/widget/util.js';
 import { KLNotify } from 'nek-ui';
 
 import template from './index.html';
+import './index.scss';
 
 import { API } from './api';
 
