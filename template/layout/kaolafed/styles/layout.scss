@@ -28,8 +28,11 @@
     display: inline-block;
     color: #fff;
     font-size: 16px;
-    @include e(item) {
-        display: inline-block;
-        margin-left: 10px;
+}
+@include b(header-right-item) {
+    display: inline-block;
+    margin-left: 10px;
+    @include e(link) {
+        color: #fff;
     }
 }

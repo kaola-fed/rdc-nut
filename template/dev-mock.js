@@ -3,10 +3,12 @@ const path = require('path');
 const stripJsonComments = require('strip-json-comments');
 const log = console.log;
 
-const asyncMockPath = path.resolve(__dirname, 'src', '__mock__', 'async_mock');
+const mockConfig = require('./mock.config');
+
+const { asyncMockPath, proxyRegExp } = mockConfig;
 
 const getMockData = (requestPath, method, params) => {
-    const mockPath = path.join(asyncMockPath, method, requestPath.replace('/api/', '/'));
+    const mockPath = path.join(asyncMockPath, method, requestPath);
     const jsonPath = `${mockPath}.json`;
     const jsPath = `${mockPath}.js`;
     const jsExists = fs.existsSync(jsPath);
@@ -44,7 +46,7 @@ const parsePostData = req => new Promise((resolve, reject) => {
 });
 
 module.exports = function mock(app) {
-    app.all('/api/*', async (req, res) => {
+    app.all(proxyRegExp, async (req, res) => {
         const requestPath = req.path;
         const method = req.method.toLowerCase();
         let params = req.query;

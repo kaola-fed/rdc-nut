@@ -1,0 +1,38 @@
+{
+    "code": 200,
+    "result": {
+        "list": [
+            {
+                "title": "列表页",
+                "url": "",
+                "children": [
+                    {
+                        "title": "regular列表",
+                        "url": "/#/pages/regular/demo/index/index",
+                        "children": []
+                    },
+                    {
+                        "title": "vue列表",
+                        "url": "/#/pages/vue/demo/index/index"
+                    }
+                ]
+            },
+            {
+                "title": "表单页",
+                "url": "",
+                "children": [
+                    {
+                        "title": "regular表单",
+                        "url": "/#/pages/regular/demo/form/index",
+                        "children": []
+                    },
+                    {
+                        "title": "vue表单",
+                        "url": "/#/pages/vue/demo/form/index",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+}

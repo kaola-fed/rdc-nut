@@ -1,9 +1,9 @@
 const path = require('path');
-const mock = require('./mock');
+const mock = require('./dev-mock');
 
 module.exports = {
     zh: '考拉前端',
-    en: 'NUT PROJECT',
+    en: 'KAOLAFED',
     host: '0.0.0.0',
     port: 8080,
     layout: 'kaolafed',
@@ -13,22 +13,7 @@ module.exports = {
             enable: true
         }
     },
-    sidebar: [
-        {
-            icon: '',
-            title: '菜单',
-            children: [
-                {
-                    title: 'regular demo',
-                    path: 'pages/regular/demo/index'
-                },
-                {
-                    title: 'vue demo',
-                    path: 'pages/vue/demo/index/index'
-                }
-            ]
-        }
-    ],
+    sidebar: null,
     devServer: {
         before: function(app, server) {
             const isProxy = process.argv[2];
