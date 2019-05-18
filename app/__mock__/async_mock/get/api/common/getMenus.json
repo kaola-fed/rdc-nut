@@ -22,11 +22,6 @@
                 "url": "",
                 "children": [
                     {
-                        "title": "regular表单",
-                        "url": "/#/pages/regular/demo/form/index",
-                        "children": []
-                    },
-                    {
                         "title": "vue表单",
                         "url": "/#/pages/vue/demo/form/index",
                         "children": []

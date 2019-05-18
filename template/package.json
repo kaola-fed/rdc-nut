@@ -11,6 +11,7 @@
     "nek-ui": "0.6.3-beta.8",
     "element-kaola": "3.0.20",
     "element-ui": "2.4.8",
+    "element-ui-verify": "^1.1.8",
     "sc-common-vue": "^0.2.4"
 },
   "devDependencies": {

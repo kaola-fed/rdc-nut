@@ -9,7 +9,7 @@ export default {
     },
     methods: {
         onCreate() {
-            window.open('/shop/infoCreate');
+            window.open('/#/pages/vue/demo/form/index');
         },
         async onExport() {
             try {
