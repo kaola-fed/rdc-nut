@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "nut",
-    "build": "nut --prod"
+    "build": "nut --prod",
+    "lint": "../node_modules/.bin/eslint -c ./.eslintrc.js --fix"
   },
   "dependencies": {
     "moment": "^2.19.3",
