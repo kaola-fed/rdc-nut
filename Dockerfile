@@ -1,5 +1,5 @@
 FROM node:latest
 
-WORKDIR /usr/rde/rdebase/rdc-vue-starter
+WORKDIR /usr/rde/rdebase/rdc-nut
 
 COPY . .
