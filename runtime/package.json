@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "nut",
     "build": "nut --prod",
-    "lint": "../node_modules/.bin/eslint -c ./.eslintrc.js --fix"
+    "lint": "eslint -c ./.eslintrc.js --fix"
   },
   "dependencies": {
     "moment": "^2.19.3",
@@ -16,13 +16,14 @@
     "sc-common-vue": "^0.2.4"
   },
   "devDependencies": {
-    "@nut-project/cli": "0.1.0",
+    "@nut-project/cli": "^0.1.7",
     "html-loader": "^0.5.5",
     "qs": "^6.6.0",
     "strip-json-comments": "3.0.1",
     "style-resources-loader": "1.2.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2",
     "eslint-plugin-vue": "^5.0.0"
   }
 }

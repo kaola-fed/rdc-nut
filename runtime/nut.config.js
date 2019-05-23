@@ -13,14 +13,6 @@ module.exports = {
             enable: true
         }
     },
-    sidebar: [
-        {
-            title: '首页',
-            children: [
-                {title: '首页', path: 'pages/regular/demo/index/index'}
-            ]
-        }
-    ],
     devServer: {
         before: function(app, server) {
             const isProxy = process.argv[2];
@@ -46,6 +38,14 @@ module.exports = {
                     exclude: [/node_modules/],
                     use: [{
                         loader: 'html-loader'
+                    }]
+                },
+                {
+                    test: /\.(js|vue)$/,
+                    enforce: 'pre',
+                    exclude: [/node_modules/],
+                    use: [{
+                        loader: 'eslint-loader'
                     }]
                 },
                 {

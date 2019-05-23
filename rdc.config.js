@@ -35,8 +35,10 @@ module.exports = {
   },
   lint: {
     files: [
-      '*.js',
-      '*.vue'
+      'app/**/*.js',
+      'app/**/*.vue',
+      'runtime/**/*.js',
+      'runtime/**/*.vue',
     ]
   }
 }

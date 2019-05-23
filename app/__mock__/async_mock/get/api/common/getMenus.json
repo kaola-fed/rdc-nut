@@ -8,12 +8,12 @@
                 "children": [
                     {
                         "title": "regular列表",
-                        "url": "/#/pages/regular/demo/index/index",
+                        "url": "/#/pages/demo.regular/index/index",
                         "children": []
                     },
                     {
                         "title": "vue列表",
-                        "url": "/#/pages/vue/demo/index/index"
+                        "url": "/#/pages/demo.vue/index/index"
                     }
                 ]
             },
@@ -23,7 +23,7 @@
                 "children": [
                     {
                         "title": "vue表单",
-                        "url": "/#/pages/vue/demo/form/index",
+                        "url": "/#/pages/demo.vue/form/index",
                         "children": []
                     }
                 ]
