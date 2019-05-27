@@ -7,5 +7,5 @@ export default async function app(ctx) {
                 {title: '首页', path: 'pages/demo.regular/index/index'}
             ]
         }
-    ])
+    ]);
 }

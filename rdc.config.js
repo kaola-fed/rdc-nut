@@ -8,37 +8,24 @@ module.exports = {
       '.html',
       '.js'
     ],
-    dev: {
-      render: {
-        suites: [
-          {
-            name: 'sc-common-vue',
-            version: '1.0',
-            alias: 'scCommonVue'
-          }
-        ],
-        title: 'Hello World'
-      }
+    mock: {
+      title: 'HelloWorld'
     }
   },
-  mappings: [
-    {
-      from: 'app',
-      to: 'src'
-    }
-  ],
   docker: {
-    tag: 'rdebase/rdc-nut:0.0.1-alpha.2',
+    tag: 'rdebase/rdc-nut:0.0.1-beta.1',
     ports: [
       '8080:8080'
     ]
   },
+  exportFiles: [
+    'src/pages',
+    '__mock__'
+  ],
   lint: {
     files: [
-      'app/**/*.js',
-      'app/**/*.vue',
-      'runtime/**/*.js',
-      'runtime/**/*.vue',
+      'src/**/*.js',
+      'src/**/*.vue'
     ]
   }
 }
