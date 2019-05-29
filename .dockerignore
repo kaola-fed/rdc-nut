@@ -1,8 +1,6 @@
 .cache
-.rde
-.vscode
-.idea
-node_modules
-.editorconfig
 .git
-.docs
+.vscode
+node_modules
+.idea
+.editorconfig

@@ -8,17 +8,8 @@ module.exports = {
       '.html',
       '.js'
     ],
-    dev: {
-      render: {
-        suites: [
-          {
-            name: 'sc-common-vue',
-            version: '1.0',
-            alias: 'scCommonVue'
-          }
-        ],
+    mock: {
         title: 'Hello World'
-      }
     }
   },
   mappings: [
