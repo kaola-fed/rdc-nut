@@ -9,7 +9,7 @@ module.exports = {
       '.js'
     ],
     mock: {
-        title: 'Hello World'
+      title: 'Hello World'
     }
   },
   mappings: [
@@ -19,17 +19,9 @@ module.exports = {
     }
   ],
   docker: {
-    tag: 'rdebase/rdc-nut:0.0.1-alpha.2',
+    tag: 'rdebase/rdc-nut:0.0.1-alpha.4',
     ports: [
       '8080:8080'
-    ]
-  },
-  lint: {
-    files: [
-      'app/**/*.js',
-      'app/**/*.vue',
-      'runtime/**/*.js',
-      'runtime/**/*.vue',
     ]
   }
 }

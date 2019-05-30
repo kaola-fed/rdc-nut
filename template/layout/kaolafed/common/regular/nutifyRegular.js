@@ -1,6 +1,7 @@
 export default function(fn) {
-    fn.extends = function(...args) {
-        const component = fn.extend.apply(this, args);
+    const originExtend = fn.extend;
+    fn.extend = function(...args) {
+        const component = originExtend.apply(this, args);
 
         component.$$nut = function(ctx) {
             let instance

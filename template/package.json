@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "nut",
     "build": "nut --prod",
-    "lint": "eslint -c ./.eslintrc.js --fix"
+    "lint": "eslint -c ./.eslintrc.js --fix --ext .js,.vue"
   },
   "dependencies": {
     "moment": "^2.19.3",

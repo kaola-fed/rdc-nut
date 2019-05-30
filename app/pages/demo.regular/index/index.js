@@ -7,7 +7,7 @@ import './index.scss';
 
 import { API } from './api';
 
-export default ListComponent.extends({
+export default ListComponent.extend({
     template: _.compressHtml(template),
     url: '/api/regular/demo/list',
     config(data) {
