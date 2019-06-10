@@ -21,18 +21,14 @@ export default {
 
                     sidebar.forEach(s => s.open = s.active)
 
-                    layout = new Layout({
-                        data: {
-                            ctx
-                        }
-                    })
+                    layout = new Layout()
 
                     layout.$on('logout', () => {
                         ctx.events.emit('layout:logout')
                     })
                 }
 
-                layout.$inject(node)
+                layout.$mount(node)
             },
 
             unmount(node) {
@@ -40,7 +36,7 @@ export default {
                     return
                 }
 
-                layout.$inject(false)
+                layout.$destroy();
             },
 
             update(data = {}) {
@@ -48,8 +44,8 @@ export default {
                     return
                 }
 
-                layout.data.ctx = data.ctx
-                layout.$update()
+                layout.ctx = data.ctx
+                layout.$forceUpdate()
             },
 
             getMountNode() {

@@ -13,7 +13,8 @@
     "element-kaola": "3.0.20",
     "element-ui": "2.4.8",
     "element-ui-verify": "^1.1.8",
-    "sc-common-vue": "^0.2.4"
+    "sc-common-vue": "^0.2.4",
+    "@kaola-sc/scm-layout": "0.3.0"
   },
   "devDependencies": {
     "@nut-project/cli": "^0.2.5-3",

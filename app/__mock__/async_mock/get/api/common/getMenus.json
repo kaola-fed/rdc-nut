@@ -3,28 +3,34 @@
     "result": {
         "list": [
             {
-                "title": "列表页",
+                "title": "Demo",
                 "url": "",
                 "children": [
                     {
-                        "title": "regular列表",
-                        "url": "/pages/demo.regular/index/index",
-                        "children": []
+                        "title": "列表页",
+                        "url": "",
+                        "children": [
+                            {
+                                "title": "regular列表",
+                                "url": "/pages/demo.regular/index/index",
+                                "children": []
+                            },
+                            {
+                                "title": "vue列表",
+                                "url": "/pages/demo.vue/index/index"
+                            }
+                        ]
                     },
                     {
-                        "title": "vue列表",
-                        "url": "/pages/demo.vue/index/index"
-                    }
-                ]
-            },
-            {
-                "title": "表单页",
-                "url": "",
-                "children": [
-                    {
-                        "title": "vue表单",
-                        "url": "/pages/demo.vue/form/index",
-                        "children": []
+                        "title": "表单页",
+                        "url": "",
+                        "children": [
+                            {
+                                "title": "vue表单",
+                                "url": "/pages/demo.vue/form/index",
+                                "children": []
+                            }
+                        ]
                     }
                 ]
             }

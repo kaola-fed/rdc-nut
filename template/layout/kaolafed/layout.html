@@ -1,0 +1,15 @@
+<site-nav-layout
+    title="{{title}}"
+    :menus="menus"
+    :userInfo="userInfo"
+    :favoriteMenus="favoriteMenus"
+    :parentUrl="parentUrl"
+    :showHelp="false"
+    :showPageTitle="false"
+    :showBreadCrumb="true"
+    @page-change="handlePageChange"
+    @favored="handleFavored"
+    @sorted="handleSorted"
+    @logout="handleLogout">
+    <div ref="$$mount"></div>
+</site-nav-layout>
