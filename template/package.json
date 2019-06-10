@@ -16,7 +16,7 @@
     "sc-common-vue": "^0.2.4"
   },
   "devDependencies": {
-    "@nut-project/cli": "^0.1.7",
+    "@nut-project/cli": "^0.2.5-3",
     "html-loader": "^0.5.5",
     "qs": "^6.6.0",
     "strip-json-comments": "3.0.1",

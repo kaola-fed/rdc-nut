@@ -13,6 +13,9 @@ module.exports = {
             enable: true
         }
     },
+    router: {
+        mode: 'history'
+    },
     devServer: {
         before: function(app, server) {
             const isProxy = process.argv[2];
