@@ -20,6 +20,9 @@ module.exports = {
     router: {
         mode: 'history'
     },
+    html: {
+        template: path.resolve(__dirname, 'layout/index.html')
+    },
     devServer: {
         before: function(app, server) {
             const isProxy = process.argv[2];

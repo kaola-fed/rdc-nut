@@ -3,9 +3,10 @@ import 'nek-ui/dist/css/nek-ui.default.min.css';
 import '../styles/index.scss';
 
 import Vue from 'vue';
+import SiteNavLayout from '@kaola-sc/scm-layout';
 
 import { API, goLogin } from '../common/api';
-import SiteNavLayout from '@kaola-sc/scm-layout';
+import _ from '../common/widget/util';
 
 import template from './layout.html';
 
@@ -17,7 +18,8 @@ export default Vue.extend({
         return {
             menus: [],
             userInfo: {},
-            favoriteMenus: []
+            favoriteMenus: [],
+            isHideLayout: true
         }
     },
 
@@ -31,6 +33,9 @@ export default Vue.extend({
         this.getUserInfo();
         this.getMenus();
         this.getFavorMenus();
+    },
+    mounted() {
+        this.isHideLayout = _.getUrlParam('isHideLayout');
     },
 
     methods: {
@@ -101,6 +106,7 @@ export default Vue.extend({
         },
         handlePageChange(url) {
             window.location.href = url;
+            // this.ctx.api.router.push(url);
         }
     },
     template

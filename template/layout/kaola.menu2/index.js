@@ -1,6 +1,7 @@
 
 import './vue.entry';
 
+import '../common/widget/hubble';
 import Layout from './layout';
 
 export default {

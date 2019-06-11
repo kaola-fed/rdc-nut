@@ -1,3 +1,4 @@
+{#if !isHideLayout}
 <kl-layout class="layout">
     <kl-header height="48px" class="layout-header">
         <a href="/" class="header-left">
@@ -21,3 +22,6 @@
         </kl-main>
     </kl-layout>
 </kl-layout>
+{#else}
+<div ref="$$mount"></div>
+{/if}

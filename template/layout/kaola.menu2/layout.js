@@ -5,6 +5,7 @@ import '../styles/index.scss';
 
 import BaseComponent from '../common/regular/BaseComponent';
 import { API, goLogin } from '../common/api';
+import _ from '../common/widget/util';
 
 import template from './layout.html';
 
@@ -12,6 +13,9 @@ export default BaseComponent.extend({
     template,
 
     config(data) {
+        this.defaults({
+            isHideLayout: _.getUrlParam('isHideLayout')
+        });
         this.supr(data);
     },
 

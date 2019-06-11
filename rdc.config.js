@@ -9,7 +9,14 @@ module.exports = {
       '.js'
     ],
     mock: {
-      title: 'Hello World'
+      title: '考拉供应链管理系统',
+      cssUrls: [
+          '//at.alicdn.com/t/font_393438_2tbubgazdlxo5hfr.css'
+      ],
+      hubble: {
+          testKey: 'MA-8FAE-2AEEAA1727B7',
+          onlineKey: 'MA-B4A8-445698C8D4FE',
+      }
     }
   },
   mappings: [

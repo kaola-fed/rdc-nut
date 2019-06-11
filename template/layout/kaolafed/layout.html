@@ -1,4 +1,5 @@
 <site-nav-layout
+    v-if="!isHideLayout"
     title="{{title}}"
     :menus="menus"
     :userInfo="userInfo"
@@ -13,3 +14,4 @@
     @logout="handleLogout">
     <div ref="$$mount"></div>
 </site-nav-layout>
+<div v-else ref="$$mount"></div>
