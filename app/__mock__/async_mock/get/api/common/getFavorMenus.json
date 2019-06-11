@@ -1,0 +1,30 @@
+{
+    "code": 200,
+    "error": null,
+    "message": null,
+    "result": {
+        "list": [
+            {
+                "count": null,
+                "title": "收货异常任务",
+                "url": "/app/qc-analysis/receiptGoodsAbnormal/index"
+            },
+            {
+                "count": null,
+                "title": "客诉明细",
+                "url": "/app/qc-complain/detail/list"
+            },
+            {
+                "count": null,
+                "title": "vue列表",
+                "url": "/pages/demo.vue/index/index"
+            },
+            {
+                "count": null,
+                "title": "regular列表",
+                "url": "/pages/demo.regular/index/index"
+            }
+        ]
+    },
+    "success": true
+}

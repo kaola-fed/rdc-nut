@@ -1,7 +1,7 @@
 module.exports = {
   framework: 'vue',
   docs: {
-    url: 'https://rdepro.github.io/rdc-nut/'
+    url: 'https://kaola-fed.github.io/rdc-nut/'
   },
   render: {
     includes: [

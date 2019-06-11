@@ -32,7 +32,7 @@ module.exports = {
         resolve: {
             alias: {
                 vue$: 'vue/dist/vue.esm.js',
-                '@@': path.resolve(__dirname, 'layout/kaolafed/common')
+                '@@': path.resolve(__dirname, 'layout/common')
             }
         },
         module: {
@@ -60,8 +60,8 @@ module.exports = {
                             loader: 'style-resources-loader',
                             options: {
                                 patterns: [
-                                    path.resolve(__dirname, 'layout/kaolafed/styles/mixins/index.scss'),
-                                    path.resolve(__dirname, 'layout/kaolafed/styles/var.scss')
+                                    path.resolve(__dirname, 'layout/styles/mixins/index.scss'),
+                                    path.resolve(__dirname, 'layout/styles/var.scss')
                                 ]
                             }
                         }

@@ -1,10 +1,10 @@
 import 'element-kaola/index.scss';
 import 'nek-ui/dist/css/nek-ui.default.min.css';
-import './styles/index.scss';
+import '../styles/index.scss';
 
 import Vue from 'vue';
 
-import { API, goLogin } from './common/api';
+import { API, goLogin } from '../common/api';
 import SiteNavLayout from '@kaola-sc/scm-layout';
 
 import template from './layout.html';
@@ -28,12 +28,13 @@ export default Vue.extend({
     },
 
     created() {
-        this.setUserInfo();
-        this.setMenus();
+        this.getUserInfo();
+        this.getMenus();
+        this.getFavorMenus();
     },
 
     methods: {
-        async setUserInfo() {
+        async getUserInfo() {
             try {
                 const { result } = await API.getUserInfo();
 
@@ -43,30 +44,24 @@ export default Vue.extend({
             }
         },
 
-        async fetchMenus() {
+        async getMenus() {
             try {
                 const { result } = await API.getMenus();
-                return result && result.list || [];
+                this.menus = result && result.list || [];
             } catch (err) {
                 console.log(err);
             }
         },
 
-        async setMenus() {
-            const menus = await this.fetchMenus();
-            const currentPage = location.hash;
-
-            menus.forEach(menu => {
-                const matchedItem = menu.children.find(item => item.url.includes(currentPage));
-                if (matchedItem) {
-                    matchedItem.open = true;
-                    menu.open = true;
-                }
-            });
-
-            this.menus = menus;
-            this.$forceUpdate();
+        async getFavorMenus() {
+            try {
+                const { result } = await API.getFavorMenus();
+                this.favoriteMenus = result.list || [];
+            } catch(e) {
+                console.log(e);
+            }
         },
+
 
         async handleLogout() {
             try {
@@ -76,11 +71,33 @@ export default Vue.extend({
                 console.log(err);
             }
         },
-        handleSorted() {
-            console.log('handleSorted');
+        async handleSorted(e) {
+            try {
+                await API.sortFavorMenus({menus: e});
+                this.favoriteMenus = e;
+            } catch(e) {
+                console.log(e);
+            }
         },
-        handleFavored() {
-            console.log('handle favored');
+
+        async handleFavored(e) {
+            try {
+                if(e.favored) {
+                    await API.addFavorMenu(e.page);
+                    this.favoriteMenus.push(e.page);
+                } else {
+                    await API.removeFavorMenu(e.page);
+                    let index = this.favoriteMenus.findIndex(function(menu) {
+                        return menu.url === e.page.url;
+                    });
+                    if(index !== -1) {
+                        this.favoriteMenus.splice(index, 1);
+                    }
+                }
+            } catch(e) {
+                console.log(e);
+            }
+
         },
         handlePageChange(url) {
             window.location.href = url;
