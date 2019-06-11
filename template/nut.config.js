@@ -11,6 +11,10 @@ module.exports = {
         kaolafed: {
             path: require.resolve('./layout/kaolafed'),
             enable: true
+        },
+        'kaola-menu2': {
+            path: require.resolve('./layout/kaola.menu2'),
+            enable: true
         }
     },
     router: {
