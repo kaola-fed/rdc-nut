@@ -13,7 +13,7 @@
 
 <body>
     <div id="app"></div>
-    ///#feedback.enable///
+    ///^feedback.disable///
     <script>
         // 背景水印
         const feedback = (tagId) => {
@@ -31,7 +31,7 @@
         };
         window.feedback = feedback;
     </script>
-    ////feedback.enable///
+    ////feedback.disable///
     <script type="text/javascript">
         var NUT_GLOBALS = {
           PUBLIC_PATH: <%= JSON.stringify( webpack.publicPath || '' ) %>,

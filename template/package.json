@@ -5,6 +5,7 @@
     "scripts": {
         "serve": "nut",
         "build": "nut --prod",
+        "build:prod": "cross-env app_env=prod nut --prod",
         "lint": "eslint -c ./.eslintrc.js --fix --ext .js,.vue"
     },
     "dependencies": {
@@ -14,10 +15,13 @@
         "element-ui": "2.4.8",
         "element-ui-verify": "^1.1.8",
         "sc-common-vue": "^0.2.4",
-        "@kaola-sc/scm-layout": "0.3.0"
+        "@kaola-sc/scm-layout": "0.3.0",
+        "@sentry/browser": "^5.4.0"
     },
     "devDependencies": {
         "@nut-project/cli": "^0.2.5-9",
+        "@kaola/sentry-webpack-plugin": "^1.0.1",
+        "cross-env": "^5.2.0",
         "html-loader": "^0.5.5",
         "qs": "^6.6.0",
         "strip-json-comments": "3.0.1",

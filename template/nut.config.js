@@ -1,5 +1,20 @@
 const path = require('path');
+
+const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
+const rm = require('rimraf');
+const webpack = require('webpack');
+
+const APP_ENV = process.env.app_env;
+const IS_ONLINE = /^(pre|prod)$/.test(APP_ENV);
+const APP_GIT_VERSION = IS_ONLINE ? `${APP_ENV}-///sentry.release///` : '';
+
 const mock = require('./dev-mock');
+
+const resolve = (pathname) => {
+    return path.resolve(__dirname, pathname)
+};
+
+const distDir = resolve('../app/dist');
 
 module.exports = {
     zh: '考拉前端',
@@ -21,7 +36,7 @@ module.exports = {
         mode: 'history'
     },
     html: {
-        template: path.resolve(__dirname, 'layout/index.html')
+        template: resolve('layout/index.html')
     },
     devServer: {
         before: function(app, server) {
@@ -36,10 +51,13 @@ module.exports = {
         }
     },
     configureWebpack: {
+        output: {
+            path: distDir
+        },
         resolve: {
             alias: {
                 vue$: 'vue/dist/vue.esm.js',
-                '@@': path.resolve(__dirname, 'layout/common')
+                '@@': resolve('layout/common')
             }
         },
         module: {
@@ -48,7 +66,7 @@ module.exports = {
                     test: /\.html$/,
                     exclude: [
                         /node_modules/,
-                        path.resolve(__dirname, 'layout/index.html')
+                        resolve('layout/index.html')
                     ],
                     use: [{
                         loader: 'html-loader'
@@ -70,14 +88,47 @@ module.exports = {
                             loader: 'style-resources-loader',
                             options: {
                                 patterns: [
-                                    path.resolve(__dirname, 'layout/styles/mixins/index.scss'),
-                                    path.resolve(__dirname, 'layout/styles/var.scss')
+                                    resolve('layout/styles/mixins/index.scss'),
+                                    resolve('layout/styles/var.scss')
                                 ]
                             }
                         }
                     ]
                 }
             ]
+        }
+    },
+    chainWebpack(config) {
+        config.plugin('define-plugin').use(
+            new webpack.DefinePlugin({
+                APP_GIT_VERSION: JSON.stringify(APP_GIT_VERSION),
+                IS_ONLINE,
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+            })
+        );
+        if (IS_ONLINE) {
+            ///^sentry.disable///
+            config.plugin('sentry-cli-plugin')
+            .use(
+                new SentryCliPlugin({
+                    release: APP_GIT_VERSION,
+                    include: distDir, // 上传文件所在目录
+                    ignore: ['node_modules', 'chunk-vendors.*'], // 不需要上传的文件，一般大文件也避免上传
+                    configFile: './.sentrycli.rc', // 包含组织、项目、auth信息
+                    urlPrefix: '', // 根据include的设置、以及实际访问路径调整，urlPrefix与include结合后与实际访问路径匹配即可
+                    afterUpload: (resolve, reject) => {
+                        // 上传完成后删除sourcemap，避免源码泄漏
+                        const p = path.join(distDir, '*.?(css|js).map');
+                        rm(p, (err) => {
+                            if (err) {
+                                return reject(err);
+                            }
+                            resolve();
+                        });
+                    }
+                })
+            );
+            ////sentry.disable///
         }
     }
 }

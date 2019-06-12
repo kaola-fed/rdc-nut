@@ -1,3 +1,7 @@
+// const childProcess = require('child_process');
+
+// const gitVersion = childProcess.execSync('git rev-parse --short=7 HEAD', { encoding: 'utf8' }).trim();
+
 module.exports = {
     framework: 'vue',
     docs: {
@@ -6,7 +10,8 @@ module.exports = {
     render: {
         includes: [
             '.html',
-            '.js'
+            '.js',
+            '.rc' // .sentrycli.rc
         ],
         tags: ["///", "///"],
         mock: {
@@ -17,13 +22,22 @@ module.exports = {
                 ],
             },
             hubble: {
-                enable: true,
                 testKey: 'MA-8FAE-2AEEAA1727B7',
                 onlineKey: 'MA-B4A8-445698C8D4FE',
             },
             feedback: {
-                enable: true
-            }
+                disable: false
+            },
+            sentry: {
+                org: 'kaolafed',
+                project: 'kaola-rhea-fed',
+                release: 'e543326',
+                dsn: 'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40',
+                token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
+            },
+            plugins: [
+                '../js'
+            ]
         }
     },
     mappings: [{
