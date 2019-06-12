@@ -6,14 +6,14 @@ module.exports = {
     en: 'KAOLAFED',
     host: '0.0.0.0',
     port: 8080,
-    layout: 'kaolafed',
+    layout: 'kaola-advanced',
     plugins: {
-        kaolafed: {
-            path: require.resolve('./layout/kaolafed'),
+        'kaola-advanced': {
+            path: require.resolve('./layout/kaola.advanced'),
             enable: true
         },
-        'kaola-menu2': {
-            path: require.resolve('./layout/kaola.menu2'),
+        'kaola-basic': {
+            path: require.resolve('./layout/kaola.basic'),
             enable: true
         }
     },
@@ -46,7 +46,10 @@ module.exports = {
             rules: [
                 {
                     test: /\.html$/,
-                    exclude: [/node_modules/],
+                    exclude: [
+                        /node_modules/,
+                        path.resolve(__dirname, 'layout/index.html')
+                    ],
                     use: [{
                         loader: 'html-loader'
                     }]

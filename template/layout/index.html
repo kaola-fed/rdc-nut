@@ -4,37 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
+    <title>///head.title///</title>
     <!--css地址修改-->
-    {{#cssUrls}}
-        <link href="{{{.}}}" rel="stylesheet" type="text/css" />
-    {{/cssUrls}}
+    ///#head.styles///
+        <link href="///{.}///" rel="stylesheet" type="text/css" />
+    ////head.styles///
 </head>
 
 <body>
     <div id="app"></div>
+    ///#feedback.enable///
     <script>
         // 背景水印
         const feedback = (tagId) => {
-            let script = document.createElement('script');
-            let span = document.createElement('span');
+            var script = document.createElement('script');
+            var span = document.createElement('span');
             span.style.display = 'none';
             span.id = 'feedback-collect-tool';
             span.dataset.username = tagId;
-            let src = '//feedback.kaola.com/dist/feedback.js';
-            let today = new Date();
-            let version = `?t=${today.getMonth()}-${today.getDate()}`;
+            var src = '//feedback.kaola.com/dist/feedback.js';
+            var today = new Date();
+            var version = '?t=' + today.getMonth() + '-' + today.getDate();
             script.src = src + version;
             document.body.appendChild(span);
             document.body.appendChild(script);
         };
         window.feedback = feedback;
     </script>
+    ////feedback.enable///
     <script type="text/javascript">
-        // var NUT_GLOBALS = {
-        //   PUBLIC_PATH: <%= JSON.stringify( webpack.publicPath || '' ) %>,
-        //   STATS_ASSETS_BY_CHUNKNAME: <%= JSON.stringify( webpack.assetsByChunkName ) %>
-        // }
+        var NUT_GLOBALS = {
+          PUBLIC_PATH: <%= JSON.stringify( webpack.publicPath || '' ) %>,
+          STATS_ASSETS_BY_CHUNKNAME: <%= JSON.stringify( webpack.assetsByChunkName ) %>
+        }
     </script>
 </body>
 </html>

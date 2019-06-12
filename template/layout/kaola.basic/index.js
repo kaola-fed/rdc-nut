@@ -1,10 +1,11 @@
+
 import './vue.entry';
 
 import '../common/widget/hubble';
 import Layout from './layout';
 
 export default {
-    name: 'layout-kaolafed',
+    name: 'layout-kaola-basic',
 
     type: 'layout',
 
@@ -12,7 +13,7 @@ export default {
         let layout = null
 
         await ctx.api.layout.register({
-            name: 'kaolafed',
+            name: 'kaola-basic',
 
             mount(node, {
                 ctx
@@ -22,14 +23,18 @@ export default {
 
                     sidebar.forEach(s => s.open = s.active)
 
-                    layout = new Layout()
+                    layout = new Layout({
+                        data: {
+                            ctx
+                        }
+                    })
 
                     layout.$on('logout', () => {
                         ctx.events.emit('layout:logout')
                     })
                 }
 
-                layout.$mount(node)
+                layout.$inject(node)
             },
 
             unmount(node) {
@@ -37,7 +42,7 @@ export default {
                     return
                 }
 
-                layout.$destroy();
+                layout.$inject(false)
             },
 
             update(data = {}) {
@@ -45,8 +50,8 @@ export default {
                     return
                 }
 
-                layout.ctx = data.ctx
-                layout.$forceUpdate()
+                layout.data.ctx = data.ctx
+                layout.$update()
             },
 
             getMountNode() {

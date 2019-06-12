@@ -44,6 +44,8 @@ export default Vue.extend({
                 const { result } = await API.getUserInfo();
 
                 this.userInfo = result && result.userInfo || {};
+                // 背景水印
+                window.feedback && window.feedback('nickname');
             } catch (err) {
                 console.log(err);
             }
