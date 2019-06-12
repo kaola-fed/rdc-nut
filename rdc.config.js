@@ -1,6 +1,7 @@
 // const childProcess = require('child_process');
 
 // const gitVersion = childProcess.execSync('git rev-parse --short=7 HEAD', { encoding: 'utf8' }).trim();
+const path = require('path');
 
 module.exports = {
     framework: 'vue',
@@ -36,7 +37,7 @@ module.exports = {
                 token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
             },
             plugins: [
-                '../js'
+                '/install.js'
             ]
         }
     },

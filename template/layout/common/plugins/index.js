@@ -7,5 +7,5 @@ import './sentry';
 ////sentry.disable///
 
 ///#plugins///
-import '///{.}///'
+import '../../../src///{.}///'
 ////plugins///
