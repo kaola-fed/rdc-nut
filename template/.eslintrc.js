@@ -16,8 +16,8 @@ module.exports = {
     // },
     extends: [
         'plugin:vue/essential',
-        '@vue/airbnb',
-        '@vue/typescript',
+        'airbnb',
+        'typescript',
     ],
     rules: {
         'class-methods-use-this': 0,
