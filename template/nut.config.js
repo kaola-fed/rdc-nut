@@ -59,6 +59,7 @@ module.exports = {
             path: distDir
         },
         resolve: {
+            extensions: ['.js', '.vue', '.json', '.ts'],
             alias: {
                 vue$: 'vue/dist/vue.esm.js',
                 '~': resolve('base')
@@ -85,6 +86,14 @@ module.exports = {
                     use: [{
                         loader: 'eslint-loader'
                     }]
+                },
+                {
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/,
+                    options: {
+                      appendTsSuffixTo: [/\.vue$/],
+                    }
                 },
                 {
                     test: /\.scss$/,

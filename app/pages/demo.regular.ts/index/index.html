@@ -1,0 +1,84 @@
+<kl-card class="f-mt5">
+    <kl-form layout="vertical" service={this.services.regular} sourcePath="result">
+        <kl-search isShowFooter={false}>
+            <kl-row type="flex">
+                <kl-col span="2">
+                    <kl-form-item title="商品ID：">
+                        <kl-input value={condition.goodsId}></kl-input>
+                    </kl-form-item>
+                </kl-col>
+                <kl-col span="2">
+                    <kl-form-item title="SKU条码：">
+                        <kl-input value={condition.skuBarcode}></kl-input>
+                    </kl-form-item>
+                </kl-col>
+                <kl-col span="2">
+                    <kl-form-item title="商品名称：">
+                        <kl-input value={condition.goodsName}></kl-input>
+                    </kl-form-item>
+                </kl-col>
+                <kl-col span="2">
+                    <kl-form-item title="供应商：" sourceKey="supplierList">
+                        <kl-select value={condition.supplierId} canSearch={true} limit={50}></kl-select>
+                    </kl-form-item>
+                </kl-col>
+                <kl-col span="2">
+                    <kl-form-item title="仓库：" sourceKey="storageList">
+                        <kl-select value={condition.warehouseId} canSearch={true} limit={50}></kl-select>
+                    </kl-form-item>
+                </kl-col>
+                <kl-col span="2">
+                    <kl-form-item title="单据编号：">
+                        <kl-input value={condition.orderNo}></kl-input>
+                    </kl-form-item>
+                </kl-col>
+                <kl-col span="2">
+                    <kl-form-item title="生效状态：" sourceKey="effectiveStateList">
+                        <kl-select value={condition.effectiveState}></kl-select>
+                    </kl-form-item>
+                </kl-col>
+                <kl-col span="2">
+                    <kl-form-item title="单据状态：" sourceKey="orderStateList">
+                        <kl-select value={condition.orderState}></kl-select>
+                    </kl-form-item>
+                </kl-col>
+                <kl-col span="2">
+                    <kl-form-item class="f-mt28">
+                        <kl-button type="primary" title="查询" on-click={this.refresh(condition)} class="f-mr5"></kl-button>
+                        <kl-button title="重置" on-click={this.reset($event)}></kl-button>
+                    </kl-form-item>
+                </kl-col>
+            </kl-row>
+        </kl-search>
+    </kl-form>
+    <hr class="ms-line">
+    <kl-row gutter="0">
+        <kl-button type="secondary" title="导出明细" on-click={this.onExport()}></kl-button>
+    </kl-row>
+    <kl-row gutter="0">
+        <kl-table source={list} loading={loading} stickyFooter stickyHeader stickyHeaderOffset=48 scrollParent=".J_page_body"
+            getDetailUrl={this.getDetailUrl}>
+            <kl-table-col name="商品ID" key="goodsId" minWidth="100"></kl-table-col>
+            <kl-table-col name="SKU条码" key="skuBarcode" minWidth="100"></kl-table-col>
+            <kl-table-col name="商品名称" key="goodsName" minWidth="150" align="left"></kl-table-col>
+            <kl-table-col name="供应商" key="supplierName" minWidth="120" align="left"></kl-table-col>
+            <kl-table-col name="仓库" key="warehouseName" minWidth="120" align="left"></kl-table-col>
+            <kl-table-col name="结算价(含税)" key="price" width="100" align="right"></kl-table-col>
+            <kl-table-col name="税率%" key="taxRate" width="100" align="right"></kl-table-col>
+            <kl-table-col name="结算价(不含税)" key="taxFreeSettlementPrice" width="100" align="right"></kl-table-col>
+            <kl-table-col name="生效时间" key="effectTime" width="100">
+                <kl-table-template>
+                    {' {item.effectTime | formatDateTime} '}
+                </kl-table-template>
+            </kl-table-col>
+            <kl-table-col name="失效时间" key="invalidTime" width="100">
+                <kl-table-template>
+                    {' {item.invalidTime | formatDateTime} '}
+                </kl-table-template>
+            </kl-table-col>
+            <kl-table-col name="单据编号" key="orderNo" width="120">
+            </kl-table-col>
+            <kl-table-col name="单据状态" key="orderStateName" width="100"></kl-table-col>
+        </kl-table>
+    </kl-row>
+</kl-card>

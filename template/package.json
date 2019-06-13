@@ -10,26 +10,30 @@
         "lint": "eslint -c ./.eslintrc.js --fix --ext .js,.vue"
     },
     "dependencies": {
-        "moment": "^2.19.3",
-        "nek-ui": "0.6.3-beta.8",
+        "@kaola-sc/scm-layout": "0.3.0",
+        "@sentry/browser": "^5.4.0",
         "element-kaola": "3.0.20",
         "element-ui": "2.4.8",
         "element-ui-verify": "^1.1.8",
+        "moment": "^2.19.3",
+        "nek-ui": "0.6.3-beta.8",
         "sc-common-vue": "^0.2.4",
-        "@kaola-sc/scm-layout": "0.3.0",
-        "@sentry/browser": "^5.4.0"
+        "vue-class-component": "^7.1.0",
+        "vue-property-decorator": "^8.1.1"
     },
     "devDependencies": {
-        "@nut-project/cli": "^0.2.5-9",
         "@kaola/sentry-webpack-plugin": "^1.0.1",
+        "@nut-project/cli": "^0.2.5-9",
+        "babel-eslint": "^10.0.1",
         "cross-env": "^5.2.0",
+        "eslint": "^5.16.0",
+        "eslint-loader": "^2.1.2",
+        "eslint-plugin-vue": "^5.0.0",
         "html-loader": "^0.5.5",
         "qs": "^6.6.0",
         "strip-json-comments": "3.0.1",
         "style-resources-loader": "1.2.1",
-        "babel-eslint": "^10.0.1",
-        "eslint": "^5.16.0",
-        "eslint-loader": "^2.1.2",
-        "eslint-plugin-vue": "^5.0.0"
+        "ts-loader": "^6.0.2",
+        "typescript": "^3.5.1"
     }
 }
