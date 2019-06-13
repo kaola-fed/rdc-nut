@@ -1,14 +1,22 @@
 const path = require('path');
+const fs = require('fs');
 
 const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
 const rm = require('rimraf');
 const webpack = require('webpack');
 
+const mock = require('./dev-mock');
+
+const gitVersionPath = path.resolve(__dirname, '..', 'app', '.gitversion');
+const gitVersion = fs.readFileSync(gitVersionPath, {
+    encoding: 'utf-8'
+});
+fs.unlinkSync(gitVersionPath);
+
 const APP_ENV = process.env.app_env;
 const IS_ONLINE = /^(pre|prod)$/.test(APP_ENV);
-const APP_GIT_VERSION = IS_ONLINE ? `${APP_ENV}-///sentry.release///` : '';
+const APP_GIT_VERSION = IS_ONLINE ? `${APP_ENV}-${gitVersion}` : '';
 
-const mock = require('./dev-mock');
 
 const resolve = (pathname) => {
     return path.resolve(__dirname, pathname)

@@ -1,8 +1,8 @@
 ---
 title: 工程结构
 subTitle: Construct
-order: 8
-category: Specification
+order: 6
+category: 规范
 ---
 
 ### 工程结构

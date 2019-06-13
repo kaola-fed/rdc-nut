@@ -3,18 +3,14 @@ const path = require('path');
 const fs = require('fs');
 
 // 获取 git version
-let gitVersion = '';
 const gitVersionPath = path.resolve(__dirname, 'app', '.gitversion');
 try {
-    gitVersion = childProcess.execSync('git rev-parse --short=7 HEAD', { encoding: 'utf8' }).trim();
+    const gitVersion = childProcess.execSync('git rev-parse --short=7 HEAD', { encoding: 'utf8' }).trim();
     fs.writeFileSync(gitVersionPath, gitVersion, {
         encoding: 'utf-8'
     });
 } catch (err) {
-    gitVersion = fs.readFileSync(gitVersionPath, {
-        encoding: 'utf-8'
-    });
-    fs.unlinkSync(gitVersionPath);
+    console.log('');
 }
 
 module.exports = {
@@ -50,7 +46,6 @@ module.exports = {
             sentry: {
                 org: 'kaolafed',
                 project: 'kaola-rhea-fed',
-                release: gitVersion,
                 dsn: 'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40',
                 token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
             },

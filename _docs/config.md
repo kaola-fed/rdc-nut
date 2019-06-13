@@ -114,10 +114,6 @@ module.exports = {
 | ●
 | 工程的sentry token，参考.sentryclirc中的token
 | -
-|- sentry.release
-| ●
-| 工程版本号，一般以git commit id命名
-| -
 |- sentry.dsn
 | ●
 | sentry上的DSN值，请登录到sentry网站，查看工程的设置中的DSN
@@ -174,7 +170,6 @@ module.exports = {
         sentry: {
             org: 'kaolafed',
             project: 'kaola-rhea-fed',
-            release: gitVersion,
             dsn: 'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40',
             token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
         },

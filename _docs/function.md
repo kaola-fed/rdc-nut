@@ -1,7 +1,7 @@
 ---
 title: 功能
 subTitle: Function
-order: 7
+order: 8
 ---
 
 ### 功能
@@ -20,7 +20,7 @@ order: 7
 
 > sentry
 
-&emsp;&emsp;RDC-NUT 默认开启sentry，需要在`rda.config.js`中配置sentry的相关配置，例如：`org`、`project`、`release`、`dsn`、`token`等
+&emsp;&emsp;RDC-NUT 默认开启sentry，需要在`rda.config.js`中配置sentry的相关配置，例如：`org`、`project`、`dsn`、`token`等
 
 > feedback
 
