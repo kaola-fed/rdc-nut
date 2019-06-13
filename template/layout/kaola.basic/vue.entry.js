@@ -2,7 +2,7 @@ import Vue from 'vue';
 import ElementUI from 'element-ui';
 import ElementUIVerify from 'element-ui-verify';
 
-import { Components, Filters, Directives } from '../common/vue/index';
+import { Components, Filters, Directives } from '~/vue/index';
 
 Vue.use(ElementUI);
 Vue.use(ElementUIVerify);

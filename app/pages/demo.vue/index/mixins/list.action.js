@@ -1,4 +1,4 @@
-import { Util } from '@@/vue/index';
+import { Util } from '~/vue/index';
 import { API } from '../api';
 
 export default {

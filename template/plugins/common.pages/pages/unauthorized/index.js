@@ -1,4 +1,4 @@
-import BaseComponent from '@@/regular/BaseComponent';
+import BaseComponent from '~/regular/BaseComponent';
 
 import template from './index.html';
 import './index.less';

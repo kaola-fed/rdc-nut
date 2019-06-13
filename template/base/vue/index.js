@@ -1,12 +1,9 @@
 import CommonVue from 'sc-common-vue';
-import {goLogin} from '../api';
 
 // 初始化
 const Common = CommonVue({
     handleRequestError: (result) => {
-        if(result.code === 10007) {
-            goLogin();
-        }
+
     },
     selectUrl: '/api/regular/selectList',
     authUrl: '/api/url/isDisplayLinkUrl',

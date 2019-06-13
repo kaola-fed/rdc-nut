@@ -1,11 +1,11 @@
 import 'element-kaola/index.scss';
 import 'nek-ui/dist/css/nek-ui.default.min.css';
 import './layout.scss';
-import '../styles/index.scss';
+import '../../styles/index.scss';
 
-import BaseComponent from '../common/regular/BaseComponent';
+import BaseComponent from '~/regular/BaseComponent';
 import { API, goLogin } from '../common/api';
-import _ from '../common/widget/util';
+import _ from '~/widget/util';
 
 import template from './layout.html';
 
@@ -65,7 +65,7 @@ export default BaseComponent.extend({
     async onLogout() {
         try {
             await API.logout();
-            goLogin();
+            this.$emit('logout');
         } catch (err) {
             console.log(err);
         }

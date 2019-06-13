@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import { SelectMixin } from '@@/vue/index';
+import { SelectMixin } from '~/vue/index';
 
 import DetailAction from './mixins/detail.action.js';
 export default {

@@ -1,12 +1,12 @@
 import 'element-kaola/index.scss';
 import 'nek-ui/dist/css/nek-ui.default.min.css';
-import '../styles/index.scss';
+import '../../styles/index.scss';
 
 import Vue from 'vue';
 import SiteNavLayout from '@kaola-sc/scm-layout';
 
 import { API, goLogin } from '../common/api';
-import _ from '../common/widget/util';
+import _ from '~/widget/util';
 
 import template from './layout.html';
 

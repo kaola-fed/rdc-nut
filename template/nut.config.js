@@ -61,6 +61,7 @@ module.exports = {
         resolve: {
             alias: {
                 vue$: 'vue/dist/vue.esm.js',
+                '~': resolve('base'),
                 '@@': resolve('layout/common')
             }
         },
@@ -94,8 +95,8 @@ module.exports = {
                             loader: 'style-resources-loader',
                             options: {
                                 patterns: [
-                                    resolve('layout/styles/mixins/index.scss'),
-                                    resolve('layout/styles/var.scss')
+                                    resolve('styles/mixins/index.scss'),
+                                    resolve('styles/var.scss')
                                 ]
                             }
                         }

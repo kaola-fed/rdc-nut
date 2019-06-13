@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import {ListMixin, SelectMixin, AuthProviderMixin} from '@@/vue/index';
+import {ListMixin, SelectMixin, AuthProviderMixin} from '~/vue/index';
 import ActionMixin from './mixins/list.action';
 
 export default {

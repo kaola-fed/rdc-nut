@@ -1,5 +1,5 @@
-import BaseComponent from '@@/regular/BaseComponent';
-import _ from '@@/widget/util'
+import BaseComponent from '~/regular/BaseComponent';
+import _ from '~/widget/util'
 
 import template from './index.html';
 import './index.css'

@@ -1,8 +1,4 @@
-import { getApis } from '../widget/request';
-
-export const goLogin = () => {
-    window.location = `/api/common/doLogin?redirectUrl=${window.location.href}`;
-};
+import { getApis } from '~/widget/request';
 
 const list = [
     {key: 'getUserInfo', url: '///{api.getUserInfo}///' || '/api/common/getUserInfo', type: 'get'},

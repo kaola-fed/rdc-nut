@@ -14,6 +14,7 @@ try {
     gitVersion = fs.readFileSync(gitVersionPath, {
         encoding: 'utf-8'
     });
+    fs.unlinkSync(gitVersionPath);
 }
 
 module.exports = {
