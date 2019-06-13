@@ -20,7 +20,7 @@ try {
 module.exports = {
     framework: 'vue',
     docs: {
-        url: 'https://kaola-fed.github.io/rdc-nut/'
+        url: '/'
     },
     render: {
         includes: [
