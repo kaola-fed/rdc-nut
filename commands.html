@@ -178,40 +178,23 @@
     </div>
 
     <div id="rde-page">
-      <h3 class="rde-h3">关于</h3>
-<p class="rde-p">  RDC-NUT是基于RDE模式开发的考拉中后台容器，你可以使用它快速创建一个标准的考拉中后台业务工程</p>
+      <h3 class="rde-h3">支持命令</h3>
 <blockquote>
-<p class="rde-p">背景</p>
+<p class="rde-p">rde serve</p>
 </blockquote>
-<ul>
-<li><p class="rde-p">目前考拉存在大量的中后台业务前端工程，每个工程都在重复开发基础设施</li>
-<li><p class="rde-p">目前的脚手架只负责初始化，各个工程后续维护、升级需要耗费大量人力</li>
-<li><p class="rde-p">在接入一个新的插件时，各个工程均要重复劳动接入</li>
-</ul>
-<p class="rde-p">  为了解决上述存在的问题，我们基于现有的考拉中后台规范和特点，开发了RDC-NUT</p>
+<p class="rde-p">  本地mock开发使用</p>
 <blockquote>
-<p class="rde-p">解决的问题</p>
+<p class="rde-p">rde build</p>
 </blockquote>
-<ul>
-<li><p class="rde-p">中后台业务工程与工程基础设施相分离，业务开发更聚焦于业务开发，忽略业务无关的配置</li>
-<li><p class="rde-p">统一中后台业务工程的开发规范，包括目录规范、代码规范、lint规则等，开发人员在各工程间可以无缝切换</li>
-<li><p class="rde-p">集中接入、维护各个插件，例如：hubble、sentry、feedback等，方便统一升级基础配置</li>
-</ul>
+<p class="rde-p">  build会在app目录下生成dist文件，如果需要可以查看，发布会自动发布这个文件</p>
 <blockquote>
-<p class="rde-p">适用范围</p>
+<p class="rde-p">rde build:prod</p>
 </blockquote>
-<p class="rde-p">  考拉中后台前端工程</p>
+<p class="rde-p">  同<code>rde build</code>，会设置<code>app_env=prod</code>，即<code>IS_ONLINE</code>值为true，用于线上环境打包</p>
 <blockquote>
-<p class="rde-p">特性</p>
+<p class="rde-p">rde lint</p>
 </blockquote>
-<ul>
-<li><p class="rde-p">RDE Integrate模式</li>
-<li><p class="rde-p">基于 <a class="rde-a" href="https://github.com/kaola-fed/rdc-nut">Nut</a></li>
-<li><p class="rde-p">支持 Regular、Vue</li>
-<li><p class="rde-p">默认接入hubble、sentry、feedback等</li>
-<li><p class="rde-p">提供统一的登录页、404页、未授权页等场景页</li>
-<li><p class="rde-p">默认集成RDS-VUE、echarts、moment等常用js库</li>
-</ul>
+<p class="rde-p">  lint并fix全工程</p>
 
     </div>
   </div>

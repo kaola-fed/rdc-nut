@@ -178,40 +178,227 @@
     </div>
 
     <div id="rde-page">
-      <h3 class="rde-h3">关于</h3>
-<p class="rde-p">  RDC-NUT是基于RDE模式开发的考拉中后台容器，你可以使用它快速创建一个标准的考拉中后台业务工程</p>
+      <h3 class="rde-h3">rda.config.js 配置</h3>
+<pre class="hljs"><code><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">container</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'rdebase/rdc-nut:{{version}}'</span>,
+    <span class="hljs-attr">render</span>: {
+        ...渲染时需要的变量
+    },
+  }
+};
+</code></pre>
 <blockquote>
-<p class="rde-p">背景</p>
+<p class="rde-p">head 配置</p>
 </blockquote>
-<ul>
-<li><p class="rde-p">目前考拉存在大量的中后台业务前端工程，每个工程都在重复开发基础设施</li>
-<li><p class="rde-p">目前的脚手架只负责初始化，各个工程后续维护、升级需要耗费大量人力</li>
-<li><p class="rde-p">在接入一个新的插件时，各个工程均要重复劳动接入</li>
-</ul>
-<p class="rde-p">  为了解决上述存在的问题，我们基于现有的考拉中后台规范和特点，开发了RDC-NUT</p>
+<table class="rde-table">
+<tr>
+</th>
+<th style=" width:80px">配置项</th>
+<th style=" width:80px">是否必填</th>
+<th style="">说明</th>
+<th style="">备注</th>
+</tr>
+<tr>
+  <td>head.title</td>
+  <td>●</td>
+  <td>业务工程的title</td>
+  <td>-</td>
+<tr>
+  <td>head.styles</td>
+  <td>-</td>
+  <td>html中要添加的css链接</td>
+  <td>数组，例如：['xxx/xxx.css']</td>
+</tr>
+</table>
 <blockquote>
-<p class="rde-p">解决的问题</p>
+<p class="rde-p">api 配置</p>
 </blockquote>
-<ul>
-<li><p class="rde-p">中后台业务工程与工程基础设施相分离，业务开发更聚焦于业务开发，忽略业务无关的配置</li>
-<li><p class="rde-p">统一中后台业务工程的开发规范，包括目录规范、代码规范、lint规则等，开发人员在各工程间可以无缝切换</li>
-<li><p class="rde-p">集中接入、维护各个插件，例如：hubble、sentry、feedback等，方便统一升级基础配置</li>
-</ul>
+<table class="rde-table">
+<tr>
+</th>
+<th style=" width:80px">配置项</th>
+<th style=" width:80px">是否必填</th>
+<th style="">说明</th>
+<th style="">备注</th>
+</tr>
+<tr>
+  <td>api.getUserInfo</td>
+  <td>-</td>
+  <td>获取用户信息 url</td>
+  <td>默认值：/api/common/getUserInfo</td>
+<tr>
+  <td>api.getMenus</td>
+  <td>-</td>
+  <td>获取菜单信息 url</td>
+  <td>默认值：/api/common/getMenus</td>
+<tr>
+  <td>api.logout</td>
+  <td>-</td>
+  <td>退出登录 url</td>
+  <td>默认值：/api/common/logout</td>
+<tr>
+  <td>api.getFavorMenus</td>
+  <td>-</td>
+  <td>获取用户常用菜单信息 url</td>
+  <td>默认值：/api/common/getFavorMenus</td>
+<tr>
+  <td>api.addFavorMenu</td>
+  <td>-</td>
+  <td>添加用户常用菜单 url</td>
+  <td>默认值：/api/common/addFavorMenu</td>
+<tr>
+  <td>api.removeFavorMenu</td>
+  <td>-</td>
+  <td>删除用户常用菜单 url</td>
+  <td>默认值：/api/common/removeFavorMenu</td>
+<tr>
+  <td>api.sortFavorMenus</td>
+  <td>-</td>
+  <td>排序用户常用菜单 url</td>
+  <td>默认值：/api/common/sortFavorMenus</td>
+</tr>
+</table>
 <blockquote>
-<p class="rde-p">适用范围</p>
+<p class="rde-p">hubble 配置</p>
 </blockquote>
-<p class="rde-p">  考拉中后台前端工程</p>
+<table class="rde-table">
+<tr>
+</th>
+<th style=" width:80px">配置项</th>
+<th style=" width:80px">是否必填</th>
+<th style="">说明</th>
+<th style="">备注</th>
+</tr>
+<tr>
+  <td>hubble.disable</td>
+  <td>-</td>
+  <td>是否关闭hubble</td>
+  <td>默认开启</td>
+<tr>
+  <td>hubble.testKey</td>
+  <td>●</td>
+  <td>hubble 测试环境的key值</td>
+  <td>-</td>
+<tr>
+  <td>hubble.onlineKey</td>
+  <td>●</td>
+  <td>hubble 线上环境的key值</td>
+  <td>-</td>
+</tr>
+</table>
 <blockquote>
-<p class="rde-p">特性</p>
+<p class="rde-p">sentry 配置</p>
 </blockquote>
-<ul>
-<li><p class="rde-p">RDE Integrate模式</li>
-<li><p class="rde-p">基于 <a class="rde-a" href="https://github.com/kaola-fed/rdc-nut">Nut</a></li>
-<li><p class="rde-p">支持 Regular、Vue</li>
-<li><p class="rde-p">默认接入hubble、sentry、feedback等</li>
-<li><p class="rde-p">提供统一的登录页、404页、未授权页等场景页</li>
-<li><p class="rde-p">默认集成RDS-VUE、echarts、moment等常用js库</li>
-</ul>
+<table class="rde-table">
+<tr>
+</th>
+<th style=" width:80px">配置项</th>
+<th style=" width:80px">是否必填</th>
+<th style="">说明</th>
+<th style="">备注</th>
+</tr>
+<tr>
+  <td>sentry.disable</td>
+  <td>-</td>
+  <td>是否关闭sentry</td>
+  <td>默认开启</td>
+<tr>
+  <td>sentry.org</td>
+  <td>●</td>
+  <td>工程所在的组名，参考.sentryclirc中的org</td>
+  <td>-</td>
+<tr>
+  <td>sentry.project</td>
+  <td>●</td>
+  <td>工程名，参考.sentryclirc中的project</td>
+  <td>-</td>
+<tr>
+  <td>sentry.token</td>
+  <td>●</td>
+  <td>工程的sentry token，参考.sentryclirc中的token</td>
+  <td>-</td>
+<tr>
+  <td>sentry.release</td>
+  <td>●</td>
+  <td>工程版本号，一般以git commit id命名</td>
+  <td>-</td>
+<tr>
+  <td>sentry.dsn</td>
+  <td>●</td>
+  <td>sentry上的DSN值，请登录到sentry网站，查看工程的设置中的DSN</td>
+  <td>-</td>
+</tr>
+</table>
+<blockquote>
+<p class="rde-p">feedback 配置</p>
+</blockquote>
+<table class="rde-table">
+<tr>
+</th>
+<th style=" width:80px">配置项</th>
+<th style=" width:80px">是否必填</th>
+<th style="">说明</th>
+<th style="">备注</th>
+</tr>
+<tr>
+  <td>feedback.disable</td>
+  <td>-</td>
+  <td>是否引入feedback脚本，加上背景水印</td>
+  <td>默认开启</td>
+</tr>
+</table>
+<blockquote>
+<p class="rde-p">plugins 配置</p>
+</blockquote>
+<table class="rde-table">
+<tr>
+</th>
+<th style=" width:80px">配置项</th>
+<th style=" width:80px">是否必填</th>
+<th style="">说明</th>
+<th style="">备注</th>
+</tr>
+<tr>
+  <td>plugins</td>
+  <td>-</td>
+  <td>用于在工程入口加载全局使用的插件</td>
+  <td>数组，相对于app目录下的绝对路径，<code>app/install.js</code>，则填写<code>/install.js</code></td>
+</tr>
+</table>
+<h3 class="rde-h3">示例</h3>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">render</span>: {
+        <span class="hljs-attr">head</span>: {
+            <span class="hljs-attr">title</span>: <span class="hljs-string">'考拉供应链管理系统'</span>,
+            <span class="hljs-attr">styles</span>: [
+                <span class="hljs-string">'//at.alicdn.com/t/font_393438_2tbubgazdlxo5hfr.css'</span>
+            ],
+        },
+        <span class="hljs-attr">api</span>: {
+            <span class="hljs-attr">getUserInfo</span>: <span class="hljs-string">'/api/common/getUserInfo'</span>,
+            <span class="hljs-attr">getMenus</span>: <span class="hljs-string">''</span>
+        },
+        <span class="hljs-attr">hubble</span>: {
+            <span class="hljs-attr">testKey</span>: <span class="hljs-string">'MA-8FAE-2AEEAA1727B7'</span>,
+            <span class="hljs-attr">onlineKey</span>: <span class="hljs-string">'MA-B4A8-445698C8D4FE'</span>,
+        },
+        <span class="hljs-attr">feedback</span>: {
+            <span class="hljs-attr">disable</span>: <span class="hljs-literal">false</span>
+        },
+        <span class="hljs-attr">sentry</span>: {
+            <span class="hljs-attr">org</span>: <span class="hljs-string">'kaolafed'</span>,
+            <span class="hljs-attr">project</span>: <span class="hljs-string">'kaola-rhea-fed'</span>,
+            <span class="hljs-attr">release</span>: gitVersion,
+            <span class="hljs-attr">dsn</span>: <span class="hljs-string">'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40'</span>,
+            <span class="hljs-attr">token</span>: <span class="hljs-string">'29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4'</span>,
+        },
+        <span class="hljs-attr">plugins</span>: [
+            <span class="hljs-string">'/install.js'</span>
+        ]
+    }
+}
+</code></pre>
 
     </div>
   </div>

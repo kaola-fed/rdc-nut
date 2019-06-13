@@ -178,40 +178,197 @@
     </div>
 
     <div id="rde-page">
-      <h3 class="rde-h3">关于</h3>
-<p class="rde-p">  RDC-NUT是基于RDE模式开发的考拉中后台容器，你可以使用它快速创建一个标准的考拉中后台业务工程</p>
+      <h3 class="rde-h3">API 规范</h3>
 <blockquote>
-<p class="rde-p">背景</p>
+<p class="rde-p">获取用户信息</p>
 </blockquote>
 <ul>
-<li><p class="rde-p">目前考拉存在大量的中后台业务前端工程，每个工程都在重复开发基础设施</li>
-<li><p class="rde-p">目前的脚手架只负责初始化，各个工程后续维护、升级需要耗费大量人力</li>
-<li><p class="rde-p">在接入一个新的插件时，各个工程均要重复劳动接入</li>
+<li><p class="rde-p">默认url：/api/common/getUserInfo</li>
+<li><p class="rde-p">请求参数： GET</li>
+<li><p class="rde-p">请求参数：无</li>
+<li><p class="rde-p">返回值结构：</li>
 </ul>
-<p class="rde-p">  为了解决上述存在的问题，我们基于现有的考拉中后台规范和特点，开发了RDC-NUT</p>
+<pre class="hljs"><code>// 示例
+{
+    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"result"</span>: {
+        <span class="hljs-attr">"userInfo"</span>: {
+            <span class="hljs-attr">"nickName"</span>: <span class="hljs-string">"管理员"</span>
+        }
+    }
+}
+</code></pre>
 <blockquote>
-<p class="rde-p">解决的问题</p>
+<p class="rde-p">获取菜单信息</p>
 </blockquote>
 <ul>
-<li><p class="rde-p">中后台业务工程与工程基础设施相分离，业务开发更聚焦于业务开发，忽略业务无关的配置</li>
-<li><p class="rde-p">统一中后台业务工程的开发规范，包括目录规范、代码规范、lint规则等，开发人员在各工程间可以无缝切换</li>
-<li><p class="rde-p">集中接入、维护各个插件，例如：hubble、sentry、feedback等，方便统一升级基础配置</li>
+<li><p class="rde-p">默认url：/api/common/getMenus</li>
+<li><p class="rde-p">请求参数： GET</li>
+<li><p class="rde-p">请求参数：无</li>
+<li><p class="rde-p">返回值结构：</li>
 </ul>
+<pre class="hljs"><code>// 示例
+{
+    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">"result"</span>: {
+        <span class="hljs-attr">"list"</span>: [
+            {
+                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Demo"</span>,
+                <span class="hljs-attr">"url"</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-attr">"children"</span>: [
+                    {
+                        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"列表页"</span>,
+                        <span class="hljs-attr">"url"</span>: <span class="hljs-string">""</span>,
+                        <span class="hljs-attr">"children"</span>: [
+                            {
+                                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"regular列表"</span>,
+                                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.regular/index/index"</span>,
+                                <span class="hljs-attr">"children"</span>: []
+                            },
+                            {
+                                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
+                                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
 <blockquote>
-<p class="rde-p">适用范围</p>
-</blockquote>
-<p class="rde-p">  考拉中后台前端工程</p>
-<blockquote>
-<p class="rde-p">特性</p>
+<p class="rde-p">退出登录</p>
 </blockquote>
 <ul>
-<li><p class="rde-p">RDE Integrate模式</li>
-<li><p class="rde-p">基于 <a class="rde-a" href="https://github.com/kaola-fed/rdc-nut">Nut</a></li>
-<li><p class="rde-p">支持 Regular、Vue</li>
-<li><p class="rde-p">默认接入hubble、sentry、feedback等</li>
-<li><p class="rde-p">提供统一的登录页、404页、未授权页等场景页</li>
-<li><p class="rde-p">默认集成RDS-VUE、echarts、moment等常用js库</li>
+<li><p class="rde-p">默认url：/api/common/logout</li>
+<li><p class="rde-p">请求参数： GET</li>
+<li><p class="rde-p">请求参数：无</li>
+<li><p class="rde-p">返回值结构：</li>
 </ul>
+<pre class="hljs"><code>// 示例
+{
+    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<h4 class="rde-h4">三级菜单需要提供以下接口</h4>
+<blockquote>
+<p class="rde-p">获取用户常用菜单信息</p>
+</blockquote>
+<ul>
+<li><p class="rde-p">默认url：/api/common/getFavorMenus</li>
+<li><p class="rde-p">请求参数： GET</li>
+<li><p class="rde-p">请求参数：无</li>
+<li><p class="rde-p">返回值结构：</li>
+</ul>
+<pre class="hljs"><code>// 示例
+{
+    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">"error"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"result"</span>: {
+        <span class="hljs-attr">"list"</span>: [
+            {
+                <span class="hljs-attr">"count"</span>: <span class="hljs-literal">null</span>,
+                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"收货异常任务"</span>,
+                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/app/qc-analysis/receiptGoodsAbnormal/index"</span>
+            },
+            {
+                <span class="hljs-attr">"count"</span>: <span class="hljs-literal">null</span>,
+                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"客诉明细"</span>,
+                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/app/qc-complain/detail/list"</span>
+            }
+        ]
+    },
+    <span class="hljs-attr">"success"</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<blockquote>
+<p class="rde-p">添加用户常用菜单</p>
+</blockquote>
+<ul>
+<li><p class="rde-p">默认url：/api/common/addFavorMenu</li>
+<li><p class="rde-p">请求参数： POST</li>
+<li><p class="rde-p">请求参数：</li>
+</ul>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>,
+    <span class="hljs-attr">"_favored"</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<ul>
+<li><p class="rde-p">返回值结构：</li>
+</ul>
+<pre class="hljs"><code>// 示例
+{
+    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<blockquote>
+<p class="rde-p">删除用户常用菜单</p>
+</blockquote>
+<ul>
+<li><p class="rde-p">默认url：/api/common/removeFavorMenu</li>
+<li><p class="rde-p">请求参数： POST</li>
+<li><p class="rde-p">请求参数：</li>
+</ul>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>,
+    <span class="hljs-attr">"_favored"</span>: <span class="hljs-literal">false</span>
+}
+</code></pre>
+<ul>
+<li><p class="rde-p">返回值结构：</li>
+</ul>
+<pre class="hljs"><code>// 示例
+{
+    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
+<blockquote>
+<p class="rde-p">排序用户常用菜单</p>
+</blockquote>
+<ul>
+<li><p class="rde-p">默认url：/api/common/sortFavorMenus</li>
+<li><p class="rde-p">请求参数： POST</li>
+<li><p class="rde-p">请求参数：</li>
+</ul>
+<pre class="hljs"><code>{
+    <span class="hljs-attr">"menus"</span>: [
+        {
+            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
+            <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>,
+            <span class="hljs-attr">"_favored"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"_invalid"</span>: <span class="hljs-literal">false</span>
+        },
+        {
+            <span class="hljs-attr">"count"</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"regular列表"</span>,
+            <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.regular/index/index"</span>,
+            <span class="hljs-attr">"_invalid"</span>: <span class="hljs-literal">false</span>
+        }
+    ]
+}
+</code></pre>
+<ul>
+<li><p class="rde-p">返回值结构：</li>
+</ul>
+<pre class="hljs"><code>// 示例
+{
+    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
 
     </div>
   </div>

@@ -4,8 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-  <base href="https:&#x2F;&#x2F;kaola-fed.github.io&#x2F;rdc-nut&#x2F;">
-  <link rel="shortcut icon" href="favicon.ico">
+  <title></title>
+  <base href="&#x2F;">
+  <link rel="icon" href="https://haitao.nos.netease.com/410707d1-d6aa-4fa6-b6cb-4f29ee7d8670_128_128.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://haitao.nos.netease.com/410707d1-d6aa-4fa6-b6cb-4f29ee7d8670_128_128.ico" type="image/x-icon">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/mono-blue.min.css">
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1183501_stmalbigu4h.css">
@@ -30,7 +32,7 @@
   #rde-page { position: absolute; left: var(--sidebar-width); top: var(--header-height); right: calc((1200px - 100vw)/2); bottom: 0; padding: 48px calc((100vw - 1200px)/2) 48px 60px; }
 
   /* header */
-  .rde-header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-height); background: var(--primary-color);  }
+  .rde-header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-height); background: linear-gradient(to right,#68BAEB 10%,#0ac6c2);  }
   .rde-header__wrap { width: 1080px; margin: 0 auto; }
   .rde-header-logo { display: flex; float: left; height: 100%; margin: 0; color: #fff; align-items: center; font-size: 32px; font-weight: lighter;
     font-family: Courier New, serif; }
@@ -45,9 +47,10 @@
 
   /* sidebar */
   .rde-sidebar-wrap { position: absolute; top: var(--header-height); left: 0; bottom: 0; width: var(--sidebar-width); }
-  .rde-sidebar-pagewrap { padding-left: 40px; }
+  .rde-sidebar-pagewrap { list-style: none; padding-left: 40px; }
   .rde-sidebar { box-sizing: border-box; height: 100%; font-size: 14px; padding: 20px 10px 100px 10px; border-right: 1px solid #ececec; }
   .rde-sidebar a { text-decoration: none; }
+  .rde-sidebar ul { list-style: none; }
   .rde-sidebar__category { height: 40px; line-height: 40px; margin: 14px 0; font-size: 14px; color: #999; }
   .rde-sidebar__page i, .rde-sidebar__category i { margin-left: 2px; font-style: normal; color: #999; }
   .rde-sidebar__nav { display: block; height: 40px; line-height: 40px;  color: #999; font-size: 14px; font-weight: 400; }
@@ -143,25 +146,23 @@
   <div style="height: 100%" ref="sidebarWrap">
     <ul class="rde-sidebar">
       <li v-for="page in pages">
-        <ul v-if="page.children">
-          <li>
-            <p class="rde-sidebar__category">
-              {{page.title}}
-              <i>{{page.subTitle}}</i>
-            </p>
+        <div v-if="page.children">
+          <p class="rde-sidebar__category">
+            {{page.title}}
+            <i>{{page.subTitle}}</i>
+          </p>
 
-            <ul class="rde-sidebar-pagewrap">
-              <li v-for="child in page.children" class="rde-sidebar__page">
-                <a :href="child.url"
-                   class="rde-sidebar__page"
-                   :class="{'rde-sidebar__page--crt': isCrtPage(child)}">
-                  {{child.title}}
-                  <i>{{child.subTitle}}</i>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+          <ul class="rde-sidebar-pagewrap">
+            <li v-for="child in page.children" class="rde-sidebar__page">
+              <a :href="child.url"
+                 class="rde-sidebar__page"
+                 :class="{'rde-sidebar__page--crt': isCrtPage(child)}">
+                {{child.title}}
+                <i>{{child.subTitle}}</i>
+              </a>
+            </li>
+          </ul>
+        </div>
 
         <a v-else
            :href="page.url"
@@ -185,7 +186,7 @@
   <script>
     window.rdeConf = {
       navs: [{"title":"文档","main":true},{"title":"速查","url":"cheatsheet.html"},{"title":"FAQ","url":"FAQ.html"}],
-      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"工程结构","subTitle":"Structure","url":"structure.html","order":11},{"title":"样式开发","subTitle":"Style","url":"style.html","order":9},{"title":"CHANGELOG.md","subTitle":"","url":"CHANGELOG.html","order":0},{"title":"faq.md","subTitle":"","url":"faq.html","order":0}],
+      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":7},{"title":"FAQ","subTitle":"","url":"faq.html","order":0},{"title":"Specification","children":[{"title":"API规范","subTitle":"API","url":"specification/api.html","order":8},{"title":"工程结构","subTitle":"Construct","url":"specification/construct.html","order":8},{"title":"样式规范","subTitle":"Styles","url":"specification/styles.html","order":8}],"order":0}],
     };
 
     new Vue({
@@ -220,6 +221,7 @@
         },
       },
     });
+
   </script>
 </body>
 </html>
