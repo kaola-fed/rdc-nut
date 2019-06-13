@@ -72,7 +72,6 @@ export default {
                 shopId: '',
                 commerceType: ''
             },
-
             sourceKeys: ['department', 'shopList', 'commerceType']
         };
     }
