@@ -10,16 +10,19 @@ order: 7
 
 ### 布局
 
-&emsp;&emsp;RDC-NUT 内置了两级菜单、三级菜单等两种布局方案，可通过在`rda.config.js`中配置layout的值选择相应的布局（两级菜单：kaola-basic、三级菜单：kaola-advanced）
+&emsp;&emsp;RDC-NUT 内置了两级菜单（kaola-basic）、三级菜单（kaola-advanced）两种布局方案，可通过在`rda.config.js`中配置layout的值选择相应的布局
 
-#### 内置功能
+### hubble
 
-- hubble
+&emsp;&emsp;RDC-NUT 默认开启hubble，需要在`rda.config.js`中配置hubble的testKey和onlineKey，分别对应测试环境和线上环境的key值
 
-- sentry
+### sentry
 
-- feedback
+&emsp;&emsp;RDC-NUT 默认开启sentry，需要在`rda.config.js`中配置sentry的相关配置，例如：`org`、`project`、`release`、`dsn`、`token`等
 
+### feedback
+
+&emsp;&emsp;RDC-NUT 默认开启feedback，页面加上背景水印
 
 ### TS
 
