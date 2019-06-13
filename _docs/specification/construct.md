@@ -1,7 +1,8 @@
 ---
-title: 规范
-subTitle: Specification
+title: 工程结构
+subTitle: Construct
 order: 8
+category: Specification
 ---
 
 ### 工程结构
@@ -27,17 +28,4 @@ order: 8
 | 可设置nut相关配置，比如路由alias等
 |- rda.config.js
 | 业务工程的配置，比如title、hubble Key、sentry Key等
-```
-
-### 样式开发
-
-&emsp;&emsp;RDC已经提供了BEM的支持，请使用如下语法编写
-```css
-@include b(module) {
-    @include e(child) {
-        @include m(active) {
-            font-size: 14px;
-        }
-    }
-}
 ```
