@@ -10,13 +10,9 @@ module.exports = {
             },
         },
     },
-    // "parserOptions": {
-    //     "parser": "babel-eslint",
-    //     "sourceType": "module"
-    // },
     extends: [
         'plugin:vue/essential',
-        'airbnb',
+        'airbnb-base',
         'typescript',
     ],
     rules: {

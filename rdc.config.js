@@ -55,7 +55,7 @@ module.exports = {
                 token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
             },
             plugins: [
-                '/install.js'
+                '/install.ts'
             ]
         }
     },
