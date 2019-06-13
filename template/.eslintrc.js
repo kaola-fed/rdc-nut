@@ -1,22 +1,37 @@
 module.exports = {
-    "root": true,
-    "extends": [
-        "plugin:vue/recommended"
+    root: true,
+    env: {
+        browser: true,
+    },
+    settings: {
+        'import/resolver': {
+            node: {
+                extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
+            },
+        },
+    },
+    // "parserOptions": {
+    //     "parser": "babel-eslint",
+    //     "sourceType": "module"
+    // },
+    extends: [
+        'plugin:vue/essential',
+        '@vue/airbnb',
+        '@vue/typescript',
     ],
-    "parserOptions": {
-        "parser": "babel-eslint",
-        "sourceType": "module"
+    rules: {
+        'class-methods-use-this': 0,
+        'no-underscore-dangle': 0,
+        'import/no-extraneous-dependencies': 0,
+        'import/no-unresolved': [
+            'error',
+            {
+                ignore: ['@/'],
+            },
+        ],
+        'import/extensions': [0],
     },
-    "env": {
-        "browser": true
+    parserOptions: {
+        parser: '@typescript-eslint/parser',
     },
-    "rules": {
-        // 禁止修改 const 声明的变量
-        'no-const-assign': 'error',
-        // --fix: 要求使用 let 或 const，禁止使用 var
-        'no-var': 'error',
-        "vue/html-indent": 'off',
-        "vue/max-attributes-per-line": 'off',
-        "import/no-extraneous-dependencies": false
-    }
 };
