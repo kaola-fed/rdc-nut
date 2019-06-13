@@ -18,13 +18,11 @@
         "sourceMap": true,
         "types": [
             "webpack-env",
-            "mocha",
-            "chai",
             "node"
         ],
         "typeRoots": [
             "../app/typings",
-            "../template/src/typings"
+            "../template/typings"
         ],
         "paths": {
             "*": [
@@ -33,8 +31,8 @@
             "vue$": [
                 "vue/dist/vue.esm.js"
             ],
-            "~": [
-                "./base"
+            "~/*": [
+                "./base/*"
             ]
         },
         "lib": [
