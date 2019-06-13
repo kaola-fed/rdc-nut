@@ -28,15 +28,15 @@ const errorHandler = (res, catchError) => {
     // 10000:未登陆;(getUserInfo接口返回)
     // 10007: cas接口拦截返回
     // retcode: 兼容cas
-    if(res && res.code === 10000 || res.code === 10007 || res.retcode === 10007) {
-        location.href = `/sc-workdesk/api/login?redirect=${encodeURIComponent(window.location.href)}`;
-    } else if (res && res.code === 403) {
-        location.href = '/app/access/unauthorized';
-    } else{
-        !catchError && KLModal.alert((res && res.message) || '返回异常');
-        return Promise.reject(res);
-    }
-
+    // if(res && res.code === 10000 || res.code === 10007 || res.retcode === 10007) {
+    //     location.href = `/sc-workdesk/api/login?redirect=${encodeURIComponent(window.location.href)}`;
+    // } else if (res && res.code === 403) {
+    //     location.href = '/app/access/unauthorized';
+    // } else{
+    //     !catchError && KLModal.alert((res && res.message) || '返回异常');
+    //     return Promise.reject(res);
+    // }
+    return Promise.reject(res);
 };
 
 export const $request = async function(url, options={}) {

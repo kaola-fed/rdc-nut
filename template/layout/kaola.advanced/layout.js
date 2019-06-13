@@ -47,7 +47,7 @@ export default Vue.extend({
                 // 背景水印
                 window.feedback && window.feedback('nickname');
             } catch (err) {
-                console.log(err);
+                this.$emit('requestError', err);
             }
         },
 
@@ -56,7 +56,7 @@ export default Vue.extend({
                 const { result } = await API.getMenus();
                 this.menus = result && result.list || [];
             } catch (err) {
-                console.log(err);
+                this.$emit('requestError', err);
             }
         },
 
@@ -64,8 +64,8 @@ export default Vue.extend({
             try {
                 const { result } = await API.getFavorMenus();
                 this.favoriteMenus = result.list || [];
-            } catch(e) {
-                console.log(e);
+            } catch(err) {
+                this.$emit('requestError', err);
             }
         },
 
@@ -73,17 +73,17 @@ export default Vue.extend({
         async handleLogout() {
             try {
                 await API.logout();
-                goLogin();
+                this.$emit('logout');
             } catch (err) {
-                console.log(err);
+                this.$emit('requestError', err);
             }
         },
         async handleSorted(e) {
             try {
                 await API.sortFavorMenus({menus: e});
                 this.favoriteMenus = e;
-            } catch(e) {
-                console.log(e);
+            } catch(err) {
+                this.$emit('requestError', err);
             }
         },
 
@@ -101,8 +101,8 @@ export default Vue.extend({
                         this.favoriteMenus.splice(index, 1);
                     }
                 }
-            } catch(e) {
-                console.log(e);
+            } catch(err) {
+                this.$emit('requestError', err);
             }
 
         },

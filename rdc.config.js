@@ -35,6 +35,10 @@ module.exports = {
                     '//at.alicdn.com/t/font_393438_2tbubgazdlxo5hfr.css'
                 ],
             },
+            api: {
+                getUserInfo: '/api/common/getUserInfo',
+                getMenus: ''
+            },
             hubble: {
                 testKey: 'MA-8FAE-2AEEAA1727B7',
                 onlineKey: 'MA-B4A8-445698C8D4FE',

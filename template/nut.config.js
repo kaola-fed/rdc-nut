@@ -30,6 +30,10 @@ module.exports = {
         'kaola-basic': {
             path: require.resolve('./layout/kaola.basic'),
             enable: true
+        },
+        'common-pages': {
+            path: require.resolve('./plugins/common.pages'),
+            enable: true
         }
     },
     router: {

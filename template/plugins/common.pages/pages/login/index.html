@@ -1,0 +1,60 @@
+<div class="hs-login">
+    <div class="login_logo"></div>
+    <!--登录表单-->
+    <form ref="form" action="/supplier/logins" method="post" class="login-form" autocomplete="off">
+
+      <!--注册邮箱-->
+      <label for="username" class="form_item">
+        <span class="icon icon_username"></span>
+        <input id="username" name="username" placeholder="用户名"
+               r-model="{account.username}" on-focus="{this._onFocus(1)}" />
+          {#if account.username}
+          <i class="icon icon_clear" on-click="{account.username=''}"></i>
+          {/if}
+      </label>
+
+
+      <!--密码-->
+      <label for="password" class="form_item form_item-1">
+        <span class="icon icon_password"></span>
+        <input id="password" name="password" placeholder="密码" type="password"
+               r-model="{account.password}" on-focus="{this._onFocus(2)}" />
+        {#if account.password}
+        <i class="icon icon_clear" on-click="{account.password=''}"></i>
+        {/if}
+      </label>
+
+      <p class="messagewrap">
+        {#if error == 1}
+        <!--未输入用户名-->
+        <span class="message"><i class="icon icon_times-circle"></i>未输入用户名</span>
+        {#elseif error == 4}
+        <!--邮箱格式不正确-->
+        <span class="message"><i class="icon icon_times-circle"></i>邮箱格式不正确</span>
+        {#elseif error == 411}
+        <!--账号不存在或已停用,提示-->
+        <span class="message"><i class="icon icon_times-circle"></i>账号不存在或已停用</span>
+        {/if}
+
+        {#if error == 2}
+        <!-- 账号已填写，存在密码未填写: 请输入密码 -->
+        <span class="message"><i class="icon icon_times-circle"></i>请输入密码</span>
+        {#elseif error == 413}
+        <!--密码错误,提示-->
+        <span class="message"><i class="icon icon_times-circle"></i>密码错误</span>
+        {/if}
+
+        {#if error == 420}
+        <!--登录尝试次数过多-->
+        <span class="message"><i class="icon icon_times-circle"></i>登录尝试次数过多</span>
+        {#elseif error == 500}
+        <!--系统错误-->
+        <span class="message"><i class="icon icon_times-circle"></i>系统错误</span>
+        {/if}
+      </p>
+
+      <a href="javascript:;" class="submitbtn" on-click="{this.submit()}">登录</a>
+    </form>
+  </div>
+
+

@@ -28,6 +28,9 @@ export default {
                     layout.$on('logout', () => {
                         ctx.events.emit('layout:logout')
                     })
+                    layout.$on('requestError', (res, catchError) => {
+                        ctx.events.emit('layout:requestError', res, catchError)
+                    })
                 }
 
                 layout.$mount(node)
