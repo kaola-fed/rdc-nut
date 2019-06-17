@@ -10,14 +10,15 @@
         "lint": "eslint -c ./.eslintrc.js --fix --ext .js,.vue"
     },
     "dependencies": {
-        "moment": "^2.19.3",
-        "nek-ui": "0.6.3-beta.8",
+        "@kaola-sc/scm-layout": "0.3.0",
+        "@sentry/browser": "^5.4.0",
+        "dayjs": "1.8.14",
+        "echarts": "4.1.0",
         "element-kaola": "3.0.20",
         "element-ui": "2.4.8",
         "element-ui-verify": "^1.1.8",
-        "sc-common-vue": "^0.2.4",
-        "@kaola-sc/scm-layout": "0.3.0",
-        "@sentry/browser": "^5.4.0"
+        "nek-ui": "0.6.3-beta.8",
+        "rds-vue": "0.0.1-alpha.19"
     },
     "devDependencies": {
         "@nut-project/cli": "^0.2.5-9",

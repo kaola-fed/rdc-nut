@@ -5,16 +5,24 @@ import '../../styles/index.scss';
 
 import BaseComponent from '~/regular/BaseComponent';
 import { API, goLogin } from '../common/api';
-import _ from '~/widget/util';
 
 import template from './layout.html';
+
+const getUrlParam = (name) => {
+    const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
+    const r = window.location.search.substr(1).match(reg);
+    if (r !== null) {
+        return r[2];
+    }
+    return null;
+};
 
 export default BaseComponent.extend({
     template,
 
     config(data) {
         this.defaults({
-            isHideLayout: _.getUrlParam('isHideLayout')
+            isHideLayout: getUrlParam('isHideLayout')
         });
         this.supr(data);
     },

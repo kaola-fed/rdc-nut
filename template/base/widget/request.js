@@ -9,8 +9,48 @@
  * @param  options.mask     是否显示loading遮罩, 默认false
  * @param  options.btn      请求时是否disable按钮, 需要配合KLButton使用，默认false
  */
-import util from './util';
+
 import { KLModal, KLLoading } from 'nek-ui';
+
+const util = {
+    isArray(arr) {
+        return Object.prototype.toString.call(arr).slice(8, -1) === 'Array';
+    },
+    filterParam(obj) {
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                if (!obj[key] && obj[key] !== 0 && obj[key] !== false || (this.isArray(obj[key]) && obj[key].length === 0)) {
+                    delete obj[key];
+                }
+            }
+        }
+    },
+    // 简化版的对象转request参数，_object对象必须只有一级，如{name: 'xxx', age: 18}
+    object2query(obj) {
+        let arr = [];
+        for (let key of Object.keys(obj)) {
+            let value = encodeURIComponent(obj[key]);
+            arr.push(`${key}=${value}`);
+        }
+        return arr.join('&');
+    },
+    toQueryString(obj) {
+        let keys = obj && Object.keys(obj);
+        let params;
+        if (keys && keys.length > 0) {
+            params = keys.map(key => `${key}=${obj[key]}`).join('&');
+        }
+        return params;
+    },
+    extend(o1 = {}, o2 = {}, override) {
+        for (let i in o2) {
+            if (o1[i] === undefined || override) {
+                o1[i] = o2[i];
+            }
+        }
+        return o1;
+    }
+};
 
 const loadingHandler = (options, loading) => {
     const { mask, btn } = options;
@@ -23,19 +63,7 @@ const loadingHandler = (options, loading) => {
     }
 };
 
-const errorHandler = (res, catchError) => {
-    // 并不是所有请求都会被cas拦截，所以还需要加一个登陆校验接口(只有cas系统配置过的才会被拦截)
-    // 10000:未登陆;(getUserInfo接口返回)
-    // 10007: cas接口拦截返回
-    // retcode: 兼容cas
-    // if(res && res.code === 10000 || res.code === 10007 || res.retcode === 10007) {
-    //     location.href = `/sc-workdesk/api/login?redirect=${encodeURIComponent(window.location.href)}`;
-    // } else if (res && res.code === 403) {
-    //     location.href = '/app/access/unauthorized';
-    // } else{
-    //     !catchError && KLModal.alert((res && res.message) || '返回异常');
-    //     return Promise.reject(res);
-    // }
+const errorHandler = (res) => {
     return Promise.reject(res);
 };
 
@@ -48,13 +76,6 @@ export const $request = async function(url, options={}) {
 
     let headers = {};
 
-    // TODO: 检查下这个属性
-    // if (formData) {
-    //     headers['Content-Type'] = 'multipart/form-data';
-    // } else {
-    //     headers['X-Requested-With'] = 'XMLHttpRequest';
-    //     headers['Content-Type'] = norest ? 'application/x-www-form-urlencoded' : 'application/json';
-    // }
     if (!formData) {
         headers['X-Requested-With'] = 'XMLHttpRequest';
         headers.Accept = 'application/json';

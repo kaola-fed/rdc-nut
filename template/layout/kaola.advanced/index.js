@@ -1,7 +1,5 @@
 import '../common/plugins/index';
 
-import './vue.entry';
-
 import Layout from './layout';
 
 export default {

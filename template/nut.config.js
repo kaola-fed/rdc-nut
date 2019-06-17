@@ -65,7 +65,9 @@ module.exports = {
             mock(app);
         },
         proxy: {
-            '///{proxy.prefix}///': '///{proxy.target}///'
+            ///#proxy///
+            '///{prefix}///': '///{target}///',
+            ////proxy///
         }
     },
     configureWebpack: {

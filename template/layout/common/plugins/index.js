@@ -1,3 +1,5 @@
+import './vue.entry';
+
 ///^hubble.disable///
 import './hubble';
 ////hubble.disable///

@@ -51,11 +51,27 @@ module.exports = {
                 dsn: 'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40',
                 token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
             },
-            proxy: {
-                prefix: '/api',
-                target: 'http://127.0.0.1'
-            },
-            plugins: []
+            proxy: [
+                {
+                    prefix: '/api',
+                    target: 'http://127.0.0.1'
+                },
+                {
+                    prefix: '/sc-workdest',
+                    target: 'http://127.0.0.1'
+                },
+            ],
+            plugins: [],
+            rdsVue: [
+                {
+                    key: 'authUrl', value: '"/api/common/auth"'
+                },
+                {
+                    key: 'selectUrl', value: `function() {
+                        return '/api/regular/selectList';
+                    }`
+                }
+            ]
         }
     },
     mappings: [{
