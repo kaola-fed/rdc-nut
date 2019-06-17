@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 // 获取 git version
-const gitVersionPath = path.resolve(__dirname, 'app', '.gitversion');
+const gitVersionPath = path.resolve(process.cwd(), 'app', '.gitversion');
 try {
     const gitVersion = childProcess.execSync('git rev-parse --short=7 HEAD', { encoding: 'utf8' }).trim();
     fs.writeFileSync(gitVersionPath, gitVersion, {
@@ -26,6 +26,8 @@ module.exports = {
         ],
         tags: ["///", "///"],
         mock: {
+            port: 8080,
+            layout: 'kaola-advanced',
             head: {
                 title: '考拉供应链管理系统',
                 styles: [
@@ -53,9 +55,7 @@ module.exports = {
                 prefix: '/api',
                 target: 'http://127.0.0.1'
             },
-            plugins: [
-                '/install.js'
-            ]
+            plugins: []
         }
     },
     mappings: [{

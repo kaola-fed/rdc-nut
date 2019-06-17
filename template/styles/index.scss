@@ -22,6 +22,9 @@ html, body {
     color: #333;
 }
 
+#m-mask {
+    opacity: 0.4;
+}
 // helper tool默认隐藏
 .m-feedback-user-guild-btn,
 .m-multiSystemFeedbackCollectingTool {
