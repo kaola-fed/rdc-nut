@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
   <title></title>
-  <base href="https:&#x2F;&#x2F;kaola-fed.github.io&#x2F;rdc-nut&#x2F;">
+  <base href="&#x2F;">
   <link rel="icon" href="https://haitao.nos.netease.com/410707d1-d6aa-4fa6-b6cb-4f29ee7d8670_128_128.ico" type="image/x-icon">
   <link rel="shortcut icon" href="https://haitao.nos.netease.com/410707d1-d6aa-4fa6-b6cb-4f29ee7d8670_128_128.ico" type="image/x-icon">
   <link rel="stylesheet"
@@ -180,35 +180,35 @@
     <div id="rde-page">
       <h3 class="rde-h3">功能</h3>
 <blockquote>
-<p class="rde-p">RDS-VUE</p>
+<p class="rde-p">内置套件</p>
 </blockquote>
-<p class="rde-p">  RDC-NUT 集成了RDS-VUE，可以直接使用RDS-VUE的组件、指令、过滤器等</p>
+<ul>
+<li><p class="rde-p"><a class="rde-a" href="http://seven-kl.netease.com/docs/27432/#/component/layout">RDS-VUE</a>： 集成了RDS-VUE，可以直接使用RDS-VUE的组件、指令、过滤器等</li>
+<li><p class="rde-p">布局： 内置了两级菜单（kaola-basic）、三级菜单（kaola-advanced）两种布局方案，可通过在<code>rda.config.js</code>中配置layout的值选择相应的布局</li>
+</ul>
 <blockquote>
-<p class="rde-p">布局</p>
+<p class="rde-p">常用库（待补充）</p>
 </blockquote>
-<p class="rde-p">  RDC-NUT 内置了两级菜单（kaola-basic）、三级菜单（kaola-advanced）两种布局方案，可通过在<code>rda.config.js</code>中配置layout的值选择相应的布局</p>
+<ul>
+<li><p class="rde-p"><a class="rde-a" href="https://echarts.baidu.com/">echarts</a>：图表库</li>
+<li><p class="rde-p"><a class="rde-a" href="https://github.com/iamkun/dayjs">dayjs</a>：时间库</li>
+</ul>
 <blockquote>
-<p class="rde-p">hubble</p>
+<p class="rde-p">数据统计</p>
 </blockquote>
-<p class="rde-p">  RDC-NUT 默认开启hubble，需要在<code>rda.config.js</code>中配置hubble的testKey和onlineKey，分别对应测试环境和线上环境的key值</p>
+<ul>
+<li><p class="rde-p"><a class="rde-a" href="https://hubble.netease.com/">hubble</a>：默认开启hubble，需要在<code>rda.config.js</code>中配置hubble的testKey和onlineKey，分别对应测试环境和线上环境的key值</li>
+<li><p class="rde-p"><a class="rde-a" href="https://sentry.kaola.com">sentry</a>：默认开启sentry，需要在<code>rda.config.js</code>中配置sentry的相关配置，例如：<code>org</code>、<code>project</code>、<code>dsn</code>、<code>token</code>等</li>
+<li><p class="rde-p">feedback：默认开启feedback，页面加上背景水印</li>
+</ul>
 <blockquote>
-<p class="rde-p">sentry</p>
+<p class="rde-p">开发相关</p>
 </blockquote>
-<p class="rde-p">  RDC-NUT 默认开启sentry，需要在<code>rda.config.js</code>中配置sentry的相关配置，例如：<code>org</code>、<code>project</code>、<code>dsn</code>、<code>token</code>等</p>
-<blockquote>
-<p class="rde-p">feedback</p>
-</blockquote>
-<p class="rde-p">  RDC-NUT 默认开启feedback，页面加上背景水印</p>
-<blockquote>
-<p class="rde-p">TS</p>
-</blockquote>
-<blockquote>
-<p class="rde-p">MOCK</p>
-</blockquote>
-<p class="rde-p">  RDC-NUT 默认集成mock功能，<code>rde serve</code>即使用mock数据</p>
-<blockquote>
-<p class="rde-p">proxy</p>
-</blockquote>
+<ul>
+<li><p class="rde-p">ts：默认支持ts</li>
+<li><p class="rde-p">mock：提供默认mock方案，<code>rde serve</code>默认使用mock数据</li>
+<li><p class="rde-p">proxy：提供默认proxy方案，<code>rde serve -e proxy</code>使用proxy开发</li>
+</ul>
 
     </div>
   </div>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
   <title></title>
-  <base href="https:&#x2F;&#x2F;kaola-fed.github.io&#x2F;rdc-nut&#x2F;">
+  <base href="&#x2F;">
   <link rel="icon" href="https://haitao.nos.netease.com/410707d1-d6aa-4fa6-b6cb-4f29ee7d8670_128_128.ico" type="image/x-icon">
   <link rel="shortcut icon" href="https://haitao.nos.netease.com/410707d1-d6aa-4fa6-b6cb-4f29ee7d8670_128_128.ico" type="image/x-icon">
   <link rel="stylesheet"
@@ -203,16 +203,16 @@
   <td>head.title</td>
   <td>●</td>
   <td>业务工程的title</td>
-  <td>-</td>
+  <td>html中head的title值、页面的title</td>
 <tr>
   <td>head.styles</td>
   <td>-</td>
-  <td>html中要添加的css链接</td>
+  <td>html中head要添加的css链接</td>
   <td>数组，例如：['xxx/xxx.css']</td>
 </tr>
 </table>
 <blockquote>
-<p class="rde-p">api 配置</p>
+<p class="rde-p">api 配置（具体查看<a class="rde-a" href="https://kaola-fed.github.io//specification/api.html">RDC-NUT API</a>）</p>
 </blockquote>
 <table class="rde-table">
 <tr>
@@ -273,7 +273,7 @@
 <tr>
   <td>hubble.disable</td>
   <td>-</td>
-  <td>是否关闭hubble</td>
+  <td>是否关闭hubble，建议开启</td>
   <td>默认开启</td>
 <tr>
   <td>hubble.testKey</td>
@@ -301,7 +301,7 @@
 <tr>
   <td>sentry.disable</td>
   <td>-</td>
-  <td>是否关闭sentry</td>
+  <td>是否关闭sentry，建议开启</td>
   <td>默认开启</td>
 <tr>
   <td>sentry.org</td>
@@ -317,7 +317,7 @@
   <td>sentry.token</td>
   <td>●</td>
   <td>工程的sentry token，参考.sentryclirc中的token</td>
-  <td>-</td>
+  <td>https://[key]@sentry.kaola.com/[project-id]</td>
 <tr>
   <td>sentry.dsn</td>
   <td>●</td>
@@ -339,8 +339,31 @@
 <tr>
   <td>feedback.disable</td>
   <td>-</td>
-  <td>是否引入feedback脚本，加上背景水印</td>
+  <td>是否引入feedback脚本，加上背景水印，建议开启</td>
   <td>默认开启</td>
+</tr>
+</table>
+<blockquote>
+<p class="rde-p">proxy 配置</p>
+</blockquote>
+<table class="rde-table">
+<tr>
+</th>
+<th style=" width:80px">配置项</th>
+<th style=" width:80px">是否必填</th>
+<th style="">说明</th>
+<th style="">备注</th>
+</tr>
+<tr>
+  <td>proxy.prefix</td>
+  <td>-</td>
+  <td>需要代理的请求前缀</td>
+  <td>例：'/api'</td>
+<tr>
+  <td>proxy.targe</td>
+  <td>-</td>
+  <td>配置代理的后端服务</td>
+  <td>例：'http://127.0.0.1:3000'</td>
 </tr>
 </table>
 <blockquote>
@@ -386,6 +409,10 @@
             <span class="hljs-attr">project</span>: <span class="hljs-string">'kaola-rhea-fed'</span>,
             <span class="hljs-attr">dsn</span>: <span class="hljs-string">'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40'</span>,
             <span class="hljs-attr">token</span>: <span class="hljs-string">'29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4'</span>,
+        },
+        <span class="hljs-attr">proxy</span>: {
+            <span class="hljs-attr">prefix</span>: <span class="hljs-string">'/api'</span>,
+            <span class="hljs-attr">target</span>: <span class="hljs-string">'http://127.0.0.1:3000'</span>
         },
         <span class="hljs-attr">plugins</span>: [
             <span class="hljs-string">'/install.js'</span>
