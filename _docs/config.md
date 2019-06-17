@@ -26,14 +26,14 @@ module.exports = {
 |- head.title
 | ●
 | 业务工程的title
-| -
+| html中head的title值、页面的title
 |- head.styles
 | -
-| html中要添加的css链接
+| html中head要添加的css链接
 | 数组，例如：['xxx/xxx.css']
 ```
 
-> api 配置
+> api 配置（具体查看[RDC-NUT API](https://kaola-fed.github.io//specification/api.html)）
 
 ```table
 配置项 [@th width:80px]
@@ -79,7 +79,7 @@ module.exports = {
 备注
 |- hubble.disable
 | -
-| 是否关闭hubble
+| 是否关闭hubble，建议开启
 | 默认开启
 |- hubble.testKey
 | ●
@@ -100,7 +100,7 @@ module.exports = {
 备注
 |- sentry.disable
 | -
-| 是否关闭sentry
+| 是否关闭sentry，建议开启
 | 默认开启
 |- sentry.org
 | ●
@@ -113,7 +113,7 @@ module.exports = {
 |- sentry.token
 | ●
 | 工程的sentry token，参考.sentryclirc中的token
-| -
+| https://[key]@sentry.kaola.com/[project-id]
 |- sentry.dsn
 | ●
 | sentry上的DSN值，请登录到sentry网站，查看工程的设置中的DSN
@@ -129,8 +129,25 @@ module.exports = {
 备注
 |- feedback.disable
 | -
-| 是否引入feedback脚本，加上背景水印
+| 是否引入feedback脚本，加上背景水印，建议开启
 | 默认开启
+```
+
+> proxy 配置
+
+```table
+配置项 [@th width:80px]
+是否必填 [@th width:80px]
+说明
+备注
+|- proxy.prefix
+| -
+| 需要代理的请求前缀
+| 例：'/api'
+|- proxy.targe
+| -
+| 配置代理的后端服务
+| 例：'http://127.0.0.1:3000'
 ```
 
 > plugins 配置
@@ -172,6 +189,10 @@ module.exports = {
             project: 'kaola-rhea-fed',
             dsn: 'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40',
             token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
+        },
+        proxy: {
+            prefix: '/api',
+            target: 'http://127.0.0.1:3000'
         },
         plugins: [
             '/install.js'

@@ -10,6 +10,10 @@ order: 10
 
 &emsp;&emsp;本地mock开发使用
 
+> rde serve -e proxy
+
+&emsp;&emsp;本地proxy开发
+
 > rde build
 
 &emsp;&emsp;build会在app目录下生成dist文件，如果需要可以查看，发布会自动发布这个文件

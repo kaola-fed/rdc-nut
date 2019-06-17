@@ -59,7 +59,7 @@ module.exports = {
             mock(app);
         },
         proxy: {
-            '/api': 'http://127.0.0.1:7000'
+            '///{proxy.prefix}///': '///{proxy.target}///'
         }
     },
     configureWebpack: {
