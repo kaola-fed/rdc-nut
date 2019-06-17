@@ -1,0 +1,4 @@
+__mock__/**/*.js
+.integrate/**/*.js
+
+./src/nut-auto-generated-app.js

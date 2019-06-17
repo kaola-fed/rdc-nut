@@ -22,7 +22,7 @@ export default ListComponent.extend({
             await API.exportList(this.getExtraParam());
             KLNotify.success('导出成功');
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 });

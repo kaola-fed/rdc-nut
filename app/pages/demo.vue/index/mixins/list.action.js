@@ -20,7 +20,7 @@ export default {
                 }
                 this.$message.success('导出内容为空');
             } catch (err) {
-                console.log(err);
+                console.error(err);
             }
         }
     }

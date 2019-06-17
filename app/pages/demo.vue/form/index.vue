@@ -89,6 +89,7 @@
 import { SelectMixin } from '~/vue/index';
 
 import DetailAction from './mixins/detail.action.js';
+
 export default {
     mixins: [SelectMixin, DetailAction],
     data() {

@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs-extra');
 const path = require('path');
 const stripJsonComments = require('strip-json-comments');
+
+// eslint-disable-next-line no-console
 const log = console.log;
 
 const mockConfig = require('./mock.config');
@@ -24,6 +27,7 @@ const getMockData = (requestPath, method, params) => {
     }
 
     jsExists ? delete require.cache[require.resolve(jsPath)] : delete require.cache[require.resolve(jsonPath)];
+    // eslint-disable-next-line import/no-dynamic-require
     return jsExists ? require(jsPath)(params) : require(jsonPath);
 };
 

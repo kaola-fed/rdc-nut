@@ -52,7 +52,7 @@ export const getApis = (list) => {
             API[item.key] = params => requestAPI[requestMethod](item.url, params);
         }
 
-        authParams.push({
+        (authParams as any).push({
             urlKey: item.key,
             requestUrl: item.url
         });

@@ -1,5 +1,7 @@
+/* eslint-disable import/no-dynamic-require */
 const jsonPath = './selectList.json';
 delete require.cache[require.resolve(jsonPath)];
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const existKeysJson = require(jsonPath);
 
 const existKeys = existKeysJson.result || {};

@@ -12,4 +12,5 @@ const list = [
     {key: 'logout', url: '///{api.logout}///' || '/api/common/logout', type: 'get'},
 ];
 
+// eslint-disable-next-line import/prefer-default-export
 export const API = getApis(list).API;

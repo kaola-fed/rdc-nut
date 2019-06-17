@@ -4,7 +4,7 @@ import './layout.scss';
 import '../../styles/index.scss';
 
 import BaseComponent from '~/regular/BaseComponent';
-import { API, goLogin } from '../common/api';
+import { API } from '../common/api';
 import _ from '~/widget/util';
 
 import template from './layout.html';
@@ -33,7 +33,7 @@ export default BaseComponent.extend({
             // 背景水印
             window.feedback && window.feedback('nickname');
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     },
 
@@ -42,7 +42,7 @@ export default BaseComponent.extend({
             const { result } = await API.getMenus();
             return result && result.list || [];
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     },
 
@@ -67,7 +67,7 @@ export default BaseComponent.extend({
             await API.logout();
             this.$emit('logout');
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 });

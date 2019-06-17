@@ -7,4 +7,5 @@ const list = [
     {key: 'save', url: '/api/vue/demo/form/save', type: 'post'},
 ];
 
+// eslint-disable-next-line import/prefer-default-export
 export const API = getApis(list).API;

@@ -8,6 +8,7 @@ const filter = {
         if (mode === 0) {
             return value.length;
         }
+        // eslint-disable-next-line no-control-regex
         return ((value && value.toString()) || '').replace(/[^\x00-\xff]/g, 'xx').length;
     },
     // 兼容https; 将图片资源的链接http://改为//;

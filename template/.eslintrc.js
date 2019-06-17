@@ -1,3 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
+const resolve = (pathname) => {
+    return path.resolve(__dirname, pathname)
+};
+
+
 module.exports = {
     root: true,
     env: {
@@ -8,6 +15,9 @@ module.exports = {
             node: {
                 extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
             },
+            webpack: {
+                config: resolve('webpack.config.js'),
+            }
         },
     },
     extends: [
@@ -26,8 +36,10 @@ module.exports = {
             },
         ],
         'import/extensions': [0],
+        'no-console': ['error', { allow: ['warn', 'error'] }],
     },
+    parser: 'vue-eslint-parser',
     parserOptions: {
         parser: '@typescript-eslint/parser',
-    },
+    }
 };

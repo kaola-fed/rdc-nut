@@ -36,7 +36,7 @@ export default {
                 layout.$mount(node)
             },
 
-            unmount(node) {
+            unmount() {
                 if (!layout) {
                     return
                 }

@@ -4,7 +4,7 @@ export default {
     apply({
         api,
         events
-    }, options) {
+    }) {
         api.page('pages/login/index@common-pages').set('layout', 'none');
 
         events.on('route:login', () => {

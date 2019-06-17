@@ -89,7 +89,7 @@
 import { Component, Mixins } from 'vue-property-decorator';
 import { SelectMixin } from '~/vue/index';
 
-import DetailAction from './mixins/detail.action.js';
+import DetailAction from './mixins/detail.action.ts';
 @Component
 export default class Index extends Mixins(SelectMixin, DetailAction) {
     sourceKeys = ['department', 'commerceType', 'importType', 'geoRegion', 'available', 'contractStatus']
@@ -110,7 +110,7 @@ export default class Index extends Mixins(SelectMixin, DetailAction) {
         value: 'id',
         label: 'name'
     }
-};
+}
 </script>
 
 <style scoped lang="scss" src="./index.scss"></style>

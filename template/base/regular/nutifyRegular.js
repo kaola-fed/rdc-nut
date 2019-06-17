@@ -3,7 +3,7 @@ export default function(fn) {
     fn.extend = function(...args) {
         const component = originExtend.apply(this, args);
 
-        component.$$nut = function(ctx) {
+        component.$$nut = function() {
             let instance
 
             return {
@@ -21,7 +21,7 @@ export default function(fn) {
                     instance.$inject(node)
                 },
 
-                unmount(node) {
+                unmount() {
                     if (!instance) {
                         return
                     }

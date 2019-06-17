@@ -5,7 +5,7 @@ import '../../styles/index.scss';
 import Vue from 'vue';
 import SiteNavLayout from '@kaola-sc/scm-layout';
 
-import { API, goLogin } from '../common/api';
+import { API } from '../common/api';
 import _ from '~/widget/util';
 
 import template from './layout.html';

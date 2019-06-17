@@ -2,7 +2,7 @@ import ListComponent from '~/regular/ListComponent.js'
 import _ from '~/widget/util.js';
 import { KLNotify } from 'nek-ui';
 
-import template from './index.html';
+import template from './index';
 import './index.scss';
 
 import { API } from './api';

@@ -72,5 +72,5 @@ export default class Index extends Mixins(ListMixin, SelectMixin, ActionMixin, A
         commerceType: ''
     }
     sourceKeys = ['department', 'shopList', 'commerceType']
-};
+}
 </script>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 
 const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
@@ -43,7 +44,7 @@ module.exports = {
         template: resolve('layout/index.html')
     },
     devServer: {
-        before: function(app, server) {
+        before: function(app) {
             const isProxy = process.argv[2];
             if (isProxy) {
                 return;
@@ -59,7 +60,7 @@ module.exports = {
             path: distDir
         },
         resolve: {
-            extensions: ['.js', '.vue', '.json', '.ts'],
+            extensions: ['.html', '.js', '.vue', '.json', '.ts'],
             alias: {
                 vue$: 'vue/dist/vue.esm.js',
                 '~': resolve('base')
@@ -82,6 +83,7 @@ module.exports = {
                     enforce: 'pre',
                     exclude: [
                         /node_modules/,
+                        /nut-auto-generated-/,
                     ],
                     use: [{
                         loader: 'eslint-loader'
@@ -92,7 +94,7 @@ module.exports = {
                     loader: 'ts-loader',
                     exclude: /node_modules/,
                     options: {
-                      appendTsSuffixTo: [/\.vue$/],
+                        appendTsSuffixTo: [/\.vue$/],
                     }
                 },
                 {
@@ -124,26 +126,29 @@ module.exports = {
         if (IS_ONLINE) {
             ///^sentry.disable///
             config.plugin('sentry-cli-plugin')
-            .use(
-                new SentryCliPlugin({
-                    release: APP_GIT_VERSION,
-                    include: distDir, // 上传文件所在目录
-                    ignore: ['node_modules', 'chunk-vendors.*'], // 不需要上传的文件，一般大文件也避免上传
-                    configFile: './.sentrycli.rc', // 包含组织、项目、auth信息
-                    urlPrefix: '', // 根据include的设置、以及实际访问路径调整，urlPrefix与include结合后与实际访问路径匹配即可
-                    afterUpload: (resolve, reject) => {
+                .use(
+                    new SentryCliPlugin({
+                        release: APP_GIT_VERSION,
+                        include: distDir, // 上传文件所在目录
+                        ignore: ['node_modules', 'chunk-vendors.*'], // 不需要上传的文件，一般大文件也避免上传
+                        configFile: './.sentrycli.rc', // 包含组织、项目、auth信息
+                        urlPrefix: '', // 根据include的设置、以及实际访问路径调整，urlPrefix与include结合后与实际访问路径匹配即可
+                        afterUpload: (resolve, reject) => {
                         // 上传完成后删除sourcemap，避免源码泄漏
-                        const p = path.join(distDir, '*.?(css|js).map');
-                        rm(p, (err) => {
-                            if (err) {
-                                return reject(err);
-                            }
-                            resolve();
-                        });
-                    }
-                })
-            );
+                            const p = path.join(distDir, '*.?(css|js).map');
+                            rm(p, (err) => {
+                                if (err) {
+                                    return reject(err);
+                                }
+                                resolve();
+                            });
+                        }
+                    })
+                );
             ////sentry.disable///
         }
+    },
+    babel: {
+        plugins: ['@babel/plugin-proposal-decorators']
     }
 }

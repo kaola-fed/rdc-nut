@@ -111,6 +111,7 @@ const ListComponent = BaseComponent.extend({
             this.$update('loading', false);
         } catch (e) {
             KLModal.alert((e && e.message) || '返回异常');
+            // eslint-disable-next-line no-console
             console.error(e);
             this.$update('loading', false);
         }

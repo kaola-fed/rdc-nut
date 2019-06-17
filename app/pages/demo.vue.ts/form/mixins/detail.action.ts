@@ -5,7 +5,7 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class DetailActionMixin extends Vue {
     beforeMount() {
         if (this.isDetail) {
-            this.getDetail(this.$route.query.id);
+            this.getDetail((this as any).$route.query.id);
         }
     }
 
@@ -26,17 +26,17 @@ export default class DetailActionMixin extends Vue {
     async getDetail(id) {
         try {
             const { result } = await API.getDetail({ id });
-            this.detail = result;
+            (this as any).detail = result;
         } catch (err) {
             console.log(err);
         }
     }
     async save() {
         try {
-            await this.$refs.queryForm.validate();
+            await (this as any).$refs.queryForm.validate();
             const api = this.isCreate ? API.addShop : API.save;
-            const { result } = await api(this.detail);
-            this.$message.success('保存成功！');
+            const { result } = await api((this as any).detail);
+            (this as any).$message.success('保存成功！');
             if (result && result.id) {
                 location.href = `/shop/infoDetail?id=${result.id}`;
             }
@@ -45,6 +45,6 @@ export default class DetailActionMixin extends Vue {
         }
     }
     reset() {
-        this.$refs.queryForm.resetFields();
+        (this as any).$refs.queryForm.resetFields();
     }
 };

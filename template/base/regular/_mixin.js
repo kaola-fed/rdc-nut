@@ -28,6 +28,7 @@ export default (Component) => {
         },
         _filters(type) {
             if (!Filter[type]) {
+                // eslint-disable-next-line no-console
                 console.error(`'未定义的过滤器:'${type}`);
                 return Filter.returnOriginValue;
             }

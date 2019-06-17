@@ -9,8 +9,8 @@
  * @param  options.mask     是否显示loading遮罩, 默认false
  * @param  options.btn      请求时是否disable按钮, 需要配合KLButton使用，默认false
  */
+import { KLLoading } from 'nek-ui';
 import util from './util';
-import { KLModal, KLLoading } from 'nek-ui';
 
 const loadingHandler = (options, loading) => {
     const { mask, btn } = options;
@@ -23,7 +23,7 @@ const loadingHandler = (options, loading) => {
     }
 };
 
-const errorHandler = (res, catchError) => {
+const errorHandler = (res) => {
     // 并不是所有请求都会被cas拦截，所以还需要加一个登陆校验接口(只有cas系统配置过的才会被拦截)
     // 10000:未登陆;(getUserInfo接口返回)
     // 10007: cas接口拦截返回

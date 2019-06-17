@@ -131,6 +131,7 @@ export default {
         try {
             newObj = JSON.parse(JSON.stringify(obj));
         } catch(e) {
+            // eslint-disable-next-line no-console
             console.error('cloneObject错误: 非法的json对象');
         }
         return newObj;

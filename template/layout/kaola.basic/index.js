@@ -37,7 +37,7 @@ export default {
                 layout.$inject(node)
             },
 
-            unmount(node) {
+            unmount() {
                 if (!layout) {
                     return
                 }

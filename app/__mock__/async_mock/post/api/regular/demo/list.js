@@ -1,4 +1,4 @@
-module.exports = function (params) {
+module.exports = function () {
 
     return {
         code: 200,

@@ -12,10 +12,10 @@ function genList(params) {
             "commerceTypeStr": "t4j0xSjEnG",
             "importTypeStr": "f1kGamx1Pj",
             "contractStatusStr": "TVRFd4Rb4N"
-          })
+        })
     }
     return list;
-};
+}
 
 module.exports = function(params) {
     return {

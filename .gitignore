@@ -9,3 +9,4 @@ node_modules
 app/dist
 app/.gitversion
 .history
+.DS_Store

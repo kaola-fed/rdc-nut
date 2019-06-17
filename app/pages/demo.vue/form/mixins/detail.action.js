@@ -27,7 +27,7 @@ export default {
                 const { result } = await API.getDetail({ id });
                 this.detail = result;
             } catch (err) {
-                console.log(err);
+                console.error(err);
             }
         },
         async save() {
@@ -40,7 +40,7 @@ export default {
                     location.href = `/shop/infoDetail?id=${result.id}`;
                 }
             } catch(err) {
-                console.log(err);
+                console.error(err);
             }
         },
         reset() {
