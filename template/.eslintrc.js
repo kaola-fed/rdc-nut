@@ -37,6 +37,7 @@ module.exports = {
         ],
         'import/extensions': [0],
         'no-console': ['error', { allow: ['warn', 'error'] }],
+        "@typescript-eslint/explicit-function-return-type": 0,
     },
     parser: 'vue-eslint-parser',
     parserOptions: {

@@ -4,12 +4,13 @@ import { API } from '../api';
 
 @Component
 export default class ListActionMixin extends Vue {
-    listService = API.getList;
+    public listService = API.getList;
 
-    onCreate() {
-        window.open('/#/pages/vue/demo/form/index');
+    public onCreate() {
+        window.open('/pages/demo.vue/form/index');
     }
-    async onExport() {
+
+    public async onExport() {
         try {
             const { result } = await API.exportList((this as any).getExtraParam());
             if (result) {
@@ -18,7 +19,7 @@ export default class ListActionMixin extends Vue {
             }
             (this as any).$message.success('导出内容为空');
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
-};
+}

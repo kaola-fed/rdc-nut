@@ -40,7 +40,7 @@
             <el-table-column label="新建时间" prop="createTime" width="135" align="center" />
             <el-table-column label="操作" width="120" align="center" fixed="right">
                 <template slot-scope="scope">
-                    <a :href="`/pages/demo.vue/form/index?id=${scope.row.id}`" target="_blank" type="text">查看</a>
+                    <a :href="`/#/pages/vue/demo/form/index?id=${scope.row.id}`" target="_blank" type="text">查看</a>
                 </template>
             </el-table-column>
         </el-table>
@@ -59,21 +59,4 @@
 	</el-card>
 </template>
 
-<script>
-import {ListMixin, SelectMixin, AuthMixin} from 'rds-vue';
-import ActionMixin from './mixins/list.action';
-
-export default {
-    mixins: [ListMixin, SelectMixin, ActionMixin, AuthMixin],
-    data() {
-        return {
-            condition: {
-                department: '',
-                shopId: '',
-                commerceType: ''
-            },
-            sourceKeys: ['department', 'shopList', 'commerceType']
-        };
-    }
-};
-</script>
+<script lang="ts" src="./index.ts"></script>
