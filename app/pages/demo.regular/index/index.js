@@ -1,4 +1,4 @@
-import ListComponent from '~/regular/ListComponent.js'
+import ListComponent from '~/regular/ListComponent.js';
 import { KLNotify } from 'nek-ui';
 
 import template from './index.html';

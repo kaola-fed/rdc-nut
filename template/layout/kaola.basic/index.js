@@ -8,7 +8,7 @@ export default {
     type: 'layout',
 
     async apply(ctx) {
-        let layout = null
+        let layout = null;
 
         await ctx.api.layout.register({
             name: 'kaola-basic',
@@ -17,47 +17,47 @@ export default {
                 ctx
             }) {
                 if (!layout) {
-                    const sidebar = ctx.api.sidebar.get()
+                    const sidebar = ctx.api.sidebar.get();
 
-                    sidebar.forEach(s => s.open = s.active)
+                    sidebar.forEach(s => s.open = s.active);
 
                     layout = new Layout({
                         data: {
                             ctx
                         }
-                    })
+                    });
 
                     layout.$on('logout', () => {
-                        ctx.events.emit('layout:logout')
-                    })
+                        ctx.events.emit('layout:logout');
+                    });
                     layout.$on('requestError', (res, catchError) => {
-                        ctx.events.emit('layout:requestError', res, catchError)
-                    })
+                        ctx.events.emit('layout:requestError', res, catchError);
+                    });
                 }
 
-                layout.$inject(node)
+                layout.$inject(node);
             },
 
             unmount() {
                 if (!layout) {
-                    return
+                    return;
                 }
 
-                layout.$inject(false)
+                layout.$inject(false);
             },
 
             update(data = {}) {
                 if (!layout) {
-                    return
+                    return;
                 }
 
-                layout.data.ctx = data.ctx
-                layout.$update()
+                layout.data.ctx = data.ctx;
+                layout.$update();
             },
 
             getMountNode() {
-                return layout && layout.$refs.$$mount
+                return layout && layout.$refs.$$mount;
             },
-        })
+        });
     }
-}
+};

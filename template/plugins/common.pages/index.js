@@ -13,7 +13,7 @@ export default {
         events.on('route:unauthorized', () => {
             api.router.replace({
                 page: 'pages/unauthorized/index'
-            })
+            });
         });
     }
-}
+};

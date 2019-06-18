@@ -4,40 +4,40 @@ export default function(fn) {
         const component = originExtend.apply(this, args);
 
         component.$$nut = function() {
-            let instance
+            let instance;
 
             return {
                 beforeEnter({
                     next
                 }) {
-                    next()
+                    next();
                 },
 
                 mount(node) {
                     if (!instance) {
-                        instance = new component()
+                        instance = new component();
                     }
 
-                    instance.$inject(node)
+                    instance.$inject(node);
                 },
 
                 unmount() {
                     if (!instance) {
-                        return
+                        return;
                     }
 
-                    instance.$inject(false)
+                    instance.$inject(false);
                 },
 
                 destroy() {
                     if (!instance) {
-                        return
+                        return;
                     }
 
-                    instance.destroy()
-                    instance = null
+                    instance.destroy();
+                    instance = null;
                 }
-            }
+            };
         };
 
         return component;
