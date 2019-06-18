@@ -72,8 +72,9 @@ const mockRequestHandler = async (req, res) => {
     }
 };
 
+
 module.exports = function mock(app) {
-    ///#proxy///
+    ///#proxy.rules///
     app.all('///{prefix}////*', mockRequestHandler);
-    ////proxy///
+    ////proxy.rules///
 };

@@ -51,18 +51,19 @@ module.exports = {
                 dsn: 'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40',
                 token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
             },
-            proxy: [
-                {
-                    prefix: '/api',
-                    target: 'http://103.196.65.247',
-                    host: 'ms.kaola.com',
-                },
-                {
-                    prefix: '/sc-workdesk',
-                    target: 'http://103.196.65.247',
-                    host: 'ms.kaola.com'
-                },
-            ],
+            proxy: {
+                host: 'ms.kaola.com',
+                rules: [
+                    {
+                        prefix: '/api',
+                        target: 'http://10.198.172.253:8009'
+                    },
+                    {
+                        prefix: '/sc-workdesk',
+                        target: 'http://10.198.172.253:8009'
+                    },
+                ]
+            },
             plugins: [],
             rdsVue: [
                 {

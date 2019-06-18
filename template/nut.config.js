@@ -65,17 +65,17 @@ module.exports = {
                 return;
             }
         },
-        proxy: {
-            ///#proxy///
-            '///{prefix}///': {
+        proxy: [
+            ///#proxy.rules///
+            {
+                context: '///{prefix}///',
                 target: '///{target}///',
                 headers: {
-                    'X-Gateway-Host': '///{host}///'
-                },
-
+                    'X-Gateway-Host': '///{proxy.host}///'
+                }
             },
-            ////proxy///
-        }
+            ////proxy.rules///
+        ]
     },
     configureWebpack: {
         output: {
