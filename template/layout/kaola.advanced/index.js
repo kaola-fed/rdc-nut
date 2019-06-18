@@ -8,7 +8,7 @@ export default {
     type: 'layout',
 
     async apply(ctx) {
-        let layout = null
+        let layout = null;
 
         await ctx.api.layout.register({
             name: 'kaola-advanced',
@@ -17,26 +17,26 @@ export default {
                 ctx
             }) {
                 if (!layout) {
-                    const sidebar = ctx.api.sidebar.get()
+                    const sidebar = ctx.api.sidebar.get();
 
-                    sidebar.forEach(s => s.open = s.active)
+                    sidebar.forEach(s => s.open = s.active);
 
-                    layout = new Layout()
+                    layout = new Layout();
 
                     layout.$on('logout', () => {
-                        ctx.events.emit('layout:logout')
-                    })
+                        ctx.events.emit('layout:logout');
+                    });
                     layout.$on('requestError', (res, catchError) => {
-                        ctx.events.emit('layout:requestError', res, catchError)
-                    })
+                        ctx.events.emit('layout:requestError', res, catchError);
+                    });
                 }
 
-                layout.$mount(node)
+                layout.$mount(node);
             },
 
             unmount() {
                 if (!layout) {
-                    return
+                    return;
                 }
 
                 layout.$destroy();
@@ -44,16 +44,16 @@ export default {
 
             update(data = {}) {
                 if (!layout) {
-                    return
+                    return;
                 }
 
-                layout.ctx = data.ctx
-                layout.$forceUpdate()
+                layout.ctx = data.ctx;
+                layout.$forceUpdate();
             },
 
             getMountNode() {
-                return layout && layout.$refs.$$mount
+                return layout && layout.$refs.$$mount;
             },
-        })
+        });
     }
-}
+};

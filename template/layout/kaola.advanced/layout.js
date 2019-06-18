@@ -28,7 +28,7 @@ export default Vue.extend({
             userInfo: {},
             favoriteMenus: [],
             isHideLayout: true
-        }
+        };
     },
 
     computed:{

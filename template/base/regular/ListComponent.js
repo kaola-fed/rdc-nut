@@ -28,7 +28,7 @@ const _ = {
         }
         return o1;
     }
-}
+};
 
 const ListComponent = BaseComponent.extend({
     watchedAttr: ['pageNo', 'pageSize'],
