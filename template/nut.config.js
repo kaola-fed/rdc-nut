@@ -1,15 +1,29 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const fs = require('fs');
 
 const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
 const rm = require('rimraf');
 const webpack = require('webpack');
 
+const mock = require('./dev-mock');
+
+
+const gitVersionPath = path.resolve(__dirname, '..', 'app', '.gitversion');
+let gitVersion = '';
+try {
+    gitVersion = fs.readFileSync(gitVersionPath, {
+        encoding: 'utf-8'
+    });
+    fs.unlinkSync(gitVersionPath);
+} catch (err) {
+    gitVersion = '';
+}
+
 const APP_ENV = process.env.app_env;
 const IS_ONLINE = /^(pre|prod)$/.test(APP_ENV);
-const APP_GIT_VERSION = IS_ONLINE ? `${APP_ENV}-///sentry.release///` : '';
+const APP_GIT_VERSION = IS_ONLINE ? `${APP_ENV}-${gitVersion}` : '';
 
-const mock = require('./dev-mock');
 
 const resolve = (pathname) => {
     return path.resolve(__dirname, pathname)
@@ -18,11 +32,9 @@ const resolve = (pathname) => {
 const distDir = resolve('../app/dist');
 
 module.exports = {
-    zh: '考拉前端',
-    en: 'KAOLAFED',
     host: '0.0.0.0',
-    port: 8080,
-    layout: 'kaola-advanced',
+    port: '///port///' || 8080,
+    layout: '///layout///' || 'kaola-advanced',
     plugins: {
         'kaola-advanced': {
             path: require.resolve('./layout/kaola.advanced'),
@@ -41,7 +53,9 @@ module.exports = {
         mode: 'history'
     },
     html: {
-        template: resolve('layout/index.html')
+        template: resolve('layout/index.html'),
+        title: '///head.title///' || '网易考拉',
+        favicon: resolve('layout/favicon.ico')
     },
     devServer: {
         before: function(app) {
@@ -52,7 +66,9 @@ module.exports = {
             mock(app);
         },
         proxy: {
-            '/api': 'http://127.0.0.1:7000'
+            ///#proxy///
+            '///{prefix}///': '///{target}///',
+            ////proxy///
         }
     },
     configureWebpack: {

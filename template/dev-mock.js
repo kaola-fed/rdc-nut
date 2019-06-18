@@ -19,11 +19,16 @@ const getMockData = (requestPath, method, params) => {
     const isExists = jsExists || jsonExists;
     if (!isExists) {
         log(`${mockPath}.js{on} doesn't exists.`);
-        return {
+        // 路径转换
+        const trueMockPath = jsonPath.replace('/.integrate/src', '/app');
+        fs.ensureFileSync(trueMockPath);
+        const emptyData = {
             code: 200,
-            message: `${mockPath}.js{on} doesn't exists.`,
+            message: null,
             result: {}
         };
+        fs.writeJsonSync(trueMockPath, emptyData);
+        return emptyData;
     }
 
     jsExists ? delete require.cache[require.resolve(jsPath)] : delete require.cache[require.resolve(jsonPath)];

@@ -1,4 +1,5 @@
-__mock__/**/*.js
-.integrate/**/*.js
+../app/__mock__/**/*.js
 
-./src/nut-auto-generated-app.js
+../app/dist/
+
+layout/common/plugins/*.js

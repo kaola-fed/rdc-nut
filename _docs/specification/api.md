@@ -1,8 +1,9 @@
 ---
 title: API规范
 subTitle: API
-order: 8
-category: Specification
+order: 4
+category: 规范
+categoryOrder: 7
 ---
 
 ### API 规范

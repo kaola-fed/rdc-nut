@@ -1,8 +1,16 @@
 import BaseComponent from '~/regular/BaseComponent';
-import _ from '~/widget/util'
 
 import template from './index.html';
-import './index.css'
+import './index.css';
+
+const getUrlParam = (name) => {
+    const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
+    const r = window.location.search.substr(1).match(reg);
+    if (r !== null) {
+        return r[2];
+    }
+    return null;
+};
 
 export default BaseComponent.extend({
     template: template,
@@ -56,7 +64,7 @@ export default BaseComponent.extend({
     */
     setErrorMsg: function(){
         // code 102 验证码错误
-        let code = _.getUrlParam('retCode') || _.getUrlParam('code') || '';
+        let code = getUrlParam('retCode') || getUrlParam('code') || '';
         let normalCode = [411, 413, 420, 430, 500, 102];
         if (code && normalCode.indexOf(Number(code)) < 0) {
             code = 500;

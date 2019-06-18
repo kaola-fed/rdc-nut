@@ -1,19 +1,19 @@
 <template>
 	<el-card class="list">
         <el-form ref="queryForm" label-position="top" :model="condition">
-            <kl-search @search="refresh" @reset="reset">
+            <ks-search @search="refresh" @reset="reset">
                 <el-form-item prop="department" label="业务部门">
-                    <kl-select v-model="condition.department" :source="source.department" />
+                    <ks-select v-model="condition.department" :source="source.department" />
                 </el-form-item>
                 <el-form-item prop="shopId" label="门店ID/名称">
-                    <kl-select v-model="condition.shopId" :source="source.shopList" placeholder="全部" />
+                    <ks-select v-model="condition.shopId" :source="source.shopList" placeholder="全部" />
                 </el-form-item>
                 <el-form-item prop="commerceType" label="门店类型">
-                    <kl-select v-model="condition.commerceType" :source="source.commerceType" />
+                    <ks-select v-model="condition.commerceType" :source="source.commerceType" />
                 </el-form-item>
-            </kl-search>
+            </ks-search>
         </el-form>
-        <kl-divider :longer="24" class="list__divider" />
+        <ks-divider :longer="24" class="list__divider" />
         <div class="f-mb10">
             <el-button type="primary" @click="onCreate">
                 新增
@@ -61,11 +61,11 @@
 
 <script>
 import { Component, Mixins } from 'vue-property-decorator';
-import {ListMixin, SelectMixin, AuthProviderMixin} from '~/vue/index';
+import {ListMixin, SelectMixin, AuthMixin} from 'rds-vue';
 import ActionMixin from './mixins/list.action';
 
 @Component
-export default class Index extends Mixins(ListMixin, SelectMixin, ActionMixin, AuthProviderMixin) {
+export default class Index extends Mixins(ListMixin, SelectMixin, ActionMixin, AuthMixin) {
     condition = {
         department: '',
         shopId: '',

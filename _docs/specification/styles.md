@@ -1,8 +1,8 @@
 ---
 title: 样式规范
 subTitle: Styles
-order: 8
-category: Specification
+order: 5
+category: 规范
 ---
 
 ### 样式规范

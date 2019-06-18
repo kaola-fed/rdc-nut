@@ -1,5 +1,5 @@
 import { Component, Vue } from 'vue-property-decorator';
-import { Util } from '~/vue/index';
+import { utils } from 'rds-vue';
 import { API } from '../api';
 
 @Component
@@ -13,7 +13,7 @@ export default class ListActionMixin extends Vue {
         try {
             const { result } = await API.exportList((this as any).getExtraParam());
             if (result) {
-                Util.download(result);
+                utils.download(result);
                 return;
             }
             (this as any).$message.success('导出内容为空');

@@ -1,11 +1,34 @@
 /* ListComopnent */
 import { KLNotify, KLModal } from 'nek-ui';
 import qs from 'qs';
-import _ from '../widget/util';
+
 import BaseComponent from './BaseComponent.js';
 import { $request } from '../widget/request';
 
 import nutifyRegular from './nutifyRegular';
+
+const _ = {
+    isArray(arr) {
+        return Object.prototype.toString.call(arr).slice(8, -1) === 'Array';
+    },
+    filterParam(obj) {
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                if (!obj[key] && obj[key] !== 0 && obj[key] !== false || (this.isArray(obj[key]) && obj[key].length === 0)) {
+                    delete obj[key];
+                }
+            }
+        }
+    },
+    extend(o1 = {}, o2 = {}, override) {
+        for (let i in o2) {
+            if (o1[i] === undefined || override) {
+                o1[i] = o2[i];
+            }
+        }
+        return o1;
+    }
+}
 
 const ListComponent = BaseComponent.extend({
     watchedAttr: ['pageNo', 'pageSize'],

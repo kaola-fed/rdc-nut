@@ -6,9 +6,17 @@ import Vue from 'vue';
 import SiteNavLayout from '@kaola-sc/scm-layout';
 
 import { API } from '../common/api';
-import _ from '~/widget/util';
 
 import template from './layout.html';
+
+const getUrlParam = (name) => {
+    const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
+    const r = window.location.search.substr(1).match(reg);
+    if (r !== null) {
+        return r[2];
+    }
+    return null;
+};
 
 export default Vue.extend({
     components: {
@@ -35,7 +43,7 @@ export default Vue.extend({
         this.getFavorMenus();
     },
     mounted() {
-        this.isHideLayout = _.getUrlParam('isHideLayout');
+        this.isHideLayout = getUrlParam('isHideLayout');
     },
 
     methods: {

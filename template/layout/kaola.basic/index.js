@@ -1,7 +1,5 @@
 import '../common/plugins/index';
 
-import './vue.entry';
-
 import Layout from './layout';
 
 export default {
@@ -31,6 +29,9 @@ export default {
 
                     layout.$on('logout', () => {
                         ctx.events.emit('layout:logout')
+                    })
+                    layout.$on('requestError', (res, catchError) => {
+                        ctx.events.emit('layout:requestError', res, catchError)
                     })
                 }
 

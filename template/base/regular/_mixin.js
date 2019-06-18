@@ -1,5 +1,11 @@
-import _ from '../widget/util';
-import Filter from '../widget/filter';
+const extend = (o1 = {}, o2 = {}, override) => {
+    for (let i in o2) {
+        if (o1[i] === undefined || override) {
+            o1[i] = o2[i];
+        }
+    }
+    return o1;
+};
 
 export default (Component) => {
     Component.implement({
@@ -9,34 +15,22 @@ export default (Component) => {
             regular: '/api/regular/selectList'
         },
         defaults(data) {
-            _.extend(this.data, data);
+            extend(this.data, data);
         },
         rules(rules) {
-            _.extend(this.data, {
+            extend(this.data, {
                 rules
             });
         },
         templates(templates) {
-            _.extend(this.data, {
+            extend(this.data, {
                 templates
             });
         },
         authApis(authApis) {
-            _.extend(this.data, {
+            extend(this.data, {
                 authApis
             });
-        },
-        _filters(type) {
-            if (!Filter[type]) {
-                // eslint-disable-next-line no-console
-                console.error(`'未定义的过滤器:'${type}`);
-                return Filter.returnOriginValue;
-            }
-            return Filter[type].get ? Filter[type].get : Filter[type];
-        },
-        exportFiles(url, condition) {
-            url = `${url}?${_.toQueryString(condition)}`;
-            window.open(url);
         },
         onPreview(e) {
             const { file } = e;

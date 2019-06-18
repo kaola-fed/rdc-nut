@@ -1,4 +1,4 @@
-import { Util } from '~/vue/index';
+import { utils } from 'rds-vue';
 import { API } from '../api';
 
 export default {
@@ -15,7 +15,7 @@ export default {
             try {
                 const { result } = await API.exportList(this.getExtraParam());
                 if (result) {
-                    Util.download(result);
+                    utils.download(result);
                     return;
                 }
                 this.$message.success('导出内容为空');

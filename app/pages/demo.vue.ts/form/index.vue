@@ -2,7 +2,7 @@
     <el-card>
         <el-form ref="queryForm" class="base-form" :model="detail" label-width="100px">
             <el-form-item label="业务部门：" prop="department" verify rqeuired>
-                <kl-select v-if="isEdit" v-model="detail.department" :source="source.department" />
+                <ks-select v-if="isEdit" v-model="detail.department" :source="source.department" />
                 <p v-else>
                     {{ detail.departmentStr }}
                 </p>
@@ -17,13 +17,13 @@
                 <p>{{ detail.code }}</p>
             </el-form-item>
             <el-form-item label="门店类型：" prop="commerceType" verify rqeuired>
-                <kl-select v-if="isEdit" v-model="detail.commerceType" :source="source.commerceType" />
+                <ks-select v-if="isEdit" v-model="detail.commerceType" :source="source.commerceType" />
                 <p v-else>
                     {{ detail.commerceTypeStr }}
                 </p>
             </el-form-item>
             <el-form-item label="销售类型：" prop="importType" verify rqeuired>
-                <kl-select v-if="isEdit" v-model="detail.importType" :source="source.importType" />
+                <ks-select v-if="isEdit" v-model="detail.importType" :source="source.importType" />
                 <p v-else>
                     {{ detail.importTypeStr }}
                 </p>
@@ -44,13 +44,13 @@
                 <el-input v-model="detail.address" type="textarea" placeholder="请输入详细地址" />
             </el-form-item>
             <el-form-item label="门店状态：" prop="disable" verify rqeuired>
-                <kl-select v-if="isEdit" v-model="detail.disable" :source="source.available" />
+                <ks-select v-if="isEdit" v-model="detail.disable" :source="source.available" />
                 <p v-else>
                     {{ detail.disable ? '冻结': '启用' }}
                 </p>
             </el-form-item>
             <el-form-item label="合同状态：" prop="contractStatus" verify rqeuired>
-                <kl-select v-if="isEdit" v-model="detail.contractStatus" :source="source.contractStatus" />
+                <ks-select v-if="isEdit" v-model="detail.contractStatus" :source="source.contractStatus" />
                 <p v-else>
                     {{ detail.contractStatusStr }}
                 </p>
@@ -87,7 +87,7 @@
 
 <script>
 import { Component, Mixins } from 'vue-property-decorator';
-import { SelectMixin } from '~/vue/index';
+import { SelectMixin } from 'rds-vue';
 
 import DetailAction from './mixins/detail.action.ts';
 @Component

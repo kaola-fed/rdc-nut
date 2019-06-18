@@ -1,3 +1,5 @@
+import './vue.entry';
+
 ///^hubble.disable///
 import './hubble';
 ////hubble.disable///
@@ -6,6 +8,11 @@ import './hubble';
 import './sentry';
 ////sentry.disable///
 
+
+/* eslint-disable */
+
 ///#plugins///
-import '../../../src///{.}///'
+import "../../../src/{.}"
 ////plugins///
+
+/* eslint-enable */
