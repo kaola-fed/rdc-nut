@@ -134,7 +134,8 @@ module.exports = {
 ```
 
 > proxy 配置
-
+- proxy.host 设置 hostname，用于网关识别
+- proxy.rules 数组
 ```table
 配置项 [@th width:80px]
 是否必填 [@th width:80px]
@@ -178,8 +179,8 @@ module.exports = {
             getMenus: ''
         },
         hubble: {
-            testKey: 'MA-8FAE-2AEEAA1727B7',
-            onlineKey: 'MA-B4A8-445698C8D4FE',
+            testKey: 'MA-XXXX',
+            onlineKey: 'MA-XXXXX',
         },
         feedback: {
             disable: false
@@ -187,15 +188,34 @@ module.exports = {
         sentry: {
             org: 'kaolafed',
             project: 'kaola-rhea-fed',
-            dsn: 'https://a0bd3c16c5c843e697327f8ded21ee62@sentry.kaola.com/40',
-            token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
+            dsn: 'https://xxxx@sentry.kaola.com/xx',
+            token: 'xxxx',
         },
         proxy: {
-            prefix: '/api',
-            target: 'http://127.0.0.1:3000'
+            host: 'ms.kaola.com',
+            rules: [
+                {
+                    prefix: '/api',
+                    target: 'http://10.198.172.253:8009'
+                },
+                {
+                    prefix: '/sc-workdesk',
+                    target: 'http://10.198.172.253:8009'
+                },
+            ]
         },
         plugins: [
             '/install.js'
+        ],
+        rdsVue: [
+            {
+                key: 'authUrl', value: '"/api/common/auth"'
+            },
+            {
+                key: 'selectUrl', value: `function() {
+                    return '/api/regular/selectList';
+                }`
+            }
         ]
     }
 }
