@@ -6,7 +6,7 @@ const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
 const rm = require('rimraf');
 const webpack = require('webpack');
 
-const mock = require('./dev-mock');
+const mock = require('./dev.mock');
 
 
 const gitVersionPath = path.resolve(__dirname, '..', 'app', '.gitversion');
@@ -60,14 +60,20 @@ module.exports = {
     devServer: {
         before: function(app) {
             const isProxy = process.argv[2];
-            if (isProxy) {
+            if (!isProxy) {
+                mock(app);
                 return;
             }
-            mock(app);
         },
         proxy: {
             ///#proxy///
-            '///{prefix}///': '///{target}///',
+            '///{prefix}///': {
+                target: '///{target}///',
+                headers: {
+                    'X-Gateway-Host': '///{host}///'
+                },
+
+            },
             ////proxy///
         }
     },

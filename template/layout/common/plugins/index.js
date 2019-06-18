@@ -12,7 +12,7 @@ import './sentry';
 /* eslint-disable */
 
 ///#plugins///
-import "../../../src/{.}"
+import '../../../src///{.}///'
 ////plugins///
 
 /* eslint-enable */

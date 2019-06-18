@@ -35,8 +35,8 @@ module.exports = {
                 ],
             },
             api: {
-                getUserInfo: '/api/common/getUserInfo',
-                getMenus: ''
+                getUserInfo: '/sc-workdesk/api/userInfo',
+                getMenus: '/sc-workdesk/api/menu/left'
             },
             hubble: {
                 testKey: 'MA-8FAE-2AEEAA1727B7',
@@ -54,11 +54,13 @@ module.exports = {
             proxy: [
                 {
                     prefix: '/api',
-                    target: 'http://127.0.0.1'
+                    target: 'http://103.196.65.247',
+                    host: 'ms.kaola.com',
                 },
                 {
-                    prefix: '/sc-workdest',
-                    target: 'http://127.0.0.1'
+                    prefix: '/sc-workdesk',
+                    target: 'http://103.196.65.247',
+                    host: 'ms.kaola.com'
                 },
             ],
             plugins: [],

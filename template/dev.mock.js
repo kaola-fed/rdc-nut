@@ -6,9 +6,7 @@ const stripJsonComments = require('strip-json-comments');
 // eslint-disable-next-line no-console
 const log = console.log;
 
-const mockConfig = require('./mock.config');
-
-const { asyncMockPath, proxyRegExp } = mockConfig;
+const asyncMockPath = path.resolve(__dirname, 'src', '__mock__');
 
 const getMockData = (requestPath, method, params) => {
     const mockPath = path.join(asyncMockPath, method, requestPath);
@@ -54,23 +52,28 @@ const parsePostData = req => new Promise((resolve, reject) => {
     }
 });
 
+const mockRequestHandler = async (req, res) => {
+    const requestPath = req.path;
+    const method = req.method.toLowerCase();
+    let params = req.query;
+    if (method === 'post') {
+        params = await parsePostData(req);
+    }
+    const data = getMockData(requestPath, method, params);
+    if (data) {
+        res.status(200).json(typeof data === 'string' ? JSON.parse(stripJsonComments(data)) : data);
+        return;
+    } else {
+        log('The json file seems empty.');
+        res.status(404).json({
+            code: 404,
+            msg: '接口数据未定义'
+        });
+    }
+};
+
 module.exports = function mock(app) {
-    app.all(proxyRegExp, async (req, res) => {
-        const requestPath = req.path;
-        const method = req.method.toLowerCase();
-        let params = req.query;
-        if (method === 'post') {
-            params = await parsePostData(req);
-        }
-        const data = getMockData(requestPath, method, params);
-        if (data) {
-            res.status(200).json(typeof data === 'string' ? JSON.parse(stripJsonComments(data)) : data);
-        } else {
-            log('The json file seems empty.');
-            res.status(404).json({
-                code: 404,
-                msg: '接口数据未定义'
-            });
-        }
-    });
-}
+    ///#proxy///
+    app.all('///{prefix}////*', mockRequestHandler);
+    ////proxy///
+};
