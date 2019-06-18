@@ -36,8 +36,8 @@ export default BaseComponent.extend({
     async setUserInfo() {
         try {
             const { result } = await API.getUserInfo();
-
-            this.data.userInfo = result && result.userInfo || {};
+            window.userInfo = result && result.userInfo || {};
+            this.data.userInfo = window.userInfo;
             // 背景水印
             window.feedback && window.feedback('nickname');
         } catch (err) {

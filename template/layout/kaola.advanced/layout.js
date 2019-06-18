@@ -51,7 +51,8 @@ export default Vue.extend({
             try {
                 const { result } = await API.getUserInfo();
 
-                this.userInfo = result && result.userInfo || {};
+                window.userInfo = result && result.userInfo || {};
+                this.userInfo = window.userInfo;
                 // 背景水印
                 window.feedback && window.feedback('nickname');
             } catch (err) {

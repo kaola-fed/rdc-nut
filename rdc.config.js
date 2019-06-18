@@ -55,12 +55,11 @@ module.exports = {
                 host: 'ms.kaola.com',
                 rules: [
                     {
-                        prefix: '/api',
+                        prefix: '/api,/sc-workdesk',
                         target: 'http://10.198.172.253:8009'
                     },
                     {
-                        prefix: '/sc-workdesk',
-                        target: 'http://10.198.172.253:8009'
+                        prefix: '/sc-test',
                     },
                 ]
             },

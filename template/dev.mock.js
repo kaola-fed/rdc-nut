@@ -72,9 +72,14 @@ const mockRequestHandler = async (req, res) => {
     }
 };
 
+const proxyRules = [
+    ///#proxy.rules///
+    '///{prefix}///'.split(',').filter(item => item),
+    ////proxy.rules///
+];
+const proxyPrefixList = proxyRules.reduce((last, curr) => last.concat(curr), []);
+const proxyReg = new RegExp(`^(${proxyPrefixList.join('|')})`);
 
 module.exports = function mock(app) {
-    ///#proxy.rules///
-    app.all('///{prefix}////*', mockRequestHandler);
-    ////proxy.rules///
+    app.all(proxyReg, mockRequestHandler);
 };

@@ -8,7 +8,6 @@ const webpack = require('webpack');
 
 const mock = require('./dev.mock');
 
-
 const gitVersionPath = path.resolve(__dirname, '..', 'app', '.gitversion');
 let gitVersion = '';
 try {
@@ -30,6 +29,14 @@ const resolve = (pathname) => {
 };
 
 const distDir = resolve('../app/dist');
+
+const proxyArgv = process.argv[2];
+const proxyTable = {
+    test: 'http://10.198.172.253:8009',
+    pre: '',
+    online: ''
+};
+const proxyTarget = proxyTable[proxyArgv] || proxyTable['test'];
 
 module.exports = {
     host: '0.0.0.0',
@@ -59,8 +66,7 @@ module.exports = {
     },
     devServer: {
         before: function(app) {
-            const isProxy = process.argv[2];
-            if (!isProxy) {
+            if (!proxyArgv) {
                 mock(app);
                 return;
             }
@@ -68,8 +74,8 @@ module.exports = {
         proxy: [
             ///#proxy.rules///
             {
-                context: '///{prefix}///',
-                target: '///{target}///',
+                context: '///{prefix}///'.split(',').filter(item => !!item),
+                target: '///{target}///' || proxyTarget,
                 headers: {
                     'X-Gateway-Host': '///{proxy.host}///'
                 }
