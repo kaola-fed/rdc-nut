@@ -39,7 +39,9 @@ export default BaseComponent.extend({
             window.userInfo = result && result.userInfo || {};
             this.data.userInfo = window.userInfo;
             // 背景水印
-            window.feedback && window.feedback('nickname');
+            if (!this.data.isHideLayout) {
+                window.feedback && window.feedback('nickname');
+            }
         } catch (err) {
             this.$emit('requestError', err);
         }

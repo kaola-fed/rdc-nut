@@ -7,7 +7,7 @@ export default class ListActionMixin extends Vue {
     public listService = API.getList;
 
     public onCreate() {
-        window.open('/pages/demo.vue/form/index');
+        window.open('/pages/__demo__/vue/form/index');
     }
 
     public async onExport() {

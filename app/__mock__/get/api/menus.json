@@ -12,12 +12,12 @@
                         "children": [
                             {
                                 "title": "regular列表",
-                                "url": "/pages/demo.regular/index/index",
+                                "url": "/pages/__demo__/regular/index/index",
                                 "children": []
                             },
                             {
                                 "title": "vue列表",
-                                "url": "/pages/demo.vue/index/index"
+                                "url": "/pages/__demo__/vue/index/index"
                             }
                         ]
                     },
@@ -27,7 +27,7 @@
                         "children": [
                             {
                                 "title": "vue表单",
-                                "url": "/pages/demo.vue/form/index",
+                                "url": "/pages/__demo__/vue/form/index",
                                 "children": []
                             }
                         ]

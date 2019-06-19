@@ -17,12 +17,12 @@
             {
                 "count": null,
                 "title": "vue列表",
-                "url": "/pages/demo.vue/index/index"
+                "url": "/pages/__demo__/vue/index/index"
             },
             {
                 "count": null,
                 "title": "regular列表",
-                "url": "/pages/demo.regular/index/index"
+                "url": "/pages/__demo__/regular/index/index"
             }
         ]
     },

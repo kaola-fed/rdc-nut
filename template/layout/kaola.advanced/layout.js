@@ -51,7 +51,9 @@ export default Vue.extend({
                 window.userInfo = result && result.userInfo || {};
                 this.userInfo = window.userInfo;
                 // 背景水印
-                window.feedback && window.feedback('nickname');
+                if (!this.isHideLayout) {
+                    window.feedback && window.feedback('nickname');
+                }
             } catch (err) {
                 this.$emit('requestError', err);
             }

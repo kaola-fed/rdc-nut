@@ -30,6 +30,10 @@ html, body {
 .m-multiSystemFeedbackCollectingTool {
     display: none !important;
 }
+.nut-hide-layout {
+    height: 100%;
+    overflow: auto;
+}
 
 // 修正slot label padding问题
 .slot-label-fix {
