@@ -71,7 +71,7 @@ const ListComponent = BaseComponent.extend({
             ...i,
             // 若urlParser书写方式为数组，则直接从url取值并赋值；若为对象书写方式，则按声明的类型赋值（数组类型自动按半角逗号分割url的取值）
             [j]: _.isArray(urlParser) ? params[j] : (urlParser[j] === Array ? params[j].split(',') : urlParser[j](params[j]))
-        } : {...i}), {});
+        } : { ...i }), {});
         _.extend(condition, result);
     },
     getExtraParam() {

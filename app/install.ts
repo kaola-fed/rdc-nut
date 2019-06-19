@@ -1,1 +1,1 @@
-console.log('Install plugin here');
+// console.log('Install plugin here');

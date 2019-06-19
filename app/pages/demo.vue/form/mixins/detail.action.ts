@@ -1,5 +1,5 @@
-import { API } from '../api';
 import { Component, Vue } from 'vue-property-decorator';
+import { API } from '../api';
 
 @Component
 export default class DetailActionMixin extends Vue {
@@ -28,7 +28,7 @@ export default class DetailActionMixin extends Vue {
             const { result } = await API.getDetail({ id });
             (this as any).detail = result;
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
     async save() {
@@ -41,10 +41,10 @@ export default class DetailActionMixin extends Vue {
                 location.href = `/shop/infoDetail?id=${result.id}`;
             }
         } catch(err) {
-            console.log(err);
+            console.error(err);
         }
     }
     reset() {
         (this as any).$refs.queryForm.resetFields();
     }
-};
+}

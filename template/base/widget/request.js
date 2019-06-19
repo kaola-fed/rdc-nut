@@ -121,12 +121,12 @@ export const $request = async function(url, options={}) {
 export const $get = (url, options={}) => $request(url, options);
 
 export const $post = (url, options={}) => {
-    util.extend(options, {method: 'POST'});
+    util.extend(options, { method: 'POST' });
     return $request(url, options);
 };
 
 export const $form = (url, options={}) => {
-    util.extend(options, {method: 'POST', norest: true});
+    util.extend(options, { method: 'POST', norest: true });
     return $request(url, options);
 };
 

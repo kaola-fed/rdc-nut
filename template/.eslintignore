@@ -3,3 +3,4 @@
 ../app/dist/
 
 layout/common/plugins/*.js
+../template/**/*.d.ts

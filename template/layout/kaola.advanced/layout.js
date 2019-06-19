@@ -97,7 +97,7 @@ export default Vue.extend({
         },
         async handleSorted(e) {
             try {
-                await API.sortFavorMenus({menus: e});
+                await API.sortFavorMenus({ menus: e });
                 this.favoriteMenus = e;
             } catch(err) {
                 this.$emit('requestError', err);

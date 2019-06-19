@@ -25,7 +25,7 @@ const APP_GIT_VERSION = IS_ONLINE ? `${APP_ENV}-${gitVersion}` : '';
 
 
 const resolve = (pathname) => {
-    return path.resolve(__dirname, pathname)
+    return path.resolve(__dirname, pathname);
 };
 
 const distDir = resolve('../app/dist');
@@ -179,4 +179,4 @@ module.exports = {
     babel: {
         plugins: ['@babel/plugin-proposal-decorators']
     }
-}
+};

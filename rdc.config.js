@@ -87,6 +87,6 @@ module.exports = {
         ]
     },
     lint: {
-        ext: ['.js', '.vue']
+        ext: ['.js', '.vue', '.ts']
     }
 };
