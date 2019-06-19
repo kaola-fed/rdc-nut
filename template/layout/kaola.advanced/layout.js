@@ -27,21 +27,18 @@ export default Vue.extend({
             menus: [],
             userInfo: {},
             favoriteMenus: [],
-            isHideLayout: true
+            parentUrl: '',
+            isHideLayout: false
         };
-    },
-
-    computed:{
-        parentUrl() {
-            return window.location.pathname;
-        }
     },
 
     created() {
         this.getUserInfo();
         this.getMenus();
         this.getFavorMenus();
+        this.getParentUrl();
     },
+
     mounted() {
         this.isHideLayout = getUrlParam('isHideLayout');
     },
@@ -74,6 +71,17 @@ export default Vue.extend({
                 const { result } = await API.getFavorMenus();
                 this.favoriteMenus = result.list || [];
             } catch(err) {
+                this.$emit('requestError', err);
+            }
+        },
+
+        async getParentUrl() {
+            try {
+                const { result } = await API.getParentUrl({
+                    url: window.location.pathname
+                });
+                this.parentUrl = result && result.url;
+            } catch (err) {
                 this.$emit('requestError', err);
             }
         },

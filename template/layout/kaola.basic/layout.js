@@ -29,11 +29,11 @@ export default BaseComponent.extend({
 
     init() {
         this.supr();
-        this.setUserInfo();
-        this.setMenus();
+        this.getUserInfo();
+        this.getMenus();
     },
 
-    async setUserInfo() {
+    async getUserInfo() {
         try {
             const { result } = await API.getUserInfo();
             window.userInfo = result && result.userInfo || {};
@@ -41,7 +41,7 @@ export default BaseComponent.extend({
             // 背景水印
             window.feedback && window.feedback('nickname');
         } catch (err) {
-            console.error(err);
+            this.$emit('requestError', err);
         }
     },
 
@@ -50,11 +50,11 @@ export default BaseComponent.extend({
             const { result } = await API.getMenus();
             return result && result.list || [];
         } catch (err) {
-            console.error(err);
+            this.$emit('requestError', err);
         }
     },
 
-    async setMenus() {
+    async getMenus() {
         const menus = await this.fetchMenus();
         const currentPage = location.hash;
 

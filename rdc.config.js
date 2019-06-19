@@ -16,7 +16,7 @@ try {
 module.exports = {
     framework: 'vue',
     docs: {
-        url: 'https://kaola-fed.github.io/rdc-nut/'
+        url: '/'
     },
     render: {
         includes: [
@@ -35,8 +35,8 @@ module.exports = {
                 ],
             },
             api: {
-                getUserInfo: '/sc-workdesk/api/userInfo',
-                getMenus: '/sc-workdesk/api/menu/left'
+                // getUserInfo: '/sc-workdesk/api/userInfo',
+                // getMenus: '/sc-workdesk/api/menu/left'
             },
             hubble: {
                 testKey: 'MA-8FAE-2AEEAA1727B7',
@@ -89,4 +89,4 @@ module.exports = {
     lint: {
         ext: ['.js', '.vue']
     }
-}
+};

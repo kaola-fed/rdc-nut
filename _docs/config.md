@@ -43,31 +43,31 @@ module.exports = {
 |- api.getUserInfo
 | -
 | 获取用户信息 url
-| 默认值：/api/common/getUserInfo
+| 默认值：/api/user
 |- api.getMenus
 | -
 | 获取菜单信息 url
-| 默认值：/api/common/getMenus
+| 默认值：/api/menus
 |- api.logout
 | -
 | 退出登录 url
-| 默认值：/api/common/logout
+| 默认值：/api/logout
 |- api.getFavorMenus
 | -
 | 获取用户常用菜单信息 url
-| 默认值：/api/common/getFavorMenus
+| 默认值：/api/favorMenus
 |- api.addFavorMenu
 | -
 | 添加用户常用菜单 url
-| 默认值：/api/common/addFavorMenu
+| 默认值：/api/favorMenus/add
 |- api.removeFavorMenu
 | -
 | 删除用户常用菜单 url
-| 默认值：/api/common/removeFavorMenu
+| 默认值：/api/favorMenus/remove
 |- api.sortFavorMenus
 | -
 | 排序用户常用菜单 url
-| 默认值：/api/common/sortFavorMenus
+| 默认值：/api/favorMenus/sort
 ```
 
 > hubble 配置

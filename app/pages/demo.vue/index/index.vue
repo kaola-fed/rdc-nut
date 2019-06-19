@@ -40,7 +40,7 @@
             <el-table-column label="新建时间" prop="createTime" width="135" align="center" />
             <el-table-column label="操作" width="120" align="center" fixed="right">
                 <template slot-scope="scope">
-                    <a :href="`/pages/vue/demo/form/index?id=${scope.row.id}`" target="_blank" type="text">查看</a>
+                    <a :href="`/pages/demo.vue/form/index?id=${scope.row.id}`" target="_blank" type="text">查看</a>
                 </template>
             </el-table-column>
         </el-table>
