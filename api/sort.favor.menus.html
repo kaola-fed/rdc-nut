@@ -178,134 +178,65 @@
     </div>
 
     <div id="rde-page">
-      <div>
-  <h4 class="rde-h4">文件映射</h4>
-  <table class="rde-table">
-    <tr>
-      <th>FROM</th>
-      <th>TO</th>
-    </tr>
-    <tr>
-      <td>app</td>
-      <td>src</td>
-    </tr>
-  </table>
+      <blockquote>
+<p class="rde-p">POST /api/favorMenus/sort</p>
+</blockquote>
+<p class="rde-p">排序用户常用菜单</p>
+<h6 class="rde-h6">请求参数：</h6>
+<table class="rde-table">
+<tr>
+</th>
+<th style="">字段</th>
+<th style="">类型</th>
+<th style="">说明</th>
+</tr>
+<tr>
+  <td>menus</td>
+  <td>Array&lt;favorMenus&gt;</td>
+  <td>菜单列表</td>
+</tr>
+</table>
+<p class="rde-p">favorMenus 数据结构：</p>
+<table class="rde-table">
+<tr>
+</th>
+<th style="">字段</th>
+<th style="">类型</th>
+<th style="">说明</th>
+</tr>
+<tr>
+  <td>title</td>
+  <td>String</td>
+  <td>菜单名称</td>
+<tr>
+  <td>url</td>
+  <td>String</td>
+  <td>菜单url</td>
+</tr>
+</table>
+<pre class="hljs"><code>POST /api/common/favorMenus/sort
 
-  <div style="display: flex; flex-direction: row; margin-top: 20px;">
-    <div style="width: 50%;">
-      <h4 class="rde-h4">依赖包</h4>
-      <table class="rde-table">
-        <tr>
-          <th>NAME</th>
-          <th>VERSION</th>
-        </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/@kaola-sc" style="color: #87B8E2" target="_blank">@kaola-sc/scm-layout</a></td>
-            <td>0.3.0</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/@sentry" style="color: #87B8E2" target="_blank">@sentry/browser</a></td>
-            <td>^5.4.0</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/dayjs" style="color: #87B8E2" target="_blank">dayjs</a></td>
-            <td>1.8.14</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/echarts" style="color: #87B8E2" target="_blank">echarts</a></td>
-            <td>4.1.0</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/element-kaola" style="color: #87B8E2" target="_blank">element-kaola</a></td>
-            <td>3.0.20</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/element-ui" style="color: #87B8E2" target="_blank">element-ui</a></td>
-            <td>2.4.8</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/element-ui-verify" style="color: #87B8E2" target="_blank">element-ui-verify</a></td>
-            <td>^1.1.8</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/nek-ui" style="color: #87B8E2" target="_blank">nek-ui</a></td>
-            <td>0.6.3-beta.8</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/rds-vue" style="color: #87B8E2" target="_blank">rds-vue</a></td>
-            <td>0.0.1-alpha.19</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/vue-class-component" style="color: #87B8E2" target="_blank">vue-class-component</a></td>
-            <td>^7.1.0</td>
-          </tr>
-          <tr>
-            <td><a href="https://www.npmjs.com/package/vue-property-decorator" style="color: #87B8E2" target="_blank">vue-property-decorator</a></td>
-            <td>^8.1.1</td>
-          </tr>
-      </table>
-    </div>
-    <div style="width: 50%; margin-left: 8px;">
-      <h4 class="rde-h4">LINT规则</h4>
-      <div>
-        <pre class="hljs"><code><span class="hljs-comment">/* eslint-disable @typescript-eslint/no-var-requires */</span>
-<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
-<span class="hljs-keyword">const</span> resolve = <span class="hljs-function">(<span class="hljs-params">pathname</span>) =&gt;</span> {
-    <span class="hljs-keyword">return</span> path.resolve(__dirname, pathname)
-};
-
-
-<span class="hljs-built_in">module</span>.exports = {
-    <span class="hljs-attr">root</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">env</span>: {
-        <span class="hljs-attr">browser</span>: <span class="hljs-literal">true</span>,
-    },
-    <span class="hljs-attr">settings</span>: {
-        <span class="hljs-string">'import/resolver'</span>: {
-            <span class="hljs-attr">node</span>: {
-                <span class="hljs-attr">extensions</span>: [<span class="hljs-string">'.js'</span>, <span class="hljs-string">'.jsx'</span>, <span class="hljs-string">'.ts'</span>, <span class="hljs-string">'.tsx'</span>, <span class="hljs-string">'.vue'</span>],
-            },
-            <span class="hljs-attr">webpack</span>: {
-                <span class="hljs-attr">config</span>: resolve(<span class="hljs-string">'webpack.config.js'</span>),
-            }
+{
+    <span class="hljs-attr">"menus"</span>: [
+        {
+            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
+            <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>,
         },
-    },
-    <span class="hljs-attr">extends</span>: [
-        <span class="hljs-string">'plugin:vue/essential'</span>,
-        <span class="hljs-string">'airbnb-base'</span>,
-        <span class="hljs-string">'typescript'</span>,
-    ],
-    <span class="hljs-attr">rules</span>: {
-        <span class="hljs-string">'class-methods-use-this'</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-string">'no-underscore-dangle'</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-string">'import/no-extraneous-dependencies'</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-string">'import/no-unresolved'</span>: [
-            <span class="hljs-string">'error'</span>,
-            {
-                <span class="hljs-attr">ignore</span>: [<span class="hljs-string">'@/'</span>],
-            },
-        ],
-        <span class="hljs-string">'import/extensions'</span>: [<span class="hljs-number">0</span>],
-        <span class="hljs-string">'import/prefer-default-export'</span>: [<span class="hljs-number">0</span>],
-        <span class="hljs-string">'no-console'</span>: [<span class="hljs-string">'error'</span>, { <span class="hljs-attr">allow</span>: [<span class="hljs-string">'warn'</span>, <span class="hljs-string">'error'</span>] }],
-        <span class="hljs-string">'semi'</span>: [<span class="hljs-string">'error'</span>, <span class="hljs-string">'always'</span>],
-        <span class="hljs-string">'object-curly-spacing'</span>: [<span class="hljs-string">'error'</span>, <span class="hljs-string">'always'</span>],
-        <span class="hljs-string">'@typescript-eslint/explicit-function-return-type'</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-string">"@typescript-eslint/explicit-member-accessibility"</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-string">"@typescript-eslint/no-explicit-any"</span>: <span class="hljs-number">0</span>,
-    },
-    <span class="hljs-attr">parser</span>: <span class="hljs-string">'vue-eslint-parser'</span>,
-    <span class="hljs-attr">parserOptions</span>: {
-        <span class="hljs-attr">parser</span>: <span class="hljs-string">'@typescript-eslint/parser'</span>,
-    }
-};
-
+        {
+            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"regular列表"</span>,
+            <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.regular/index/index"</span>,
+        }
+    ]
+}
 </code></pre>
-
-      </div>
-    </div>
-  </div>
-</div>
+<h6 class="rde-h6">响应数据：</h6>
+<pre class="hljs"><code>// 示例
+{
+    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
+}
+</code></pre>
 
     </div>
   </div>

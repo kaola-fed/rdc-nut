@@ -179,6 +179,7 @@
 
     <div id="rde-page">
       <h3 class="rde-h3">快速开始</h3>
+<p class="rde-p"> </p>
 <h4 class="rde-h4">创建工程</h4>
 <pre class="hljs"><code><span class="hljs-meta">$</span><span class="bash"> rde create</span>
 <span class="hljs-meta">
@@ -193,10 +194,13 @@ $</span><span class="bash"> ? What is the name of container on docker hub? &gt; 
 $</span><span class="bash"> ? What is the version of container? › {{rdc-nut latest version}}（填写具体版本号）</span>
 </code></pre>
 <p class="rde-p">  rdebase/rdc-nut 版本 请在<a class="rde-a" href="https://cloud.docker.com/repository/docker/rdebase/rdc-nut/general">Docker Hub</a>上查询</p>
+<p class="rde-p"> </p>
 <h4 class="rde-h4">配置rda.config.js</h4>
-<p class="rde-p">  需要配置rda.config.js 中container下的render，具体配置参考 <a class="rde-a" href="/config.html">RDC-NUT配置</a></p>
+<p class="rde-p">  rde create 创建的工程，是一个简单的工程模板，因而工程创建之后，需要修改<code>rda.config.js</code>文件，配置业务工程独特的信息。具体配置参考 <a class="rde-a" href="/config.html">RDC-NUT配置</a></p>
+<p class="rde-p"> </p>
 <h4 class="rde-h4">开发</h4>
 <p class="rde-p">  使用<code>rde serve</code>命令，即可开始开发</p>
+<p class="rde-p"> </p>
 <h4 class="rde-h4">打包</h4>
 <p class="rde-p">  使用<code>rde build</code>命令，打包后静态资源目录<code>app/dist</code></p>
 
@@ -206,7 +210,7 @@ $</span><span class="bash"> ? What is the version of container? › {{rdc-nut la
   <script>
     window.rdeConf = {
       navs: [{"title":"文档","main":true},{"title":"速查","url":"cheatsheet.html"},{"title":"FAQ","url":"FAQ.html"}],
-      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":8},{"title":"规范","children":[{"title":"工程结构","subTitle":"Construct","url":"specification/construct.html","order":6},{"title":"样式规范","subTitle":"Styles","url":"specification/styles.html","order":5},{"title":"API规范","subTitle":"API","url":"specification/api.html","order":4}],"order":7},{"title":"FAQ","subTitle":"","url":"faq.html","order":0}],
+      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":8},{"title":"API请求","children":[{"title":"API","subTitle":"规范","url":"api/index.html","order":9},{"title":"获取用户信息","subTitle":"getUser","url":"api/user.html","order":8},{"title":"获取菜单列表","subTitle":"getMenus","url":"api/menus.html","order":7},{"title":"获取父级菜单","subTitle":"getParentUrl","url":"api/menus.parent.html","order":6},{"title":"退出登录","subTitle":"logout","url":"api/layout.html","order":5},{"title":"获取常用菜单","subTitle":"getFavorMenus","url":"api/favor.menus.html","order":4},{"title":"添加常用菜单","subTitle":"addFavorMenus","url":"api/add.favor.menus.html","order":3},{"title":"删除常用菜单","subTitle":"removeFavor...","url":"api/remove.favor.menus.html","order":2},{"title":"常用菜单排序","subTitle":"sortFavorMenus","url":"api/sort.favor.menus.html","order":1}],"order":6},{"title":"规范","children":[{"title":"工程结构","subTitle":"Construct","url":"specification/construct.html","order":6},{"title":"样式规范","subTitle":"Styles","url":"specification/styles.html","order":5}],"order":5},{"title":"FAQ","subTitle":"","url":"faq.html","order":0}],
     };
 
     new Vue({

@@ -178,195 +178,46 @@
     </div>
 
     <div id="rde-page">
-      <h3 class="rde-h3">API 规范</h3>
-<blockquote>
-<p class="rde-p">获取用户信息</p>
+      <blockquote>
+<p class="rde-p">GET /api/menus/parent</p>
 </blockquote>
-<ul>
-<li><p class="rde-p">默认url：/api/common/getUserInfo</li>
-<li><p class="rde-p">请求参数： GET</li>
-<li><p class="rde-p">请求参数：无</li>
-<li><p class="rde-p">返回值结构：</li>
-</ul>
+<p class="rde-p">获取父级菜单url</p>
+<h6 class="rde-h6">请求参数：</h6>
+<table class="rde-table">
+<tr>
+</th>
+<th style="">字段</th>
+<th style="">类型</th>
+<th style="">说明</th>
+</tr>
+<tr>
+  <td>url</td>
+  <td>String</td>
+  <td>当前页面pathname</td>
+</tr>
+</table>
+<h6 class="rde-h6">响应数据：</h6>
+<table class="rde-table">
+<tr>
+</th>
+<th style="">字段</th>
+<th style="">类型</th>
+<th style="">说明</th>
+</tr>
+<tr>
+  <td>url</td>
+  <td>String</td>
+  <td>当前页面的父级菜单url</td>
+</tr>
+</table>
 <pre class="hljs"><code>// 示例
 {
     <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
     <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">"result"</span>: {
-        <span class="hljs-attr">"userInfo"</span>: {
-            <span class="hljs-attr">"nickName"</span>: <span class="hljs-string">"管理员"</span>
-        }
+        <span class="hljs-attr">"nickName"</span>: <span class="hljs-string">"管理员"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Hxxxx"</span>
     }
-}
-</code></pre>
-<blockquote>
-<p class="rde-p">获取菜单信息</p>
-</blockquote>
-<ul>
-<li><p class="rde-p">默认url：/api/common/getMenus</li>
-<li><p class="rde-p">请求参数： GET</li>
-<li><p class="rde-p">请求参数：无</li>
-<li><p class="rde-p">返回值结构：</li>
-</ul>
-<pre class="hljs"><code>// 示例
-{
-    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-attr">"result"</span>: {
-        <span class="hljs-attr">"list"</span>: [
-            {
-                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Demo"</span>,
-                <span class="hljs-attr">"url"</span>: <span class="hljs-string">""</span>,
-                <span class="hljs-attr">"children"</span>: [
-                    {
-                        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"列表页"</span>,
-                        <span class="hljs-attr">"url"</span>: <span class="hljs-string">""</span>,
-                        <span class="hljs-attr">"children"</span>: [
-                            {
-                                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"regular列表"</span>,
-                                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.regular/index/index"</span>,
-                                <span class="hljs-attr">"children"</span>: []
-                            },
-                            {
-                                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
-                                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-}
-</code></pre>
-<blockquote>
-<p class="rde-p">退出登录</p>
-</blockquote>
-<ul>
-<li><p class="rde-p">默认url：/api/common/logout</li>
-<li><p class="rde-p">请求参数： GET</li>
-<li><p class="rde-p">请求参数：无</li>
-<li><p class="rde-p">返回值结构：</li>
-</ul>
-<pre class="hljs"><code>// 示例
-{
-    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
-}
-</code></pre>
-<h4 class="rde-h4">三级菜单需要提供以下接口</h4>
-<blockquote>
-<p class="rde-p">获取用户常用菜单信息</p>
-</blockquote>
-<ul>
-<li><p class="rde-p">默认url：/api/common/getFavorMenus</li>
-<li><p class="rde-p">请求参数： GET</li>
-<li><p class="rde-p">请求参数：无</li>
-<li><p class="rde-p">返回值结构：</li>
-</ul>
-<pre class="hljs"><code>// 示例
-{
-    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-attr">"error"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"result"</span>: {
-        <span class="hljs-attr">"list"</span>: [
-            {
-                <span class="hljs-attr">"count"</span>: <span class="hljs-literal">null</span>,
-                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"收货异常任务"</span>,
-                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/app/qc-analysis/receiptGoodsAbnormal/index"</span>
-            },
-            {
-                <span class="hljs-attr">"count"</span>: <span class="hljs-literal">null</span>,
-                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"客诉明细"</span>,
-                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/app/qc-complain/detail/list"</span>
-            }
-        ]
-    },
-    <span class="hljs-attr">"success"</span>: <span class="hljs-literal">true</span>
-}
-</code></pre>
-<blockquote>
-<p class="rde-p">添加用户常用菜单</p>
-</blockquote>
-<ul>
-<li><p class="rde-p">默认url：/api/common/addFavorMenu</li>
-<li><p class="rde-p">请求参数： POST</li>
-<li><p class="rde-p">请求参数：</li>
-</ul>
-<pre class="hljs"><code>{
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
-    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>,
-    <span class="hljs-attr">"_favored"</span>: <span class="hljs-literal">true</span>
-}
-</code></pre>
-<ul>
-<li><p class="rde-p">返回值结构：</li>
-</ul>
-<pre class="hljs"><code>// 示例
-{
-    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
-}
-</code></pre>
-<blockquote>
-<p class="rde-p">删除用户常用菜单</p>
-</blockquote>
-<ul>
-<li><p class="rde-p">默认url：/api/common/removeFavorMenu</li>
-<li><p class="rde-p">请求参数： POST</li>
-<li><p class="rde-p">请求参数：</li>
-</ul>
-<pre class="hljs"><code>{
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
-    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>,
-    <span class="hljs-attr">"_favored"</span>: <span class="hljs-literal">false</span>
-}
-</code></pre>
-<ul>
-<li><p class="rde-p">返回值结构：</li>
-</ul>
-<pre class="hljs"><code>// 示例
-{
-    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
-}
-</code></pre>
-<blockquote>
-<p class="rde-p">排序用户常用菜单</p>
-</blockquote>
-<ul>
-<li><p class="rde-p">默认url：/api/common/sortFavorMenus</li>
-<li><p class="rde-p">请求参数： POST</li>
-<li><p class="rde-p">请求参数：</li>
-</ul>
-<pre class="hljs"><code>{
-    <span class="hljs-attr">"menus"</span>: [
-        {
-            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"vue列表"</span>,
-            <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.vue/index/index"</span>,
-            <span class="hljs-attr">"_favored"</span>: <span class="hljs-literal">true</span>,
-            <span class="hljs-attr">"_invalid"</span>: <span class="hljs-literal">false</span>
-        },
-        {
-            <span class="hljs-attr">"count"</span>: <span class="hljs-literal">null</span>,
-            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"regular列表"</span>,
-            <span class="hljs-attr">"url"</span>: <span class="hljs-string">"/pages/demo.regular/index/index"</span>,
-            <span class="hljs-attr">"_invalid"</span>: <span class="hljs-literal">false</span>
-        }
-    ]
-}
-</code></pre>
-<ul>
-<li><p class="rde-p">返回值结构：</li>
-</ul>
-<pre class="hljs"><code>// 示例
-{
-    <span class="hljs-attr">"code"</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-attr">"message"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"result"</span>: <span class="hljs-literal">null</span>
 }
 </code></pre>
 
@@ -376,7 +227,7 @@
   <script>
     window.rdeConf = {
       navs: [{"title":"文档","main":true},{"title":"速查","url":"cheatsheet.html"},{"title":"FAQ","url":"FAQ.html"}],
-      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":8},{"title":"规范","children":[{"title":"工程结构","subTitle":"Construct","url":"specification/construct.html","order":6},{"title":"样式规范","subTitle":"Styles","url":"specification/styles.html","order":5},{"title":"API规范","subTitle":"API","url":"specification/api.html","order":4}],"order":7},{"title":"FAQ","subTitle":"","url":"faq.html","order":0}],
+      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":8},{"title":"API请求","children":[{"title":"API","subTitle":"规范","url":"api/index.html","order":9},{"title":"获取用户信息","subTitle":"getUser","url":"api/user.html","order":8},{"title":"获取菜单列表","subTitle":"getMenus","url":"api/menus.html","order":7},{"title":"获取父级菜单","subTitle":"getParentUrl","url":"api/menus.parent.html","order":6},{"title":"退出登录","subTitle":"logout","url":"api/layout.html","order":5},{"title":"获取常用菜单","subTitle":"getFavorMenus","url":"api/favor.menus.html","order":4},{"title":"添加常用菜单","subTitle":"addFavorMenus","url":"api/add.favor.menus.html","order":3},{"title":"删除常用菜单","subTitle":"removeFavor...","url":"api/remove.favor.menus.html","order":2},{"title":"常用菜单排序","subTitle":"sortFavorMenus","url":"api/sort.favor.menus.html","order":1}],"order":6},{"title":"规范","children":[{"title":"工程结构","subTitle":"Construct","url":"specification/construct.html","order":6},{"title":"样式规范","subTitle":"Styles","url":"specification/styles.html","order":5}],"order":5},{"title":"FAQ","subTitle":"","url":"faq.html","order":0}],
     };
 
     new Vue({
