@@ -3,6 +3,7 @@ title: 工程结构
 subTitle: Construct
 order: 6
 category: 规范
+categoryOrder: 5
 ---
 
 ### 工程结构

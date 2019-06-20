@@ -109,10 +109,10 @@ export default Vue.extend({
         async handleFavored(e) {
             try {
                 if(e.favored) {
-                    await API.addFavorMenu(e.page);
+                    await API.addFavorMenus(e.page);
                     this.favoriteMenus.push(e.page);
                 } else {
-                    await API.removeFavorMenu(e.page);
+                    await API.removeFavorMenus(e.page);
                     let index = this.favoriteMenus.findIndex(function(menu) {
                         return menu.url === e.page.url;
                     });

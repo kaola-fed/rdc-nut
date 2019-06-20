@@ -1,8 +1,9 @@
 ---
-title: 样式规范
-subTitle: Styles
-order: 5
-category: 规范
+title: 规范
+subTitle: BEM
+order: 10
+category: 样式 Styles
+categoryOrder: 4
 ---
 
 ### 样式规范
@@ -16,5 +17,3 @@ category: 规范
         }
     }
 }
-```
-

@@ -13,6 +13,7 @@ order: 8
 
 > 常用库（待补充）
 
+- [nek-ui](http://nek-ui.kaolafed.com/)：regular组件库
 - [echarts](https://echarts.baidu.com/)：图表库
 - [dayjs](https://github.com/iamkun/dayjs)：时间库
 
@@ -26,4 +27,4 @@ order: 8
 
 - ts：默认支持ts
 - mock：提供默认mock方案，`rde serve`默认使用mock数据
-- proxy：提供默认proxy方案，`rde serve -e proxy`使用proxy开发
+- proxy：提供默认proxy方案，`rde serve -e [proxyEnv]`使用proxy开发, proxyEnv可选值test、pre、online

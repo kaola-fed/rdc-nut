@@ -10,9 +10,9 @@ order: 10
 
 &emsp;&emsp;本地mock开发使用
 
-> rde serve -e proxy
+> rde serve -e [proxyEnv]
 
-&emsp;&emsp;本地proxy开发
+&emsp;&emsp;本地proxy开发，proxyEnv 可选值：test、pre、online
 
 > rde build
 

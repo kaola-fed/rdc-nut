@@ -1,3 +1,12 @@
+---
+title: 变量
+subTitle: Var
+order: 5
+---
+
+### 变量
+
+```css
 /* common */
 $unit: 8px;
 
@@ -14,3 +23,5 @@ $success-color-hover: #B7EB94;
 $warning-color-hover: #FFCA61;
 $info-color-hover: #80C6FF;
 $error-color-hover: #FF9A96;
+
+```
