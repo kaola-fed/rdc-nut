@@ -179,31 +179,25 @@
     </div>
 
     <div id="rde-page">
-      <h3 class="rde-h3">快速开始</h3>
-<p class="rde-p"> </p>
-<h4 class="rde-h4">创建工程</h4>
-<pre class="hljs"><code><span class="hljs-meta">$</span><span class="bash"> rde create</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What is the name of project? &gt; projectName</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What kind of project to create? &gt; Application</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What kind of framework to use? &gt; Vue</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What is the name of container on docker hub? &gt; rdebase/rdc-nut</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What is the version of container? › {{rdc-nut latest version}}（填写具体版本号）</span>
+      <h3 class="rde-h3">变量</h3>
+<pre class="hljs"><code><span class="hljs-comment">/* common */</span>
+$<span class="hljs-selector-tag">unit</span>: 8<span class="hljs-selector-tag">px</span>;
+
+<span class="hljs-comment">/* 状态文字默认颜色 */</span>
+$<span class="hljs-selector-tag">primary-color</span>: <span class="hljs-selector-id">#00C4C0</span>;
+$<span class="hljs-selector-tag">success-color</span>: <span class="hljs-selector-id">#93DD68</span>;
+$<span class="hljs-selector-tag">warning-color</span>: <span class="hljs-selector-id">#FFB539</span>;
+$<span class="hljs-selector-tag">info-color</span>: <span class="hljs-selector-id">#54A8F7</span>;
+$<span class="hljs-selector-tag">error-color</span>: <span class="hljs-selector-id">#F86B6B</span>;
+
+<span class="hljs-comment">/* 状态文字悬停颜色 */</span>
+$<span class="hljs-selector-tag">primary-color-hover</span>: <span class="hljs-selector-id">#21D1C8</span>;
+$<span class="hljs-selector-tag">success-color-hover</span>: <span class="hljs-selector-id">#B7EB94</span>;
+$<span class="hljs-selector-tag">warning-color-hover</span>: <span class="hljs-selector-id">#FFCA61</span>;
+$<span class="hljs-selector-tag">info-color-hover</span>: <span class="hljs-selector-id">#80C6FF</span>;
+$<span class="hljs-selector-tag">error-color-hover</span>: <span class="hljs-selector-id">#FF9A96</span>;
+
 </code></pre>
-<p class="rde-p">  rdebase/rdc-nut 版本 请在<a class="rde-a" href="https://cloud.docker.com/repository/docker/rdebase/rdc-nut/general">Docker Hub</a>上查询</p>
-<p class="rde-p"> </p>
-<h4 class="rde-h4">配置rda.config.js</h4>
-<p class="rde-p">  rde create 创建的工程，是一个简单的工程模板，因而工程创建之后，需要修改<code>rda.config.js</code>文件，配置业务工程独特的信息。具体配置参考 <a class="rde-a" href="/config.html">RDC-NUT配置</a></p>
-<p class="rde-p"> </p>
-<h4 class="rde-h4">开发</h4>
-<p class="rde-p">  使用<code>rde serve</code>命令，即可开始开发</p>
-<p class="rde-p"> </p>
-<h4 class="rde-h4">打包</h4>
-<p class="rde-p">  使用<code>rde build</code>命令，打包后静态资源目录<code>app/dist</code></p>
 
     </div>
   </div>

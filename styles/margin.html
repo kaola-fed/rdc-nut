@@ -56,7 +56,7 @@
   .rde-sidebar__nav { display: block; height: 40px; line-height: 40px;  color: #999; font-size: 14px; font-weight: 400; }
 
 
-  .rde-sidebar__page { height: 30px; line-height: 30px; font-size: 13px; color: #333; }
+  .rde-sidebar__page { height: 30px; line-height: 30px; font-size: 13px; color: #666; }
   .rde-sidebar__page--main { display: block; height: 40px; line-height: 40px; margin: 14px 0; }
   .rde-sidebar__page--crt, .rde-sidebar__page--crt i { color: var(--primary-color); }
   .rde-sidebar__page:hover, .rde-sidebar__page:hover i { color: var(--primary-color); }
@@ -64,12 +64,13 @@
 
 <style>
   /* style md */
-  .rde-h1, .rde-h2, .rde-h3, .rde-h4, .rde-h5 { font-weight: 400; color: #1f2f3d; margin: 15px 0; }
+  .rde-h1, .rde-h2, .rde-h3, .rde-h4, .rde-h5, .rde-h6, .rde-h7, .rde-h8 { font-weight: 400; color: #1f2f3d; margin: 15px 0; }
   .rde-h1 { font-size: 28px; }
   .rde-h2 { font-size: 28px; }
   .rde-h3 { font-size: 22px; margin-top: 40px; }
   .rde-h4 { font-size: 18px; }
   .rde-h5 { font-size: 14px; }
+  .rde-h6, .rde-h7, .rde-h8 { font-size: 12px; }
 
   .rde-p { line-height: 1.5em; }
   .rde-p + .rde-p { margin-top: 20px; }
@@ -178,15 +179,43 @@
     </div>
 
     <div id="rde-page">
-      <h3 class="rde-h3">样式规范</h3>
-<p class="rde-p">  RDC已经提供了BEM的支持，请使用如下语法编写</p>
-<pre class="hljs"><code>@<span class="hljs-keyword">include</span> b(module) {
-    @<span class="hljs-keyword">include</span> e(child) {
-        @<span class="hljs-keyword">include</span> m(active) {
-            <span class="hljs-selector-tag">font-size</span>: 14<span class="hljs-selector-tag">px</span>;
-        }
-    }
-}
+      <h3 class="rde-h3">边距相关</h3>
+<h5 class="rde-h5">margin</h5>
+<pre class="hljs"><code><span class="hljs-selector-class">.f-m0</span> { <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.f-mt0</span> { <span class="hljs-attribute">margin-top</span>:<span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.f-mr0</span> { <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.f-mb0</span> { <span class="hljs-attribute">margin-bottom</span>:<span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.f-ml0</span> { <span class="hljs-attribute">margin-left</span>:<span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+
+<span class="hljs-selector-class">.f-mb5</span> { <span class="hljs-attribute">margin-bottom</span>:<span class="hljs-number">5px</span>; }
+<span class="hljs-selector-class">.f-mr5</span> { <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">5px</span>;  }
+<span class="hljs-selector-class">.f-ml5</span> { <span class="hljs-attribute">margin-left</span>:<span class="hljs-number">5px</span>; }
+<span class="hljs-selector-class">.f-mt5</span> { <span class="hljs-attribute">margin-top</span>:<span class="hljs-number">5px</span>; }
+
+<span class="hljs-selector-class">.f-mb10</span> { <span class="hljs-attribute">margin-bottom</span>:<span class="hljs-number">10px</span>; }
+<span class="hljs-selector-class">.f-mr10</span> { <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">10px</span>;  }
+<span class="hljs-selector-class">.f-ml10</span> { <span class="hljs-attribute">margin-left</span>:<span class="hljs-number">10px</span>; }
+<span class="hljs-selector-class">.f-mt10</span> { <span class="hljs-attribute">margin-top</span>:<span class="hljs-number">10px</span>; }
+
+<span class="hljs-selector-class">.f-mb15</span> { <span class="hljs-attribute">margin-bottom</span>:<span class="hljs-number">15px</span>; }
+<span class="hljs-selector-class">.f-mr15</span> { <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">15px</span>;  }
+<span class="hljs-selector-class">.f-ml15</span> { <span class="hljs-attribute">margin-left</span>:<span class="hljs-number">15px</span>; }
+<span class="hljs-selector-class">.f-mt15</span> { <span class="hljs-attribute">margin-top</span>:<span class="hljs-number">15px</span>; }
+
+<span class="hljs-selector-class">.f-mb20</span> { <span class="hljs-attribute">margin-bottom</span>:<span class="hljs-number">20px</span>; }
+<span class="hljs-selector-class">.f-mr20</span> { <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">20px</span>;  }
+<span class="hljs-selector-class">.f-ml20</span> { <span class="hljs-attribute">margin-left</span>:<span class="hljs-number">20px</span>; }
+<span class="hljs-selector-class">.f-mt20</span> { <span class="hljs-attribute">margin-top</span>:<span class="hljs-number">20px</span>; }
+</code></pre>
+<h5 class="rde-h5">padding</h5>
+<pre class="hljs"><code><span class="hljs-selector-class">.f-p0</span> { <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.f-pt0</span> { <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.f-pr0</span> { <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.f-pb0</span> { <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.f-pl0</span> { <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>; }
+
+<span class="hljs-selector-class">.f-pl20</span> { <span class="hljs-attribute">padding-left</span>:<span class="hljs-number">20px</span>; }
+<span class="hljs-selector-class">.f-pr20</span> { <span class="hljs-attribute">padding-right</span>:<span class="hljs-number">20px</span>; }
 </code></pre>
 
     </div>
@@ -195,7 +224,7 @@
   <script>
     window.rdeConf = {
       navs: [{"title":"文档","main":true},{"title":"速查","url":"cheatsheet.html"},{"title":"FAQ","url":"FAQ.html"}],
-      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":8},{"title":"API请求","children":[{"title":"API","subTitle":"规范","url":"api/index.html","order":9},{"title":"获取用户信息","subTitle":"getUser","url":"api/user.html","order":8},{"title":"获取菜单列表","subTitle":"getMenus","url":"api/menus.html","order":7},{"title":"获取父级菜单","subTitle":"getParentUrl","url":"api/menus.parent.html","order":6},{"title":"退出登录","subTitle":"logout","url":"api/layout.html","order":5},{"title":"获取常用菜单","subTitle":"getFavorMenus","url":"api/favor.menus.html","order":4},{"title":"添加常用菜单","subTitle":"addFavorMenus","url":"api/add.favor.menus.html","order":3},{"title":"删除常用菜单","subTitle":"removeFavor...","url":"api/remove.favor.menus.html","order":2},{"title":"常用菜单排序","subTitle":"sortFavorMenus","url":"api/sort.favor.menus.html","order":1}],"order":6},{"title":"规范","children":[{"title":"工程结构","subTitle":"Construct","url":"specification/construct.html","order":6},{"title":"样式规范","subTitle":"Styles","url":"specification/styles.html","order":5}],"order":5},{"title":"FAQ","subTitle":"","url":"faq.html","order":0}],
+      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":8},{"title":"请求 API","children":[{"title":"API","subTitle":"规范","url":"api/index.html","order":9},{"title":"获取用户信息","subTitle":"","url":"api/user.html","order":8},{"title":"获取菜单列表","subTitle":"","url":"api/menus.html","order":7},{"title":"获取父级菜单","subTitle":"","url":"api/menus.parent.html","order":6},{"title":"退出登录","subTitle":"","url":"api/layout.html","order":5},{"title":"获取常用菜单","subTitle":"","url":"api/favor.menus.html","order":4},{"title":"添加常用菜单","subTitle":"","url":"api/add.favor.menus.html","order":3},{"title":"删除常用菜单","subTitle":"","url":"api/remove.favor.menus.html","order":2},{"title":"常用菜单排序","subTitle":"","url":"api/sort.favor.menus.html","order":1}],"order":6},{"title":"规范","children":[{"title":"工程结构","subTitle":"Construct","url":"specification/construct.html","order":6}],"order":5},{"title":"样式 Styles","children":[{"title":"规范","subTitle":"BEM","url":"styles/index.html","order":10},{"title":"字体","subTitle":"Font","url":"styles/font.html","order":9},{"title":"边距","subTitle":"Margin","url":"styles/margin.html","order":8},{"title":"定位","subTitle":"Position","url":"styles/position.html","order":7},{"title":"其他","subTitle":"Other","url":"styles/other.html","order":6},{"title":"变量","subTitle":"Var","url":"styles/var.html","order":5}],"order":4},{"title":"FAQ","subTitle":"","url":"faq.html","order":0}],
     };
 
     new Vue({
@@ -217,7 +246,7 @@
       },
       methods: {
         isCrtNav(nav) {
-          if (!nav.main && nav.url === location.pathname) {
+          if (!nav.main && location.pathname.endsWith(nav.url)) {
             return true;
           }
 
@@ -226,7 +255,7 @@
           }
         },
         isCrtPage(page) {
-          return page.url === location.pathname;
+          return location.pathname.endsWith(page.url);
         },
       },
     });
