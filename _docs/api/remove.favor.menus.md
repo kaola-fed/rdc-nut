@@ -5,7 +5,7 @@ order: 2
 
 > POST /api/favorMenus/remove
 
-删除用户常用菜单
+删除用户常用菜单（三级菜单Layout 需要提供以下接口）
 
 ##### 请求参数：
 ```table

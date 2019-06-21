@@ -18,7 +18,7 @@ order: 9
 .s-fs-22 { font-size:22px; }
 .s-fs-24 { font-size:24px; }
 .s-fs-26 { font-size:26px; }
-.s-fs-40 { font-size: 40px; }
+.s-fs-40 { font-size:40px; }
 ```
 
 ##### 字体样色

@@ -7,7 +7,7 @@ categoryOrder: 6
 
 > POST /api/favorMenus/add
 
-添加用户常用菜单
+添加用户常用菜单（三级菜单Layout 需要提供以下接口）
 
 ##### 请求参数：
 ```table

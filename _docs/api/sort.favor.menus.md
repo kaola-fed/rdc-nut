@@ -5,7 +5,7 @@ order: 1
 
 > POST /api/favorMenus/sort
 
-排序用户常用菜单
+排序用户常用菜单（三级菜单Layout 需要提供以下接口）
 
 ##### 请求参数：
 ```table
