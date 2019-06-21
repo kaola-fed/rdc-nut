@@ -36,14 +36,14 @@ export default BaseComponent.extend({
     async getUserInfo() {
         try {
             const { result } = await API.getUserInfo();
-            window.userInfo = result && result.userInfo || {};
+            window.userInfo = result || {};
             this.data.userInfo = window.userInfo;
             // 背景水印
             if (!this.data.isHideLayout) {
                 window.feedback && window.feedback('nickname');
             }
         } catch (err) {
-            this.$emit('requestError', err);
+            console.error(err);
         }
     },
 
@@ -52,7 +52,7 @@ export default BaseComponent.extend({
             const { result } = await API.getMenus();
             return result && result.list || [];
         } catch (err) {
-            this.$emit('requestError', err);
+            console.error(err);
         }
     },
 
@@ -75,7 +75,7 @@ export default BaseComponent.extend({
     async onLogout() {
         try {
             await API.logout();
-            this.$emit('logout');
+            this.data.ctx.events.emit('layout:logout');
         } catch (err) {
             console.error(err);
         }

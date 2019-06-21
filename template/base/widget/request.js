@@ -11,6 +11,7 @@
  */
 
 import { KLLoading } from 'nek-ui';
+import eventBus from '../../layout/common/event.bus';
 
 const util = {
     isArray(arr) {
@@ -64,6 +65,7 @@ const loadingHandler = (options, loading) => {
 };
 
 const errorHandler = (res) => {
+    eventBus.$emit('requestError', res);
     return Promise.reject(res);
 };
 

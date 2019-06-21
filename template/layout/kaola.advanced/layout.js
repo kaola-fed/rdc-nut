@@ -48,14 +48,14 @@ export default Vue.extend({
             try {
                 const { result } = await API.getUserInfo();
 
-                window.userInfo = result && result.userInfo || {};
+                window.userInfo = result || {};
                 this.userInfo = window.userInfo;
                 // 背景水印
                 if (!this.isHideLayout) {
                     window.feedback && window.feedback('nickname');
                 }
             } catch (err) {
-                this.$emit('requestError', err);
+                console.error(err);
             }
         },
 
@@ -64,7 +64,7 @@ export default Vue.extend({
                 const { result } = await API.getMenus();
                 this.menus = result && result.list || [];
             } catch (err) {
-                this.$emit('requestError', err);
+                console.error(err);
             }
         },
 
@@ -73,7 +73,7 @@ export default Vue.extend({
                 const { result } = await API.getFavorMenus();
                 this.favoriteMenus = result.list || [];
             } catch(err) {
-                this.$emit('requestError', err);
+                console.error(err);
             }
         },
 
@@ -84,7 +84,7 @@ export default Vue.extend({
                 });
                 this.parentUrl = result && result.url;
             } catch (err) {
-                this.$emit('requestError', err);
+                console.error(err);
             }
         },
 
@@ -92,9 +92,9 @@ export default Vue.extend({
         async handleLogout() {
             try {
                 await API.logout();
-                this.$emit('logout');
+                this.ctx.events.emit('layout:logout');
             } catch (err) {
-                this.$emit('requestError', err);
+                console.error(err);
             }
         },
         async handleSorted(e) {
@@ -102,7 +102,7 @@ export default Vue.extend({
                 await API.sortFavorMenus({ menus: e });
                 this.favoriteMenus = e;
             } catch(err) {
-                this.$emit('requestError', err);
+                console.error(err);
             }
         },
 
@@ -121,7 +121,7 @@ export default Vue.extend({
                     }
                 }
             } catch(err) {
-                this.$emit('requestError', err);
+                console.error(err);
             }
 
         },

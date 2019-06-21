@@ -3,43 +3,12 @@
     "error": null,
     "message": null,
     "result": {
-        "userInfo": {
-            "lastLoginTime": 1553219111926,
-            "name": "H5498",
-            "nickName": "管理员",
-            "groles": [
-                {
-                    "extend1": null,
-                    "extend2": null,
-                    "id": 1368,
-                    "name": "开发（供应链技术部）",
-                    "note": "供应商技术部，后端开发+前端开发角色",
-                    "source": 0,
-                    "system_id": -1
-                },
-                {
-                    "extend1": null,
-                    "extend2": null,
-                    "id": 2949,
-                    "name": "线上测试",
-                    "note": "线上测试，含有进销存系统、供应商平台、订单履约中心只读权限、不含任何操作",
-                    "source": 0,
-                    "system_id": -1
-                },
-                {
-                    "extend1": null,
-                    "extend2": null,
-                    "id": 3335,
-                    "name": "供应链-成本管理组",
-                    "note": "供应链-成本管理组",
-                    "source": 0,
-                    "system_id": -1
-                }
-            ],
-            "userId": 790,
-            "email": "hzhayue@corp.netease.com",
-            "status": 1
-        }
+        "lastLoginTime": 1553219111926,
+        "name": "H5498",
+        "nickName": "管理员",
+        "userId": 790,
+        "email": "hzhayue@corp.netease.com",
+        "status": 1
     },
     "success": true
 }

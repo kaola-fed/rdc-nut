@@ -1,5 +1,5 @@
 /* ListComopnent */
-import { KLNotify, KLModal } from 'nek-ui';
+import { KLNotify } from 'nek-ui';
 import qs from 'qs';
 
 import BaseComponent from './BaseComponent.js';
@@ -133,7 +133,6 @@ const ListComponent = BaseComponent.extend({
             this.bodyResolver(json);
             this.$update('loading', false);
         } catch (e) {
-            KLModal.alert((e && e.message) || '返回异常');
             // eslint-disable-next-line no-console
             console.error(e);
             this.$update('loading', false);

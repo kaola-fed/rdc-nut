@@ -1,3 +1,4 @@
+import eventBus from '../common/event.bus';
 import '../common/plugins/index';
 
 import Layout from './layout';
@@ -17,16 +18,8 @@ export default {
                 ctx
             }) {
                 if (!layout) {
-                    const sidebar = ctx.api.sidebar.get();
-
-                    sidebar.forEach(s => s.open = s.active);
-
                     layout = new Layout();
-
-                    layout.$on('logout', () => {
-                        ctx.events.emit('layout:logout');
-                    });
-                    layout.$on('requestError', (res, catchError) => {
+                    eventBus.$on('requestError', (res, catchError) => {
                         ctx.events.emit('layout:requestError', res, catchError);
                     });
                 }

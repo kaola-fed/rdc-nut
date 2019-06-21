@@ -74,7 +74,7 @@ export default async function app(ctx) {
             location.href = `/api/login?redirect=${encodeURIComponent(window.location.href)}`;
         } else if (res && res.code === 403) {
             // 无权限
-            ctx.event.emit('route:unauthorized');
+            ctx.events.emit('route:unauthorized');
         }
     });
 }
