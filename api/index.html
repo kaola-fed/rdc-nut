@@ -203,6 +203,9 @@
   <td>数据结构</td>
 </tr>
 </table>
+<blockquote>
+<p class="rde-p">以下接口说明中，响应数据默认简写为result数据</p>
+</blockquote>
 <p class="rde-p"> </p>
 <h5 class="rde-h5">状态码说明</h5>
 <table class="rde-table">
@@ -223,9 +226,63 @@
 </tr>
 </table>
 <p class="rde-p"> </p>
-<blockquote>
-<p class="rde-p">以下接口说明中，响应数据默认简写为result数据</p>
-</blockquote>
+<h5 class="rde-h5">如何写请求</h5>
+<p class="rde-p">考拉中后台系统接入cas，前端需要对一些按钮、区域等做权限控制。我们目前的方案是进入页面后，先将页面的所有操作相关的请求url收集起来，统一发送到后端的鉴权接口，
+根据后端返回的数据决定页面的这些按钮、区域是否展示。</p>
+<p class="rde-p">我们将页面的所有请求都提取到页面级别目录下的api.js中，并对外暴露出可以用于发请求的API、和发送给后端
+鉴权接口所需的数据authApis。</p>
+<pre class="hljs"><code><span class="hljs-comment">// api.js</span>
+<span class="hljs-keyword">import</span> { getApis } <span class="hljs-keyword">from</span> <span class="hljs-string">'~/widget/request'</span>;
+
+<span class="hljs-keyword">const</span> list = [
+    { <span class="hljs-attr">key</span>: <span class="hljs-string">'getList'</span>, <span class="hljs-attr">url</span>: <span class="hljs-string">'/api/vue/demo/list'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'post'</span> },
+    { <span class="hljs-attr">key</span>: <span class="hljs-string">'exportList'</span>, <span class="hljs-attr">url</span>: <span class="hljs-string">'/api/vue/demo/export'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'post'</span> },
+];
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> API = getApis(list).API;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> authApis = getApis(list).authApis;
+</code></pre>
+<pre class="hljs"><code><span class="hljs-comment">// index.js</span>
+<span class="hljs-keyword">import</span> { API, authApis } <span class="hljs-keyword">from</span> <span class="hljs-string">'./api.js'</span>;
+
+<span class="hljs-comment">// regular</span>
+config(data) {
+    _.extend(data, {
+        authApis
+    });
+    <span class="hljs-keyword">this</span>.supr(data);
+}
+<span class="hljs-comment">// vue</span>
+data() {
+    <span class="hljs-keyword">return</span> {
+        authApis
+    }
+}
+
+...
+async getList() {
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">const</span> { result } = <span class="hljs-keyword">await</span> API.getList({...});
+        ...
+    } <span class="hljs-keyword">catch</span> (err) {
+        <span class="hljs-built_in">console</span>.log(err);
+    }
+}
+...
+</code></pre>
+<pre class="hljs"><code>// index.html
+// regular
+<span class="hljs-tag">&lt;<span class="hljs-name">auth-provider</span> <span class="hljs-attr">authApis</span>=<span class="hljs-string">{authApis}</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">auth</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"exportList"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">kl-button</span>&gt;</span>导出<span class="hljs-tag">&lt;/<span class="hljs-name">kl-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">auth</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">auth-provider</span>&gt;</span>
+
+// index.vue
+// vue 待完善
+<span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"authMaps['exportList']"</span>&gt;</span>导出<span class="hljs-tag">&lt;/<span class="hljs-name">el-button</span>&gt;</span>
+
+</code></pre>
 
     </div>
   </div>
@@ -233,7 +290,7 @@
   <script>
     window.rdeConf = {
       navs: [{"title":"文档","main":true},{"title":"速查","url":"cheatsheet.html"},{"title":"FAQ","url":"FAQ.html"}],
-      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":8},{"title":"请求 API","children":[{"title":"API","subTitle":"规范","url":"api/index.html","order":9},{"title":"获取用户信息","subTitle":"","url":"api/user.html","order":8},{"title":"获取菜单列表","subTitle":"","url":"api/menus.html","order":7},{"title":"获取父级菜单","subTitle":"","url":"api/menus.parent.html","order":6},{"title":"退出登录","subTitle":"","url":"api/layout.html","order":5},{"title":"获取常用菜单","subTitle":"","url":"api/favor.menus.html","order":4},{"title":"添加常用菜单","subTitle":"","url":"api/add.favor.menus.html","order":3},{"title":"删除常用菜单","subTitle":"","url":"api/remove.favor.menus.html","order":2},{"title":"常用菜单排序","subTitle":"","url":"api/sort.favor.menus.html","order":1}],"order":6},{"title":"规范","children":[{"title":"工程结构","subTitle":"Construct","url":"specification/construct.html","order":6}],"order":5},{"title":"样式 Styles","children":[{"title":"规范","subTitle":"BEM","url":"styles/index.html","order":10},{"title":"字体","subTitle":"Font","url":"styles/font.html","order":9},{"title":"边距","subTitle":"Margin","url":"styles/margin.html","order":8},{"title":"定位","subTitle":"Position","url":"styles/position.html","order":7},{"title":"其他","subTitle":"Other","url":"styles/other.html","order":6},{"title":"变量","subTitle":"Var","url":"styles/var.html","order":5}],"order":4},{"title":"FAQ","subTitle":"","url":"faq.html","order":0}],
+      pages: [{"title":"关于","subTitle":"About","url":"index.html","order":12},{"title":"快速开始","subTitle":"QuickStart","url":"quickstart.html","order":11},{"title":"支持命令","subTitle":"Scripts","url":"commands.html","order":10},{"title":"配置","subTitle":"Config","url":"config.html","order":9},{"title":"功能","subTitle":"Function","url":"function.html","order":8},{"title":"目录结构","subTitle":"Structure","url":"structure.html","order":8},{"title":"布局 Layout","children":[{"title":"两级菜单","subTitle":"Two Level","url":"layout/two.level.html","order":9},{"title":"三级菜单","subTitle":"Three Level","url":"layout/three.level.html","order":8}],"order":7},{"title":"请求 API","children":[{"title":"API","subTitle":"规范","url":"api/index.html","order":9},{"title":"获取用户信息","subTitle":"","url":"api/user.html","order":8},{"title":"获取菜单列表","subTitle":"","url":"api/menus.html","order":7},{"title":"获取父级菜单","subTitle":"","url":"api/menus.parent.html","order":6},{"title":"退出登录","subTitle":"","url":"api/layout.html","order":5},{"title":"获取常用菜单","subTitle":"","url":"api/favor.menus.html","order":4},{"title":"添加常用菜单","subTitle":"","url":"api/add.favor.menus.html","order":3},{"title":"删除常用菜单","subTitle":"","url":"api/remove.favor.menus.html","order":2},{"title":"常用菜单排序","subTitle":"","url":"api/sort.favor.menus.html","order":1}],"order":6},{"title":"样式 Styles","children":[{"title":"规范","subTitle":"BEM","url":"styles/index.html","order":10},{"title":"字体","subTitle":"Font","url":"styles/font.html","order":9},{"title":"边距","subTitle":"Margin","url":"styles/margin.html","order":8},{"title":"定位","subTitle":"Position","url":"styles/position.html","order":7},{"title":"其他","subTitle":"Other","url":"styles/other.html","order":6},{"title":"变量","subTitle":"Var","url":"styles/var.html","order":5}],"order":4},{"title":"FAQ","subTitle":"","url":"faq.html","order":0}],
     };
 
     new Vue({

@@ -179,32 +179,179 @@
     </div>
 
     <div id="rde-page">
-      <h3 class="rde-h3">快速开始</h3>
-<p class="rde-p"> </p>
-<h4 class="rde-h4">创建工程</h4>
-<pre class="hljs"><code><span class="hljs-meta">$</span><span class="bash"> rde create</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What is the name of project? &gt; projectName</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What kind of project to create? &gt; Application</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What kind of framework to use? &gt; Vue</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What is the name of container on docker hub? &gt; rdebase/rdc-nut</span>
-<span class="hljs-meta">
-$</span><span class="bash"> ? What is the version of container? &gt; {{rdc-nut latest version}}（填写具体版本号，请不要使用latest）</span>
+      <h3 class="rde-h3">目录结构</h3>
+<p class="rde-p"><code>rde create</code>会生成如下目录结构：</p>
+<pre class="hljs"><code>|-- app/
+|   |-- __mock__/
+|   |   |-- get/ (GET请求)
+|   |   |-- post/ (POST请求)
+|   |-- pages/
+|   |   |-- __demo__/
+|   |   |   |-- regular/
+|   |   |   |   |-- index/
+|   |   |   |   |   |-- api.js
+|   |   |   |   |   |-- index.html
+|   |   |   |   |   |-- index.js
+|   |   |   |   |   |-- index.scss
+|   |   |   |-- vue/
+|   |   |   |   |-- index/
+|   |   |   |   |   |-- mixins/
+|   |   |   |   |   |   |-- list.action.ts
+|   |   |   |   |   |-- api.ts
+|   |   |   |   |   |-- index.html
+|   |   |   |   |   |-- index.js
+|   |   |   |   |   |-- index.scss
+|   |-- app.js（可选）
+|   |-- ...
+|-- rda.config.js
 </code></pre>
-<p class="rde-p">  rdebase/rdc-nut 版本 请在<a class="rde-a" href="https://cloud.docker.com/repository/docker/rdebase/rdc-nut/general">Docker Hub</a>上查询</p>
-<p class="rde-p">  创建的新工程，默认会在<code>app/pages/__demo__</code>下生成regular 和 vue 两个demo页面，仅供参考</p>
 <p class="rde-p"> </p>
-<h4 class="rde-h4">配置rda.config.js</h4>
-<p class="rde-p">  rde create 创建的工程，是一个简单的工程模板，因而工程创建之后，需要修改<code>rda.config.js</code>文件，配置业务工程独特的信息。具体配置参考 <a class="rde-a" href="/config.html">RDC-NUT配置</a></p>
+<h4 class="rde-h4">pages（待补充物料生成规范）</h4>
+<p class="rde-p">pages 为页面级别目录，pages下文件会自动生成路由。</p>
+<p class="rde-p">例如上方结构中的regular和 demo 页面会自动生成路由 <code>/pags/__demo__/regular/index/index</code> 和 <code>/pages/__demo__/vue/index/index</code>。</p>
+<p class="rde-p">如果需要自定义路由名，可以在<code>app/app.js</code>中设置路由别名，下面会详细介绍 app.js。</p>
 <p class="rde-p"> </p>
-<h4 class="rde-h4">开发</h4>
-<p class="rde-p">  使用<code>rde serve</code>命令，即可开始开发</p>
+<h4 class="rde-h4">app.js</h4>
+<p class="rde-p">app.js 文件会在工程启动时自动被<a class="rde-a" href="https://nut.js.org/">nut</a>加载，文件中可以设置应用级别的配置。例如：设置首页、设置路由别名、以及监听rdc-nut暴露出的事件。</p>
+<pre class="hljs"><code><span class="hljs-comment">// app.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">app</span>(<span class="hljs-params">ctx</span>) </span>{
+    <span class="hljs-comment">// 设置 首页</span>
+    ctx.api.homepage.set(<span class="hljs-string">'pages/__demo__/regular/index/index'</span>);
+
+    <span class="hljs-comment">// 设置 页面的 layout</span>
+    ctx.api.page(<span class="hljs-string">'pages/__demo__/vue/form/index'</span>).set(<span class="hljs-string">'layout'</span>, <span class="hljs-string">'kaola-basic'</span>);
+
+    <span class="hljs-comment">// 设置 页面的 alias</span>
+    ctx.api.router.alias(<span class="hljs-string">'pages/__demo__/regular/index/index'</span>, <span class="hljs-string">'/demoRegular/index'</span>);
+
+    <span class="hljs-comment">// 监听 rdc-nut 暴露出的 退出登录事件</span>
+    ctx.events.on(<span class="hljs-string">'layout:logout'</span>, () =&gt; {
+        location.href = <span class="hljs-string">`/api/login?redirect=<span class="hljs-subst">${<span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-built_in">window</span>.location.href)}</span>`</span>;
+    });
+
+    <span class="hljs-comment">// 监听 rdc-nut 暴露出的 请求失败事件</span>
+    ctx.events.on(<span class="hljs-string">'layout:requestError'</span>, (res) =&gt; {
+        <span class="hljs-keyword">if</span>(res &amp;&amp; res.code === <span class="hljs-number">10000</span> || res.code === <span class="hljs-number">10007</span> || res.retcode === <span class="hljs-number">10007</span>) {
+            <span class="hljs-comment">// 未登录</span>
+            location.href = <span class="hljs-string">`/api/login?redirect=<span class="hljs-subst">${<span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-built_in">window</span>.location.href)}</span>`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (res &amp;&amp; res.code === <span class="hljs-number">403</span>) {
+            <span class="hljs-comment">// 无权限</span>
+            ctx.event.emit(<span class="hljs-string">'route:unauthorized'</span>);
+        }
+    });
+}
+
+</code></pre>
 <p class="rde-p"> </p>
-<h4 class="rde-h4">打包</h4>
-<p class="rde-p">  使用<code>rde build</code>命令，打包后静态资源目录<code>app/dist</code></p>
+<h4 class="rde-h4">__ mock __</h4>
+<p class="rde-p">__ mock __ 目录下存放mock数据，支持json和js两种格式，其中 js 文件 可以很简单的获取到请求参数，包括get请求和post请求</p>
+<pre class="hljs"><code><span class="hljs-comment">// 统一下拉接口 selectKeys.js</span>
+<span class="hljs-keyword">const</span> generateRandom = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">len = <span class="hljs-number">5</span></span>) </span>{
+    <span class="hljs-keyword">const</span> source = [];
+    <span class="hljs-keyword">while</span>(len &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">const</span> randomId = <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">Math</span>.random()}</span>`</span>.slice(<span class="hljs-number">-5</span>);
+        source.push({
+            <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${randomId}</span>`</span>,
+            <span class="hljs-attr">name</span>: <span class="hljs-string">`下拉选项_<span class="hljs-subst">${randomId}</span>`</span>
+        });
+        len--;
+    }
+    <span class="hljs-keyword">return</span> source;
+};
+
+<span class="hljs-comment">// get请求 和 post请求 请求参数均可从params上取</span>
+<span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>{
+    <span class="hljs-keyword">const</span> { keys } = params;
+    <span class="hljs-keyword">const</span> keyList = keys.split(<span class="hljs-string">','</span>);
+
+    <span class="hljs-keyword">const</span> result = <span class="hljs-built_in">Object</span>.create(<span class="hljs-literal">null</span>);
+
+    keyList.forEach(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> {
+        result[item] = existKeys[item] || generateRandom();
+    });
+
+    <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">code</span>: <span class="hljs-number">200</span>,
+        result
+    };
+};
+
+</code></pre>
+<p class="rde-p"> </p>
+<h4 class="rde-h4">插件</h4>
+<p class="rde-p">虽然 rdc-nut 内置了rds-vue 和 nek-ui，但是各个业务线在实际开发过程中，往往会沉淀出各自的通用组件、函数、样式等，我们将之统一称作套件。由于rdc-nut并没有直接暴露出入口文件，那如何全局引入并注册这些套件呢？为此，我们提供了插件机制。</p>
+<ul>
+<li><p class="rde-p">在 app目录下新建js文件，并在该文件中执行相应的引入、注册等操作。</li>
+<li><p class="rde-p">在rda.config.js 中 plugins下，将该文件路径 写到plugins数组中（注意：文件路径是相对于app目录的绝对路径）。</li>
+</ul>
+<p class="rde-p">例如：引入elementUI。</p>
+<pre class="hljs"><code><span class="hljs-comment">// app/install.js</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>;
+<span class="hljs-keyword">import</span> ElementUI <span class="hljs-keyword">from</span> <span class="hljs-string">'element-ui'</span>;
+
+Vue.use(ElementUI);
+</code></pre>
+<pre class="hljs"><code><span class="hljs-comment">// rda.config.js</span>
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">container</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'rdebase/rdc-nut:{{version}}'</span>,
+    <span class="hljs-attr">render</span>: {
+        <span class="hljs-attr">plugins</span>: [
+            <span class="hljs-string">'/install.js'</span>
+        ]
+    },
+  },
+  ...
+};
+</code></pre>
+<p class="rde-p"> </p>
+<h4 class="rde-h4">别名</h4>
+<table class="rde-table">
+<tr>
+</th>
+<th style="">别名</th>
+<th style="">目录</th>
+</tr>
+<tr>
+  <td>@</td>
+  <td>app目录</td>
+<tr>
+  <td>~</td>
+  <td>template/base目录</td>
+</tr>
+</table>
+<p class="rde-p"> </p>
+<h4 class="rde-h4">Regular常用基础组件</h4>
+<table class="rde-table">
+<tr>
+</th>
+<th style="">文件</th>
+<th style="">路径</th>
+</tr>
+<tr>
+  <td>BaseComponent.js</td>
+  <td>~/regular/BaseComponent.js</td>
+<tr>
+  <td>ListComponent.js</td>
+  <td>~/regular/ListComponent.js</td>
+<tr>
+  <td>BaseModal.js</td>
+  <td>~/regular/BaseModal.js</td>
+</tr>
+</table>
+<p class="rde-p"> </p>
+<h4 class="rde-h4">其他路径</h4>
+<table class="rde-table">
+<tr>
+</th>
+<th style="">文件</th>
+<th style="">路径</th>
+</tr>
+<tr>
+  <td>request.js</td>
+  <td>~/widget/request.js</td>
+</tr>
+</table>
 
     </div>
   </div>
