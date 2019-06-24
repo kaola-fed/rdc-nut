@@ -236,7 +236,7 @@
             location.href = <span class="hljs-string">`/api/login?redirect=<span class="hljs-subst">${<span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-built_in">window</span>.location.href)}</span>`</span>;
         } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (res &amp;&amp; res.code === <span class="hljs-number">403</span>) {
             <span class="hljs-comment">// 无权限</span>
-            ctx.event.emit(<span class="hljs-string">'route:unauthorized'</span>);
+            ctx.events.emit(<span class="hljs-string">'route:unauthorized'</span>);
         }
     });
 }
