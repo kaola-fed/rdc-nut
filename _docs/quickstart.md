@@ -23,7 +23,7 @@ $ ? What is the name of container on docker hub? > rdebase/rdc-nut
 $ ? What is the version of container? > {{rdc-nut latest version}}（填写具体版本号，请不要使用latest）
 ```
 
-&emsp;&emsp;rdebase/rdc-nut 版本 请在[Docker Hub](https://cloud.docker.com/repository/docker/rdebase/rdc-nut/general)上查询
+&emsp;&emsp;rdebase/rdc-nut 版本 请在[Docker Hub](https://hub.docker.com/r/rdebase/rdc-nut/tags)上查询
 
 &emsp;&emsp;创建的新工程，默认会在`app/pages/__demo__`下生成regular 和 vue 两个demo页面，仅供参考
 
