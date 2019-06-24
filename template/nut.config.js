@@ -107,7 +107,7 @@ module.exports = {
                     }]
                 },
                 {
-                    test: /\.(js|vue)$/,
+                    test: /\.(js|vue|tsx?)$/,
                     enforce: 'pre',
                     exclude: [
                         /node_modules/,
@@ -116,14 +116,6 @@ module.exports = {
                     use: [{
                         loader: 'eslint-loader'
                     }]
-                },
-                {
-                    test: /\.tsx?$/,
-                    loader: 'ts-loader',
-                    exclude: /node_modules/,
-                    options: {
-                        appendTsSuffixTo: [/\.vue$/],
-                    }
                 },
                 {
                     test: /\.scss$/,
