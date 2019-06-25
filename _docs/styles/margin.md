@@ -35,6 +35,16 @@ order: 8
 .f-mr20 { margin-right:20px;  }
 .f-ml20 { margin-left:20px; }
 .f-mt20 { margin-top:20px; }
+
+.f-mb25 { margin-bottom:25px; }
+.f-mr25 { margin-right:25px;  }
+.f-ml25 { margin-left:25px; }
+.f-mt25 { margin-top:25px; }
+
+.f-mb30 { margin-bottom:30px; }
+.f-mr30 { margin-right:30px;  }
+.f-ml30 { margin-left:30px; }
+.f-mt30 { margin-top:30px; }
 ```
 
 ##### padding
