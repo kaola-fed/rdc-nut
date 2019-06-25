@@ -34,5 +34,5 @@ order: 12
 * 支持 Regular、Vue
 * 默认接入hubble、sentry、feedback等
 * 提供统一的登录页、404页、未授权页等场景页
-* 默认集成RDS-VUE、echarts、moment等常用js库
+* 默认集成RDS-VUE、echarts、dayjs等常用js库
 

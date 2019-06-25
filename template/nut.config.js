@@ -29,6 +29,7 @@ const resolve = (pathname) => {
 };
 
 const distDir = resolve('../app/dist');
+const publicPath = process.env.NODE_ENV === 'development' ? '/' : '///{build.publicPath}///' || '/public/';
 
 const proxyArgv = process.argv[2];
 const proxyTable = {
@@ -65,6 +66,7 @@ module.exports = {
         favicon: resolve('layout/favicon.ico')
     },
     devServer: {
+        ///#proxy///
         before: function(app) {
             if (!proxyArgv) {
                 mock(app);
@@ -82,10 +84,12 @@ module.exports = {
             },
             ////proxy.rules///
         ]
+        ////proxy///
     },
     configureWebpack: {
         output: {
-            path: distDir
+            path: distDir,
+            publicPath
         },
         resolve: {
             extensions: ['.html', '.js', '.vue', '.json', '.ts'],

@@ -32,6 +32,41 @@ $ ? What is the version of container? > {{rdc-nut latest version}}（填写具�
 
 &emsp;&emsp;rde create 创建的工程，是一个简单的工程模板，因而工程创建之后，需要修改`rda.config.js`文件，配置业务工程独特的信息。具体配置参考 [RDC-NUT配置](/config.html)
 
+##### 示例
+
+```javascript
+// rda.config.js
+module.exports = {
+  container: {
+    name: 'rdebase/rdc-nut:{{version}}',
+    render: {
+        head: {
+            title: '考拉xxx系统', // 必填
+        },
+        proxy: {
+            host: 'ms.kaola.com', // 具体业务域名,
+            rules: [
+                { prefix: '/api' }, // 后端请求前缀，mock、proxy必填
+            ]
+        },
+        sentry: {
+            org: 'kaolafed',
+            project: 'kaola-xxx', // 工程名
+            dsn: 'https://xxxx@sentry.kaola.com/xx',
+            token: 'xxxx',
+        },
+         hubble: {
+            testKey: 'MA-XXXX',
+            onlineKey: 'MA-XXXXX',
+        },
+        ...
+    },
+  },
+  ...
+};
+
+```
+
 &emsp;
 #### 开发
 

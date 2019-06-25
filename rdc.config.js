@@ -46,6 +46,9 @@ module.exports = {
             feedback: {
                 disable: false
             },
+            build: {
+                publicPath: '/public/'
+            },
             sentry: {
                 org: 'kaolafed',
                 project: 'kaola-rhea-fed',

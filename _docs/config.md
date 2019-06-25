@@ -53,6 +53,22 @@ module.exports = {
 ```
 
 &emsp;
+> build 配置
+
+配置打包的一些参数
+
+```table
+配置项 [@th width:80px]
+是否必填 [@th width:80px]
+说明
+备注
+|- build.publicPath
+| ●
+| 配置html加载静态资源的前缀
+| 同webpack output的publicPath
+```
+
+&emsp;
 > api 配置（具体查看[RDC-NUT API](https://kaola-fed.github.io/api/index.html)）
 
 Layout 内部发起的请求，可配置url
