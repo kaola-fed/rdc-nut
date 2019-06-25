@@ -14,8 +14,6 @@
         "@sentry/browser": "^5.4.0",
         "dayjs": "1.8.14",
         "echarts": "4.1.0",
-        "element-kaola": "3.0.20",
-        "element-ui": "2.4.8",
         "element-ui-verify": "^1.1.8",
         "lodash": "^4.17.11",
         "nek-ui": "0.6.3-beta.8",

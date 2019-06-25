@@ -1,4 +1,3 @@
-import 'element-kaola/index.scss';
 import 'nek-ui/dist/css/nek-ui.default.min.css';
 import '../../styles/index.scss';
 
