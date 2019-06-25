@@ -1,1 +1,7 @@
-{"code":200,"message":null,"result":{}}
+{
+    "code": 200,
+    "message": null,
+    "result": {
+        "url": "/pages/__demo__/vue/index/index"
+    }
+}
