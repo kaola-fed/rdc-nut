@@ -199,6 +199,38 @@ $</span><span class="bash"> ? What is the version of container? &gt; {{rdc-nut l
 <p class="rde-p"> </p>
 <h4 class="rde-h4">配置rda.config.js</h4>
 <p class="rde-p">  rde create 创建的工程，是一个简单的工程模板，因而工程创建之后，需要修改<code>rda.config.js</code>文件，配置业务工程独特的信息。具体配置参考 <a class="rde-a" href="/config.html">RDC-NUT配置</a></p>
+<h5 class="rde-h5">示例</h5>
+<pre class="hljs"><code><span class="hljs-comment">// rda.config.js</span>
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">container</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'rdebase/rdc-nut:{{version}}'</span>,
+    <span class="hljs-attr">render</span>: {
+        <span class="hljs-attr">head</span>: {
+            <span class="hljs-attr">title</span>: <span class="hljs-string">'考拉xxx系统'</span>, <span class="hljs-comment">// 必填</span>
+        },
+        <span class="hljs-attr">proxy</span>: {
+            <span class="hljs-attr">host</span>: <span class="hljs-string">'ms.kaola.com'</span>, <span class="hljs-comment">// 具体业务域名,</span>
+            rules: [
+                { <span class="hljs-attr">prefix</span>: <span class="hljs-string">'/api'</span> }, <span class="hljs-comment">// 后端请求前缀，mock、proxy必填</span>
+            ]
+        },
+        <span class="hljs-attr">sentry</span>: {
+            <span class="hljs-attr">org</span>: <span class="hljs-string">'kaolafed'</span>,
+            <span class="hljs-attr">project</span>: <span class="hljs-string">'kaola-xxx'</span>, <span class="hljs-comment">// 工程名</span>
+            dsn: <span class="hljs-string">'https://xxxx@sentry.kaola.com/xx'</span>,
+            <span class="hljs-attr">token</span>: <span class="hljs-string">'xxxx'</span>,
+        },
+         <span class="hljs-attr">hubble</span>: {
+            <span class="hljs-attr">testKey</span>: <span class="hljs-string">'MA-XXXX'</span>,
+            <span class="hljs-attr">onlineKey</span>: <span class="hljs-string">'MA-XXXXX'</span>,
+        },
+        ...
+    },
+  },
+  ...
+};
+
+</code></pre>
 <p class="rde-p"> </p>
 <h4 class="rde-h4">开发</h4>
 <p class="rde-p">  使用<code>rde serve</code>命令，即可开始开发</p>
