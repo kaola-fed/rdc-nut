@@ -72,11 +72,6 @@ export default BaseComponent.extend({
     },
 
     async onLogout() {
-        try {
-            await API.logout();
-            this.data.ctx.events.emit('layout:logout');
-        } catch (err) {
-            console.error(err);
-        }
+        this.data.ctx.events.emit('layout:logout');
     }
 });

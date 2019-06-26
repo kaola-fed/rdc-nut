@@ -89,12 +89,7 @@ export default Vue.extend({
 
 
         async handleLogout() {
-            try {
-                await API.logout();
-                this.ctx.events.emit('layout:logout');
-            } catch (err) {
-                console.error(err);
-            }
+            this.ctx.events.emit('layout:logout');
         },
         async handleSorted(e) {
             try {

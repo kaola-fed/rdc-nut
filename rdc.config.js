@@ -74,7 +74,7 @@ module.exports = {
                 },
                 {
                     key: 'selectUrl', value: `function() {
-                        return '/api/regular/selectList';
+                        return '/api/selectList';
                     }`
                 }
             ]

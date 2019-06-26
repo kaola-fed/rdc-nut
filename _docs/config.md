@@ -90,10 +90,6 @@ Layout 内部发起的请求，可配置url
 | -
 | 获取当前页面的父级菜单url
 | 默认值：/api/menus/parent
-|- api.logout
-| -
-| 退出登录 url
-| 默认值：/api/logout
 |- api.getFavorMenus
 | -
 | 获取用户常用菜单信息 url
