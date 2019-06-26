@@ -11,8 +11,8 @@ export default (Component) => {
     Component.implement({
         // 下拉列表获取统一接口
         services: {
-            uploadUrl: '/sc-workdesk/api/nos/upload',
-            regular: '/api/regular/selectList'
+            uploadUrl: '/api/nos/upload',
+            regular: '/api/selectList'
         },
         defaults(data) {
             extend(this.data, data);
