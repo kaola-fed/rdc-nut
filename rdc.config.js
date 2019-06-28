@@ -28,9 +28,9 @@ module.exports = {
         tags: ["///", "///"],
         mock: {
             port: 8080,
-            layout: 'kaola-advanced',
+            layout: 'kaola-basic',
             head: {
-                title: '考拉供应链管理系统',
+                title: '供应链管理系统',
                 styles: [
                     '//at.alicdn.com/t/font_393438_2tbubgazdlxo5hfr.css'
                 ],

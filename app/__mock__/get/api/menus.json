@@ -8,7 +8,7 @@
                 "children": [
                     {
                         "title": "列表页",
-                        "url": "",
+                        "url": "/pages/__demo__/vue/index/index",
                         "children": [
                             {
                                 "title": "regular列表",
@@ -23,7 +23,7 @@
                     },
                     {
                         "title": "表单页",
-                        "url": "",
+                        "url": "/pages/__demo__/regular/index/index",
                         "children": [
                             {
                                 "title": "vue表单",

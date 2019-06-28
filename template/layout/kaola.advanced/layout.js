@@ -2,7 +2,7 @@ import 'nek-ui/dist/css/nek-ui.default.min.css';
 import '../../styles/index.scss';
 
 import Vue from 'vue';
-import SiteNavLayout from '@kaola-sc/scm-layout';
+import { AdvancedLayout } from '@kaola-sc/scm-layout';
 
 import { API } from '../common/api';
 
@@ -19,7 +19,7 @@ const getUrlParam = (name) => {
 
 export default Vue.extend({
     components: {
-        SiteNavLayout
+        AdvancedLayout
     },
     data() {
         return {

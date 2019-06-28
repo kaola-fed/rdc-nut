@@ -1,4 +1,4 @@
-<site-nav-layout
+<advanced-layout
     v-if="!isHideLayout"
     title="///head.title///"
     :menus="menus"
@@ -14,5 +14,5 @@
     @logout="handleLogout">
     <div id="nickname" class="f-dn">{{userInfo.name}}{{userInfo.nickname || userInfo.nickName}}</div>
     <div ref="$$mount"></div>
-</site-nav-layout>
+</advanced-layout>
 <div v-else class="nut-hide-layout" ref="$$mount"></div>

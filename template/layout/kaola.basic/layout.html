@@ -1,28 +1,14 @@
-{#if !isHideLayout}
-<kl-layout class="layout">
-    <kl-header height="48px" class="layout-header">
-        <a href="/" class="header-left">
-            <i class="header-left__logo"></i>
-            <h1 class="header-left__title">///head.title///</h1>
-        </a>
-        <ul class="header-right">
-            <li class="header-right-item">{userInfo.nickname || userInfo.nickName}</li>
-            <li class="header-right-item">
-                <a href="javascript:;" class="header-right-item__link" on-click="{this.onLogout()}">退出</a>
-            </li>
-        </ul>
-        <div id="nickname" class="f-dn">{userInfo.name}{userInfo.nickname || userInfo.nickName}</div>
-    </kl-header>
-    <kl-layout>
-        <kl-aside width="216px">
-            <kl-sidebar menus={menus} top="0px" uniqueOpened={false} bodyEl="#app" isHide={isHide} />
-        </kl-aside>
-
-        <kl-main isMaster={true} left="216px">
-            <div ref="$$mount"></div>
-        </kl-main>
-    </kl-layout>
-</kl-layout>
-{#else}
-<div class="nut-hide-layout" ref="$$mount"></div>
-{/if}
+<basic-layout
+    v-if="!isHideLayout"
+    title="///head.title///"
+    :menus="menus"
+    :userInfo="userInfo"
+    :parentUrl="parentUrl"
+    :showPageTitle="false"
+    :showBreadCrumb="true"
+    @page-change="handlePageChange"
+    @logout="handleLogout">
+    <div id="nickname" class="f-dn">{{userInfo.name}}{{userInfo.nickname || userInfo.nickName}}</div>
+    <div ref="$$mount"></div>
+</basic-layout>
+<div v-else class="nut-hide-layout" ref="$$mount"></div>

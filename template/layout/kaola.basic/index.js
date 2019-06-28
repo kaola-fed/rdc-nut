@@ -18,17 +18,13 @@ export default {
                 ctx
             }) {
                 if (!layout) {
-                    layout = new Layout({
-                        data: {
-                            ctx
-                        }
-                    });
+                    layout = new Layout();
                     eventBus.$on('requestError', (res, catchError) => {
                         ctx.events.emit('layout:requestError', res, catchError);
                     });
                 }
 
-                layout.$inject(node);
+                layout.$mount(node);
             },
 
             unmount() {
@@ -36,7 +32,7 @@ export default {
                     return;
                 }
 
-                layout.$inject(false);
+                layout.$destroy();
             },
 
             update(data = {}) {
@@ -44,8 +40,8 @@ export default {
                     return;
                 }
 
-                layout.data.ctx = data.ctx;
-                layout.$update();
+                layout.ctx = data.ctx;
+                layout.$forceUpdate();
             },
 
             getMountNode() {
