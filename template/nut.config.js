@@ -171,8 +171,5 @@ module.exports = {
                 );
             ////sentry.disable///
         }
-    },
-    babel: {
-        plugins: ['@babel/plugin-proposal-decorators']
     }
 };

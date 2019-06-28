@@ -1,7 +1,7 @@
 import { Component, Mixins } from 'vue-property-decorator';
 import { SelectMixin } from 'rds-vue';
 
-import DetailAction from './mixins/detail.action.ts';
+import DetailAction from './mixins/detail.action';
 @Component
 export default class Index extends Mixins(SelectMixin, DetailAction) {
     sourceKeys = ['department', 'commerceType', 'importType', 'geoRegion', 'available', 'contractStatus']
