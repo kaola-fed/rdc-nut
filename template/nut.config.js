@@ -58,7 +58,8 @@ module.exports = {
         }
     },
     router: {
-        mode: 'history'
+        mode: 'history',
+        defaultCacheable: false
     },
     html: {
         template: resolve('layout/index.html'),

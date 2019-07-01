@@ -82,8 +82,8 @@ export default Vue.extend({
         },
 
         handlePageChange(url) {
-            window.location.href = url;
-            // this.ctx.api.router.push(url);
+            // window.location.href = url;
+            this.ctx.api.router.push(url);
         }
     },
     template

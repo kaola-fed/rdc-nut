@@ -34,8 +34,7 @@ order: 6
     "code": 200,
     "message": null,
     "result": {
-        "nickName": "管理员",
-        "name": "Hxxxx"
+        "url": "/pages/__demo__/vue/index/index"
     }
 }
 ```
