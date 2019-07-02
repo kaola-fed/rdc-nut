@@ -17,7 +17,7 @@ export default class ListActionMixin extends Vue {
                 utils.download(result);
                 return;
             }
-            (this as any).$message.success('导出内容为空');
+            this.$message.success('导出内容为空');
         } catch (err) {
             console.error(err);
         }
