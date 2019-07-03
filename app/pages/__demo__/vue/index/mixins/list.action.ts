@@ -14,10 +14,11 @@ export default class ListActionMixin extends Vue {
         try {
             const { result } = await API.exportList((this as any).getExtraParam());
             if (result) {
+                // @ts-ignore
                 utils.download(result);
                 return;
             }
-            this.$message.success('导出内容为空');
+            (this as any).$message.success('导出内容为空');
         } catch (err) {
             console.error(err);
         }
