@@ -119,7 +119,10 @@ module.exports = {
                         /nut-auto-generated-/,
                     ],
                     use: [{
-                        loader: 'eslint-loader'
+                        loader: 'eslint-loader',
+                        options: {
+                            emitWarning: true,
+                        }
                     }]
                 },
                 {

@@ -4,10 +4,13 @@ import ActionMixin from './mixins/list.action';
 
 @Component
 export default class Index extends Mixins(ListMixin, SelectMixin, ActionMixin, AuthMixin) {
-    condition = {
+    public listService = '';
+
+    public condition = {
         department: '',
         shopId: '',
         commerceType: ''
-    }
-    sourceKeys = ['department', 'shopList', 'commerceType']
+    };
+
+    public sourceKeys = ['department', 'shopList', 'commerceType']
 }
