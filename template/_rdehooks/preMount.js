@@ -12,6 +12,6 @@ module.exports = () => {
             encoding: 'utf-8'
         });
     } catch (err) {
-        // eslint-disable-next-line no-empty
+        console.error(err);
     }
 };

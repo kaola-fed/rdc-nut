@@ -15,6 +15,6 @@ module.exports = (env) => {
 
         return `${env}-${gitVersion}`;
     } catch (err) {
-        // eslint-disable-next-line no-empty
+        console.error(err);
     }
 };
