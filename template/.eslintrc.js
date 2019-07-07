@@ -12,11 +12,12 @@ module.exports = {
     },
     settings: {
         'import/resolver': {
-            node: {
-                extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
-            },
-            webpack: {
-                config: resolve('webpack.config.js'),
+            alias: {
+                map: [
+                    ['vue$', 'vue/dist/vue.esm.js'],
+                    ['~', resolve('src/base')],
+                ],
+                extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue']
             }
         },
     },
@@ -32,7 +33,7 @@ module.exports = {
         'import/no-unresolved': [
             'error',
             {
-                ignore: ['@/'],
+                ignore: ['~/'],
             },
         ],
         'import/extensions': [0],

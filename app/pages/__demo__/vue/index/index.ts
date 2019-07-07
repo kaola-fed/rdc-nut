@@ -4,7 +4,7 @@ import ActionMixin from './mixins/list.action';
 
 @Component
 export default class Index extends Mixins(ListMixin, SelectMixin, ActionMixin, AuthMixin) {
-    public listService = '';
+    public listService = () => {};
 
     public condition = {
         department: '',

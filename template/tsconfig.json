@@ -31,7 +31,7 @@
                 "vue/dist/vue.esm.js"
             ],
             "~/*": [
-                "../template/base/*"
+                "src/base/*"
             ]
         },
         "lib": [

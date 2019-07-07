@@ -1,5 +1,4 @@
-import eventBus from '../common/event.bus';
-import '../common/plugins/index';
+import eventBus from '~/eventbus';
 
 import Layout from './layout';
 

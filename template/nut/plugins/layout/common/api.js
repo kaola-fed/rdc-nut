@@ -1,4 +1,4 @@
-import { getApis } from '~/widget/request';
+import { getApis } from '~/request';
 
 const list = [
     { key: 'getUserInfo', url: '///{api.getUserInfo}///' || '/api/user', type: 'get' },

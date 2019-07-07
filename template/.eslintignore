@@ -1,6 +1,8 @@
-../app/__mock__/**/*.js
+app/__mock__/**/*.js
 
-../app/dist/
+app/dist/
 
-layout/common/plugins/*.js
-../template/**/*.d.ts
+template/**/*.d.ts
+
+rdc.variables.js
+

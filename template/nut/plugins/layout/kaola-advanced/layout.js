@@ -1,6 +1,3 @@
-import 'nek-ui/dist/css/nek-ui.default.min.css';
-import '../../styles/index.scss';
-
 import Vue from 'vue';
 import { AdvancedLayout } from '@kaola-sc/scm-layout';
 

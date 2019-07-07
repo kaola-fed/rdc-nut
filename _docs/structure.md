@@ -190,5 +190,5 @@ module.exports = {
 文件
 路径
 |- request.js
-| ~/widget/request.js
+| ~/request.js
 ```

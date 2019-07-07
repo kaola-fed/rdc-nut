@@ -1,4 +1,4 @@
-import { getApis } from '~/widget/request';
+import { getApis } from '~/request';
 
 const list = [
     { key: 'exportList', url: '/api/regular/demo/export', type: 'get' },

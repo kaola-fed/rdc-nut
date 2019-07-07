@@ -11,7 +11,7 @@
  */
 
 import { KLLoading } from 'nek-ui';
-import eventBus from '../../layout/common/event.bus';
+import eventBus from './eventbus';
 
 const util = {
     isArray(arr) {

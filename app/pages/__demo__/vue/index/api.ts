@@ -1,4 +1,4 @@
-import { getApis } from '~/widget/request.js';
+import { getApis } from '~/request.js';
 
 const list = [
     { key: 'getList', url: '/api/vue/demo/list', type: 'post' },

@@ -3,7 +3,7 @@ import { KLNotify } from 'nek-ui';
 import qs from 'qs';
 
 import BaseComponent from './BaseComponent.js';
-import { $request } from '../widget/request';
+import { $request } from '../request';
 
 import nutifyRegular from './nutifyRegular';
 

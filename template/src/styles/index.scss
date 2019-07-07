@@ -25,11 +25,13 @@ html, body {
 #m-mask {
     opacity: 0.4;
 }
+
 // helper tool默认隐藏
 .m-feedback-user-guild-btn,
 .m-multiSystemFeedbackCollectingTool {
     display: none !important;
 }
+
 .nut-hide-layout {
     height: 100%;
     overflow: auto;
