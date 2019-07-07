@@ -92,7 +92,7 @@ module.exports = {
                         release: APP_GIT_VERSION,
                         include: distDir, // 上传文件所在目录
                         ignore: ['node_modules', 'chunk-vendors.*'], // 不需要上传的文件，一般大文件也避免上传
-                        configFile: './.sentrycli.rc', // 包含组织、项目、auth信息
+                        configFile: resolve('.sentrycli.rc'), // 包含组织、项目、auth信息
                         urlPrefix: '', // 根据include的设置、以及实际访问路径调整，urlPrefix与include结合后与实际访问路径匹配即可
                         afterUpload: (resolve, reject) => {
                             // 上传完成后删除sourcemap，避免源码泄漏

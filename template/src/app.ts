@@ -22,6 +22,13 @@ import 'nek-ui/dist/css/nek-ui.default.min.css';
 import 'rds-vue/dist/rdsvue.css';
 import './styles/index.scss';
 
+// eslint-disable-next-line no-console
+console.log(
+    '\n%cINFO%cPowered by RDC—NUT%c\n',
+    'background-color: #0089ff;color: #fff;padding: 2px 6px;',
+    'background-color: #3c3e6f;color: #fff;padding: 2px 6px;',
+    ''
+);
 
 export default async ctx => {
     entryFn(ctx);
