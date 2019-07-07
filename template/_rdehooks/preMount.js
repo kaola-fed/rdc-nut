@@ -3,7 +3,7 @@ const childProcess = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
-module.exports = () => {
+module.exports = async () => {
     // 获取 git version
     const gitVersionPath = path.resolve(process.cwd(), 'app', '.gitversion');
     try {
