@@ -4,8 +4,8 @@ const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
 const rm = require('rimraf');
 const webpack = require('webpack');
 
-const devServer = require('./dev.server');
-const getGitVersion = require('./git.version');
+const devServer = require('./dev-server');
+const getGitVersion = require('./git-version');
 
 const APP_ENV = process.env.app_env;
 const IS_ONLINE = /^(pre|prod)$/.test(APP_ENV);

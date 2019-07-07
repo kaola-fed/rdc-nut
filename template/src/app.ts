@@ -11,6 +11,7 @@ import './sentry';
 ////sentry.disable///
 
 
+// @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import variables from '../../rdc.variables';
 
