@@ -90,9 +90,9 @@ if (variables.proxy) {
     let prefixes = [];
 
     rules.forEach(rule => {
-        const { prefix = '' } = rule
-        prefixes = prefixes.concat(prefix)
-    })
+        const { prefix = '' } = rule;
+        prefixes = prefixes.concat(prefix);
+    });
 
     const regexp = new RegExp(`^(${prefixes.join('|')})`);
 
