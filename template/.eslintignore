@@ -1,8 +1,8 @@
-app/__mock__/**/*.js
+../app/__mock__/**/*.js
 
-app/dist/
+../app/dist/
 
-template/**/*.d.ts
+../template/**/*.d.ts
 
 rdc.variables.js
 

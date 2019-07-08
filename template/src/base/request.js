@@ -132,13 +132,19 @@ export const $form = (url, options={}) => {
     return $request(url, options);
 };
 
+export const $formdata = (url, options={}) => {
+    util.extend(options, { method: 'POST', formData: true });
+    return $request(url, options);
+};
+
 export const getApis = (list) => {
     let API = {};
     let authApis = [];
     const requestMethods = {
         get: $get,
         post: $post,
-        form: $form
+        form: $form,
+        formdata: $formdata
     };
 
     list.forEach((item) => {

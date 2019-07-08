@@ -46,7 +46,10 @@ export default Vue.extend({
 
                 window.userInfo = result || {};
                 this.userInfo = window.userInfo;
-                window.DATracker.login(window.userInfo.nickName || window.userInfo.nickname);
+
+                if (window.DATracker && window.DATracker.login) {
+                    window.DATracker.login(window.userInfo.nickName || window.userInfo.nickname);
+                }
 
                 // 背景水印
                 if (!this.isHideLayout) {
