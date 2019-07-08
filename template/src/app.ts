@@ -15,13 +15,14 @@ import './sentry';
 // eslint-disable-next-line import/no-unresolved
 import variables from '../../rdc.variables';
 
-// @ts-ignore
-// eslint-disable-next-line import/no-unresolved
-import entryFn from './entry';
-
 import 'nek-ui/dist/css/nek-ui.default.min.css';
 import 'rds-vue/dist/rdsvue.css';
 import './styles/index.scss';
+
+// entry需要放在最后， 如果工程需要覆盖上面的样式
+// @ts-ignore
+// eslint-disable-next-line import/no-unresolved
+import entryFn from './entry';
 
 // eslint-disable-next-line no-console
 console.log(
@@ -34,7 +35,7 @@ console.log(
 export default async ctx => {
     entryFn(ctx);
 
-    RdsVue.install(Vue, variables.rdsVue || {
+    RdsVue.install(Vue, (variables as any).rdsVue || {
         selectUrl: () => '/api/selects',
         resolveCommonReturn: json => json.result,
         authUrl: '/api/auth',
