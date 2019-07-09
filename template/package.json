@@ -17,13 +17,13 @@
         "element-ui-verify": "^1.1.8",
         "lodash": "^4.17.11",
         "nek-ui": "0.6.3-beta.8",
-        "rds-vue": "0.0.1-alpha.46",
+        "rds-vue": "0.0.1-alpha.48",
         "vue-class-component": "^7.1.0",
         "vue-property-decorator": "^8.1.1"
     },
     "devDependencies": {
         "@kaola/sentry-webpack-plugin": "^1.0.1",
-        "@nut-project/cli": "0.2.5-24",
+        "@nut-project/cli": "0.3.1",
         "@typescript-eslint/eslint-plugin": "^1.10.2",
         "@typescript-eslint/parser": "^1.10.2",
         "babel-eslint": "^10.0.1",
