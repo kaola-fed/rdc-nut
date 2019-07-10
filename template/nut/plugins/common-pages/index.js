@@ -11,14 +11,14 @@ export default {
             api.router.push({
                 page: 'pages/login/index'
             }, {
-              scoped: true
+                scoped: true
             });
         });
         events.on('route:unauthorized', () => {
             api.router.replace({
                 page: 'pages/unauthorized/index'
             }, {
-              scoped: true
+                scoped: true
             });
         });
     }

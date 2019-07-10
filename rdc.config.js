@@ -35,8 +35,8 @@ module.exports = {
                 ],
             },
             api: {
-                getUserInfo: '/sc-workdesk/api/userInfo',
-                getMenus: '/sc-workdesk/api/menu/left'
+                // getUserInfo: '/sc-workdesk/api/userInfo',
+                // getMenus: '/sc-workdesk/api/menu/left'
             },
             hubble: {
                 testKey: 'MA-8FAE-2AEEAA1727B7',
