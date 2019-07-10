@@ -8,11 +8,17 @@ export default {
         api.page('pages/login/index@common-pages').set('layout', 'none');
 
         events.on('route:login', () => {
-            location.href = '/pages/login/index@common-pages';
+            api.router.push({
+                page: 'pages/login/index'
+            }, {
+              scoped: true
+            });
         });
         events.on('route:unauthorized', () => {
             api.router.replace({
                 page: 'pages/unauthorized/index'
+            }, {
+              scoped: true
             });
         });
     }
