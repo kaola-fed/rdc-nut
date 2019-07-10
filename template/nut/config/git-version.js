@@ -7,13 +7,17 @@ module.exports = (env) => {
 
     let gitVersion = '';
     try {
-        gitVersion = fs.readFileSync(gitVersionPath, {
-            encoding: 'utf-8'
-        });
+        if (fs.existsSync(gitVersionPath)) {
+            gitVersion = fs.readFileSync(gitVersionPath, {
+                encoding: 'utf-8'
+            });
 
-        fs.unlinkSync(gitVersionPath);
+            fs.unlinkSync(gitVersionPath);
 
-        return `${env}-${gitVersion}`;
+            return `${env}-${gitVersion}`;
+        }
+
+        return '';
     } catch (err) {
         console.error(err);
     }
