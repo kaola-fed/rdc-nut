@@ -4,7 +4,6 @@ import { API } from '../api';
 
 @Component
 export default class ListActionMixin extends Vue {
-    public listService = API.getList;
 
     public onCreate() {
         window.open('/pages/__demo__/vue/form/index');

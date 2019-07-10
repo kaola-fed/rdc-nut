@@ -4,7 +4,6 @@
     "private": true,
     "scripts": {
         "serve": "nut",
-        "serve:proxy": "nut --e target",
         "build": "nut --prod",
         "build:prod": "cross-env app_env=prod nut --prod",
         "lint": "eslint -c ./.eslintrc.js --fix --ext .js,.vue,.ts"
