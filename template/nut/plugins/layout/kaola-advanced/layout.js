@@ -91,7 +91,7 @@ export default Vue.extend({
 
 
         async handleLogout() {
-            this.ctx.events.emit('layout:logout');
+            this.$ctx.events.emit('layout:logout');
         },
         async handleSorted(e) {
             try {
@@ -123,7 +123,7 @@ export default Vue.extend({
         },
         handlePageChange(url) {
             window.location.href = url;
-            // this.ctx.api.router.push(url);
+            // this.$ctx.api.router.push(url);
         }
     },
     template

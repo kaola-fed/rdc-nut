@@ -11,15 +11,12 @@ module.exports = {
     plugins: {
         'kaola-advanced': {
             path: require.resolve('./nut/plugins/layout/kaola-advanced'),
-            enable: true
         },
         'kaola-basic': {
             path: require.resolve('./nut/plugins/layout/kaola-basic'),
-            enable: true
         },
         'common-pages': {
             path: require.resolve('./nut/plugins/common-pages'),
-            enable: true
         }
     },
     router: {
