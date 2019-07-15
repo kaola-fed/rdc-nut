@@ -78,6 +78,10 @@ module.exports = {
                     location.href = `/api/login?redirect=${encodeURIComponent(window.location.href)}`;
                 } else if (res && res.code === 403) {
                     location.href = 'pages/unauthorized/index@common-pages';
+                } else {
+                    // eslint-disable-next-line @typescript-eslint/no-var-requires
+                    const { KLModal } = require('nek-ui');
+                    KLModal.alert((res && res.message) || '返回异常');
                 }
             }
         },
