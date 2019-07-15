@@ -21,7 +21,7 @@
         "vue-property-decorator": "^8.1.1"
     },
     "devDependencies": {
-        "@kaola/kl-material-ui-tools": "0.0.2",
+        "@kaola/kl-material-ui-tools": "0.0.2-beta.0",
         "@kaola/sentry-webpack-plugin": "^1.0.2",
         "@nut-project/cli": "0.3.5",
         "@typescript-eslint/eslint-plugin": "^1.10.2",
