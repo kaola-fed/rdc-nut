@@ -72,6 +72,15 @@ module.exports = {
                 }
             ]
         },
+        request: {
+            handleRequestError: (res) => {
+                if(res && res.code === 10000 || res.code === 10007 || res.retcode === 10007) {
+                    location.href = `/api/login?redirect=${encodeURIComponent(window.location.href)}`;
+                } else if (res && res.code === 403) {
+                    location.href = 'pages/unauthorized/index@common-pages';
+                }
+            }
+        },
         rdsVue: {
             authUrl: '/api/common/auth',
             selectUrl: () => {
