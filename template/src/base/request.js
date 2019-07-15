@@ -76,6 +76,7 @@ FORMDATAAXIOS.interceptors.response.use(responseSuccessInterceptor, responseErro
 
 export const $raw = RAWAXIOS;
 
+// get请求需要多一层 params
 export const $get = (url, params, options) => JSONAXIOS.get(url, { ...options, params });
 
 export const $post = (url, params, options) => JSONAXIOS.post(url, params, options);
@@ -95,12 +96,8 @@ export const getApis = (list) => {
     };
     list.forEach((item) => {
         const requestMethod = (item.type || 'get').toLowerCase();
-        // get请求需要多一层 params
-        if (requestMethod === 'get') {
-            API[item.key] = (params, options) => requestAPI[requestMethod](item.url, { ...options, params });
-        } else {
-            API[item.key] = (params, options) => requestAPI[requestMethod](item.url, params, options);
-        }
+
+        API[item.key] = (params, options) => requestAPI[requestMethod](item.url, params, options);
 
         authApis.push({
             urlKey: item.key,
