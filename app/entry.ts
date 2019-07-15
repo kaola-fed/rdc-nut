@@ -13,14 +13,4 @@ export default async function app(ctx) {
     ctx.events.on('layout:logout', () => {
         location.href = `/api/login?redirect=${encodeURIComponent(window.location.href)}`;
     });
-
-    // ctx.events.on('layout:requestError', (res) => {
-    //     if(res && res.code === 10000 || res.code === 10007 || res.retcode === 10007) {
-    //         location.href = `/api/login?redirect=${encodeURIComponent(window.location.href)}`;
-    //     } else if (res && res.code === 403) {
-    //         ctx.events.emit('route:unauthorized');
-    //     } else {
-    //         KLModal.alert((res && res.message) || '返回异常');
-    //     }
-    // });
 }

@@ -74,7 +74,7 @@ JSONAXIOS.interceptors.response.use(responseSuccessInterceptor, responseErrorInt
 FORMAXIOS.interceptors.response.use(responseSuccessInterceptor, responseErrorInterceptor);
 FORMDATAAXIOS.interceptors.response.use(responseSuccessInterceptor, responseErrorInterceptor);
 
-export const $rawAxios = RAWAXIOS;
+export const $raw = RAWAXIOS;
 
 export const $get = (url, params, options) => JSONAXIOS.get(url, { ...options, params });
 
