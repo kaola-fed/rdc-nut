@@ -3,7 +3,7 @@ import { KLNotify } from 'nek-ui';
 import qs from 'qs';
 
 import BaseComponent from './BaseComponent.js';
-import { $rawAxios } from '../request';
+import { $raw } from '../request';
 
 import nutifyRegular from './nutifyRegular';
 
@@ -128,7 +128,7 @@ const ListComponent = BaseComponent.extend({
         if (options.formdata) {
             options.headers['Content-Type'] = 'multipart/form-data';
         }
-        return $rawAxios.request({ url, ...options });
+        return $raw.request({ url, ...options });
     },
     // update loading
     async getList() {
