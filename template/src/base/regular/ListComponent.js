@@ -3,7 +3,7 @@ import { KLNotify } from 'nek-ui';
 import qs from 'qs';
 
 import BaseComponent from './BaseComponent.js';
-import { $request } from '../request';
+import { $rawAxios } from '../request';
 
 import nutifyRegular from './nutifyRegular';
 
@@ -111,6 +111,25 @@ const ListComponent = BaseComponent.extend({
         this.data.list = list;
         this.$update();
     },
+    $request(url, options) {
+        options.method = options.method || 'get';
+        if (options.method.toLowerCase() === 'get') {
+            options.params = options.params || options.data;
+        }
+        if (!options.headers) {
+            options.headers = {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-Type': 'application/json;charset=utf-8'
+            };
+        }
+        if (options.norest) {
+            options.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        }
+        if (options.formdata) {
+            options.headers['Content-Type'] = 'multipart/form-data';
+        }
+        return $rawAxios.request({ url, ...options });
+    },
     // update loading
     async getList() {
         this.$update('loading', true);
@@ -129,7 +148,7 @@ const ListComponent = BaseComponent.extend({
         }
         try {
             this.data.list = [];
-            const json = await $request(this.url || this.data.url, option);
+            const json = await this.$request(this.url || this.data.url, option);
             this.bodyResolver(json);
             this.$update('loading', false);
         } catch (e) {
