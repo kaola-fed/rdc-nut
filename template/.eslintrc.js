@@ -27,6 +27,7 @@ module.exports = {
         'typescript',
     ],
     rules: {
+        'quotes': ['error', 'single'],
         'class-methods-use-this': 0,
         'no-underscore-dangle': 0,
         'import/no-extraneous-dependencies': 0,
