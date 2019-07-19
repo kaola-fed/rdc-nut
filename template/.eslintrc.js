@@ -16,6 +16,7 @@ module.exports = {
                 map: [
                     ['vue$', 'vue/dist/vue.esm.js'],
                     ['~', resolve('src/base')],
+                    ['app', resolve('../app')],
                 ],
                 extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue']
             }
@@ -28,6 +29,9 @@ module.exports = {
     ],
     rules: {
         'quotes': ['error', 'single'],
+        'prefer-const': ['error'],
+        'no-var': ['error'],
+        'prefer-arrow-callback': ['error'],
         'class-methods-use-this': 0,
         'no-underscore-dangle': 0,
         'import/no-extraneous-dependencies': 0,

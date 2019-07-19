@@ -109,7 +109,7 @@ export default Vue.extend({
                     this.favoriteMenus.push(e.page);
                 } else {
                     await API.removeFavorMenus(e.page);
-                    let index = this.favoriteMenus.findIndex(function(menu) {
+                    const index = this.favoriteMenus.findIndex((menu) => {
                         return menu.url === e.page.url;
                     });
                     if(index !== -1) {

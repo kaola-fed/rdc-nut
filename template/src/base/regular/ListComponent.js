@@ -3,7 +3,6 @@ import { KLNotify } from 'nek-ui';
 import qs from 'qs';
 
 import BaseComponent from './BaseComponent.js';
-import { $raw } from '../request';
 
 import nutifyRegular from './nutifyRegular';
 
@@ -12,7 +11,7 @@ const _ = {
         return Object.prototype.toString.call(arr).slice(8, -1) === 'Array';
     },
     filterParam(obj) {
-        for (let key in obj) {
+        for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
                 if (!obj[key] && obj[key] !== 0 && obj[key] !== false || (this.isArray(obj[key]) && obj[key].length === 0)) {
                     delete obj[key];
@@ -21,7 +20,7 @@ const _ = {
         }
     },
     extend(o1 = {}, o2 = {}, override) {
-        for (let i in o2) {
+        for (const i in o2) {
             if (o1[i] === undefined || override) {
                 o1[i] = o2[i];
             }
@@ -110,25 +109,6 @@ const ListComponent = BaseComponent.extend({
         this.data.total = (result.pagination && result.pagination.total) || result.total;
         this.data.list = list;
         this.$update();
-    },
-    $request(url, options) {
-        options.method = options.method || 'get';
-        if (options.method.toLowerCase() === 'get') {
-            options.params = options.params || options.data;
-        }
-        if (!options.headers) {
-            options.headers = {
-                'X-Requested-With': 'XMLHttpRequest',
-                'Content-Type': 'application/json;charset=utf-8'
-            };
-        }
-        if (options.norest) {
-            options.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-        }
-        if (options.formdata) {
-            options.headers['Content-Type'] = 'multipart/form-data';
-        }
-        return $raw.request({ url, ...options });
     },
     // update loading
     async getList() {

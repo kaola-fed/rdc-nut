@@ -1,5 +1,7 @@
+import { $raw } from '../request';
+
 const extend = (o1 = {}, o2 = {}, override) => {
-    for (let i in o2) {
+    for (const i in o2) {
         if (o1[i] === undefined || override) {
             o1[i] = o2[i];
         }
@@ -40,7 +42,7 @@ export default (Component) => {
         },
         onLoadInterceptor(json) {
             if (json.code == 200) {
-                let result = json.result || {};
+                const result = json.result || {};
                 return {
                     name: result.name,
                     url: result.url
@@ -58,6 +60,26 @@ export default (Component) => {
             });
 
             this.getList();
-        }
+        },
+        // 仅限内部和老工程使用，请勿在业务工程使用这种老的写法
+        $request(url, options) {
+            options.method = options.method || 'get';
+            if (options.method.toLowerCase() === 'get') {
+                options.params = options.params || options.data;
+            }
+            if (!options.headers) {
+                options.headers = {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/json;charset=utf-8'
+                };
+            }
+            if (options.norest) {
+                options.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+            }
+            if (options.formdata) {
+                options.headers['Content-Type'] = 'multipart/form-data';
+            }
+            return $raw.request({ url, ...options });
+        },
     });
 };
