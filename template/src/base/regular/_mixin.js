@@ -1,3 +1,4 @@
+import qs from 'qs';
 import { $raw } from '../request';
 
 const extend = (o1 = {}, o2 = {}, override) => {
@@ -63,20 +64,31 @@ export default (Component) => {
         },
         // 仅限内部和老工程使用，请勿在业务工程使用这种老的写法
         $request(url, options) {
-            options.method = options.method || 'get';
-            if (options.method.toLowerCase() === 'get') {
-                options.params = options.params || options.data;
-            }
-            if (!options.headers) {
+            const {
+                headers,
+                method = 'get',
+                formdata,
+            } = options;
+
+            if (!headers) {
                 options.headers = {
                     'X-Requested-With': 'XMLHttpRequest',
                     'Content-Type': 'application/json;charset=utf-8'
                 };
             }
-            if (options.norest) {
-                options.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+
+            if (method.toLowerCase() === 'get') {
+                options.params = options.params || options.data;
+            } else if (method.toLowerCase() === 'post') {
+                if (options.norest) {
+                    options.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+                    options.transformRequest = [data => qs.stringify(data, { arrayFormat: 'repeat' })];
+                } else {
+                    options.paramsSerializer = (params) => qs.stringify(params);
+                }
             }
-            if (options.formdata) {
+
+            if (formdata) {
                 options.headers['Content-Type'] = 'multipart/form-data';
             }
             return $raw.request({ url, ...options });
