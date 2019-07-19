@@ -5,7 +5,7 @@ const mock = require('./mock');
 
 const proxyArgv = process.argv[2];
 const gateway = {
-    test: 'http://10.198.172.253:8009',
+    test: 'http://10.198.166.181:8009',
     pre: '',
     online: ''
 };
