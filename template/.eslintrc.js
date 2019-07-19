@@ -29,7 +29,7 @@ module.exports = {
     ],
     rules: {
         'quotes': ['error', 'single'],
-        'prefer-const': ['error'],
+        'prefer-const': ["error", {"destructuring": "all"}],
         'no-var': ['error'],
         'prefer-arrow-callback': ['error'],
         'class-methods-use-this': 0,
