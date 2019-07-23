@@ -5,7 +5,7 @@ const mock = require('./mock');
 
 const proxyArgv = process.argv[2];
 const gateway = {
-    test: 'http://10.198.166.181:8009',
+    test: 'http://kaola-fed-gateway-testjd.service.163.org',
     pre: '',
     online: ''
 };
