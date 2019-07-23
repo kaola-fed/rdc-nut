@@ -5,7 +5,7 @@ const mock = require('./mock');
 
 const proxyArgv = process.argv[2];
 const gateway = {
-    test: 'http://kaola-fed-gateway-testjd.service.163.org',
+    test: 'http://10.198.166.181:8009',
     pre: '',
     online: ''
 };
@@ -41,7 +41,7 @@ if (!variables.proxy) {
             return {
                 context,
                 target: rule.target || proxyTarget,
-                changeOrigin: true,
+                // changeOrigin: true,
                 headers: {
                     'X-Gateway-Host': host
                 }
