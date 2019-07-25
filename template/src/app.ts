@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import ElementUIVerify from 'element-ui-verify';
+
+///^rdsVue.disable///
 import RdsVue from 'rds-vue';
+////rdsVue.disable///
 
 ///^hubble.disable///
 import './hubble';
@@ -16,7 +19,9 @@ import './sentry';
 import variables from '../../.cache/rdc.variables';
 
 import 'nek-ui/dist/css/nek-ui.default.min.css';
+///^rdsVue.disable///
 import 'rds-vue/dist/rdsvue.css';
+////rdsVue.disable///
 import './styles/index.scss';
 
 // entry需要放在最后， 如果工程需要覆盖上面的样式
@@ -35,11 +40,13 @@ console.log(
 export default async ctx => {
     entryFn(ctx);
 
+    ///^rdsVue.disable///
     RdsVue.install(Vue, (variables as any).rdsVue || {
         selectUrl: () => '/api/selects',
         resolveCommonReturn: json => json.result,
         authUrl: '/api/auth',
     });
+    ////rdsVue.disable///
 
     Vue.use(ElementUIVerify);
 };

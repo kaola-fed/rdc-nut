@@ -2,7 +2,7 @@
 // eslint-disable-next-line
 const appKey = IS_ONLINE ? '///hubble.onlineKey///' : '///hubble.testKey///';
 
-window.DATracker.init(appKey, {
+(window as any).DATracker.init(appKey, {
     persistence: 'localStorage',
     heatmap: {
         isTrackLink: true,

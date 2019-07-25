@@ -12,7 +12,7 @@ args.forEach(arg => {
 });
 
 const gateway = {
-    test: 'http://kaola-fed-gateway-testjd.service.163.org',
+    test: 'http://10.198.166.181:8009',
     pre: '',
     online: ''
 };
