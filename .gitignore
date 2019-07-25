@@ -10,3 +10,4 @@ app/dist
 app/.gitversion
 .history
 .DS_Store
+.integrate
