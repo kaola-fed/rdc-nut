@@ -1,15 +1,22 @@
 // eslint-disable-next-line import/no-unresolved
 /* eslint-disable @typescript-eslint/no-var-requires */
-const variables = require('../../../rdc.variables.js');
+const variables = require('../../../.cache/rdc.variables.js');
 const mock = require('./mock');
 
-const proxyArgv = process.argv[2];
+const args = process.argv.slice(2);
+let proxyArgv = null;
+args.forEach(arg => {
+    if (['test', 'pre', 'online'].includes(arg)) {
+        proxyArgv = arg;
+    }
+});
+
 const gateway = {
-    test: 'http://10.198.166.181:8009',
+    test: 'http://kaola-fed-gateway-testjd.service.163.org',
     pre: '',
     online: ''
 };
-const proxyTarget = gateway[proxyArgv] || gateway['test'];
+const proxyTarget = gateway[proxyArgv];
 
 if (!variables.proxy) {
     module.exports = {};

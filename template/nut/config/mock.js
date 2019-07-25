@@ -2,7 +2,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const stripJsonComments = require('strip-json-comments');
-const variables = require('../../../rdc.variables.js');
+const variables = require('../../../.cache/rdc.variables.js');
 
 
 // eslint-disable-next-line no-console

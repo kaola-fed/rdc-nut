@@ -3,7 +3,7 @@ import qs from 'qs';
 import { KLModal } from 'nek-ui';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const variables = require('../../../rdc.variables.js');
+const variables = require('../../../.cache/rdc.variables.js');
 
 const request = variables && variables.request || {};
 const timeout = request.timeout || 0;

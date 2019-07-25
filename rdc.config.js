@@ -1,11 +1,12 @@
 module.exports = {
+    useLocal: true,
     framework: 'vue',
     mappings: [{
         from: 'app',
         to: 'src',
     }],
     docker: {
-        tag: 'rdebase/rdc-nut:0.0.1-alpha.7',
+        tag: 'rdebase/rdc-nut:0.0.1-alpha.8',
         ports: [
             '8080:8080',
             '3210:3210',
@@ -26,7 +27,7 @@ module.exports = {
             // .sentrycli.rc
             '.rc'
         ],
-        tags: ["///", "///"],
+        tags: ['///', '///'],
         mock: {
             port: 8080,
             layout: 'kaola-basic',

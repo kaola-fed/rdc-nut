@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved,@typescript-eslint/no-var-requires
-const variables = require('../rdc.variables');
+const variables = require('../.cache/rdc.variables');
 
 let presets = [];
 

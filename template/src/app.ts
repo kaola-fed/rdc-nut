@@ -13,7 +13,7 @@ import './sentry';
 
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
-import variables from '../../rdc.variables';
+import variables from '../../.cache/rdc.variables';
 
 import 'nek-ui/dist/css/nek-ui.default.min.css';
 import 'rds-vue/dist/rdsvue.css';
