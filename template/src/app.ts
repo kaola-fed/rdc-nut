@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import ElementUIVerify from 'element-ui-verify';
 
 ///^rdsVue.disable///
@@ -48,5 +50,6 @@ export default async ctx => {
     });
     ////rdsVue.disable///
 
+    Vue.use(ElementUI);
     Vue.use(ElementUIVerify);
 };

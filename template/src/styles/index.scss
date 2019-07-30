@@ -41,6 +41,9 @@ html, body {
     margin-top: -5px;
 }
 
+// 由于request出错时，使用的KLModal.alert， 在vue页面， elmenet-ui的弹窗是2000+， 所以会遮挡错误提示
+.kl-modal { z-index: 3000!important; }
+
 .m-table {
     table-layout: fixed;
     width: 100%;
