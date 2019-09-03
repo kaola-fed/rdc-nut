@@ -18,7 +18,7 @@
         "element-ui": "2.11.0",
         "lodash": "^4.17.11",
         "nek-ui": "0.6.3-beta.8",
-        "rds-vue": "0.0.8",
+        "rds-vue": "0.0.5",
         "vue-class-component": "^7.1.0",
         "vue-property-decorator": "^8.1.1"
     },
