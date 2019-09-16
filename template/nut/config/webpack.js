@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+
 const path = require('path');
 const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
 const rm = require('rimraf');
@@ -6,6 +7,9 @@ const webpack = require('webpack');
 
 const devServer = require('./dev-server');
 const getGitVersion = require('./git-version');
+
+// eslint-disable-next-line import/no-unresolved
+const variables = require('../../../.cache/rdc.variables.js');
 
 const APP_ENV = process.env.app_env;
 const IS_ONLINE = /^(pre|prod)$/.test(APP_ENV);
@@ -84,6 +88,9 @@ module.exports = {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             })
         );
+
+        const nutConfig = variables.nut || {};
+        nutConfig.chainWebpack && nutConfig.chainWebpack(config);
 
         if (IS_ONLINE) {
             ///^sentry.disable///

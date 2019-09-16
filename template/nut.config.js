@@ -2,9 +2,14 @@
 const path = require('path');
 const webpack = require('./nut/config/webpack');
 
+// eslint-disable-next-line import/no-unresolved
+const variables = require('../.cache/rdc.variables.js');
+
 const resolve = (pathname) => path.resolve(__dirname, pathname);
 
-module.exports = {
+const nutConfig = variables.nut || {};
+
+const config = {
     host: '0.0.0.0',
     port: '///port///' || 8080,
     layout: '///layout///' || 'kaola-advanced',
@@ -30,3 +35,9 @@ module.exports = {
     },
     ...webpack,
 };
+
+if (nutConfig.babel) {
+    config.babel = nutConfig.babel;
+}
+
+module.exports = config;

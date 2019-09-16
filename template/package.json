@@ -10,7 +10,7 @@
         "lint": "eslint -c ./.eslintrc.js --fix --ext .js,.vue,.ts"
     },
     "dependencies": {
-        "@kaola-sc/scm-layout": "1.0.1-alpha.3",
+        "@kaola-sc/scm-layout": "1.0.1-alpha.4",
         "@sentry/browser": "^5.4.0",
         "dayjs": "1.8.14",
         "echarts": "4.1.0",
