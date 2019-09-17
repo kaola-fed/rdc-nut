@@ -70,6 +70,11 @@ module.exports = {
             chainWebpack: (config) => {
 
             },
+            plugins: {
+                'kaola-custom': {
+                    // path: require.resolve('./nut/plugins/layout/kaola-advanced'),
+                },
+            }
         },
         proxy: {
             host: 'ms.kaola.com',

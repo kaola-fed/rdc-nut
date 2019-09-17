@@ -22,7 +22,8 @@ const config = {
         },
         'common-pages': {
             path: require.resolve('./nut/plugins/common-pages'),
-        }
+        },
+        ...nutConfig.plugins,
     },
     router: {
         mode: 'history',
