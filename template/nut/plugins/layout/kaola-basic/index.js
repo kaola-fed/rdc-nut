@@ -12,6 +12,12 @@ export default {
         let layout = null;
         let el = null;
 
+        // if location.pathanme is / , redirect to homepage
+        const homepage = ctx.api.homepage.get();
+        if (window.location.pathname === '/' && homepage) {
+            ctx.api.router.push(`${homepage[0] === '/' ? homepage : '/' + homepage}`);
+        }
+
         await ctx.api.layout.register({
             name: 'kaola-basic',
 
@@ -63,6 +69,7 @@ export default {
                 if (data.ctx) {
                     layout.$ctx = data.ctx;
                 }
+
                 layout.$forceUpdate();
             },
 
