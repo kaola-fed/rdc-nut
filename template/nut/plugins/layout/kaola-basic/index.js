@@ -12,12 +12,6 @@ export default {
         let layout = null;
         let el = null;
 
-        // if location.pathanme is / , redirect to homepage
-        const homepage = ctx.api.homepage.get();
-        if (window.location.pathname === '/' && homepage) {
-            ctx.api.router.push(`${homepage[0] === '/' ? homepage : '/' + homepage}`);
-        }
-
         await ctx.api.layout.register({
             name: 'kaola-basic',
 
@@ -77,5 +71,22 @@ export default {
                 return layout && layout.$refs.$$mount;
             },
         });
+
+
+        // if location.pathanme is / , redirect to homepage
+        const homepage = ctx.api.homepage.get();
+        if (window.location.pathname === '/' && homepage) {
+            const pages = ctx.pages;
+            let alias = homepage;
+
+            pages.forEach(page => {
+                const aliasArr = page.router._alias;
+                if (page.page === homepage && aliasArr.length) {
+                    alias = aliasArr[0];
+                }
+            });
+
+            ctx.api.router.push(`${alias[0] === '/' ? alias : '/' + alias}`);
+        }
     }
 };

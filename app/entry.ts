@@ -8,7 +8,7 @@ export default async function app(ctx) {
     ctx.api.page('pages/__demo__/vue/form/index').set('layout', 'kaola-basic');
 
     // 设置 特定页面的 alias
-    // ctx.api.router.alias('pages/__demo__/regular/index/index', '/demoRegular/index');
+    ctx.api.router.alias('pages/__demo__/regular/index/index', '/demoRegular/index');
 
     ctx.events.on('layout:logout', () => {
         location.href = `/api/login?redirect=${encodeURIComponent(window.location.href)}`;
