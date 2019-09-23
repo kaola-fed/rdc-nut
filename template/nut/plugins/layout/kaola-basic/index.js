@@ -81,7 +81,7 @@ export default {
 
             pages.forEach(page => {
                 const aliasArr = page.router._alias;
-                if (page.page === homepage && aliasArr.length) {
+                if (page.page === homepage && aliasArr.length > 1) {
                     alias = aliasArr[0];
                 }
             });
