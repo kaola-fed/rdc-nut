@@ -34,6 +34,12 @@ if (!variables.proxy) {
         },
     };
 
+    if (host) {
+        devServer.allowedHosts = [
+            host
+        ];
+    }
+
     if (proxyArgv) {
         devServer.proxy = rules.map(rule => {
             const prefix = rule.prefix || '';

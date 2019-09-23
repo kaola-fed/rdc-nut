@@ -23,7 +23,7 @@ export default Vue.extend({
             menus: [],
             userInfo: {},
             parentUrl: '',
-            isHideLayout: false
+            isHideLayout: false,
         };
     },
 
@@ -73,11 +73,17 @@ export default Vue.extend({
                     url: window.location.pathname
                 });
                 this.parentUrl = result && result.url;
+
+
+                // if location.pathanme is / , active correspond menu;
+                const homepage = this.$ctx.api.homepage.get();
+                if (window.location.pathname === '/' && homepage) {
+                    this.parentUrl = `${homepage[0] === '/' ? homepage : '/' + homepage}`;
+                }
             } catch (err) {
                 console.error(err);
             }
         },
-
 
         async handleLogout() {
             this.$ctx.events.emit('layout:logout');
