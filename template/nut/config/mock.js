@@ -93,11 +93,19 @@ if (variables.proxy) {
         const { prefix = '' } = rule;
         prefixes = prefixes.concat(prefix);
     });
+    // devServer proxy context 支持 通配符，'**' 会 导致 转成 正则表达式失败
+    prefixes = prefixes.map(item => item.replace('**', '*'));
 
-    // const regexp = new RegExp(`^(${prefixes.join('|')})`);
+    let regexp = '';
+    try {
+        regexp = new RegExp(`^(${prefixes.join('|')})`);
+    } catch (err) {
+        log('proxy rules prefixes 转成 正则表达式失败，如果是代理模式可忽略。mock模式需要修改 prefix');
+        regexp = '/';
+    }
 
     module.exports = function mock(app) {
-        app.all(prefixes, mockRequestHandler);
+        app.all(regexp, mockRequestHandler);
     };
 }
 

@@ -79,7 +79,7 @@ export default {
             const pages = ctx.pages;
             let alias = homepage;
 
-            pages.forEach(page => {
+            pages && pages.forEach(page => {
                 const aliasArr = page.router._alias;
                 if (page.page === homepage && aliasArr.length > 1) {
                     alias = aliasArr[0];
