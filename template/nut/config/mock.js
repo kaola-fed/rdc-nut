@@ -94,10 +94,10 @@ if (variables.proxy) {
         prefixes = prefixes.concat(prefix);
     });
 
-    const regexp = new RegExp(`^(${prefixes.join('|')})`);
+    // const regexp = new RegExp(`^(${prefixes.join('|')})`);
 
     module.exports = function mock(app) {
-        app.all(regexp, mockRequestHandler);
+        app.all(prefixes, mockRequestHandler);
     };
 }
 
