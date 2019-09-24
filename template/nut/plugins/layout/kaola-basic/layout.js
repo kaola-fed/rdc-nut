@@ -23,7 +23,7 @@ export default Vue.extend({
             menus: [],
             userInfo: {},
             parentUrl: '',
-            isHideLayout: false
+            isHideLayout: false,
         };
     },
 
@@ -77,7 +77,6 @@ export default Vue.extend({
                 console.error(err);
             }
         },
-
 
         async handleLogout() {
             this.$ctx.events.emit('layout:logout');

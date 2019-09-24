@@ -23,7 +23,7 @@
                     },
                     {
                         "title": "表单页",
-                        "url": "/pages/__demo__/regular/index/index",
+                        "url": "/demoRegular/index",
                         "children": [
                             {
                                 "title": "vue表单",

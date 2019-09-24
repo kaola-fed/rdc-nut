@@ -63,6 +63,7 @@ export default {
                 if (data.ctx) {
                     layout.$ctx = data.ctx;
                 }
+
                 layout.$forceUpdate();
             },
 
@@ -70,5 +71,22 @@ export default {
                 return layout && layout.$refs.$$mount;
             },
         });
+
+
+        // if location.pathanme is / , redirect to homepage
+        const homepage = ctx.api.homepage.get();
+        if (window.location.pathname === '/' && homepage) {
+            const pages = ctx.pages;
+            let alias = homepage;
+
+            pages.forEach(page => {
+                const aliasArr = page.router._alias;
+                if (page.page === homepage && aliasArr.length > 1) {
+                    alias = aliasArr[0];
+                }
+            });
+
+            ctx.api.router.push(`${alias[0] === '/' ? alias : '/' + alias}`);
+        }
     }
 };
