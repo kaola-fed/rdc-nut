@@ -25,7 +25,7 @@
     "devDependencies": {
         "@kaola/kl-material-ui-tools": "0.0.2-beta.2",
         "@kaola/sentry-webpack-plugin": "^1.0.2",
-        "@nut-project/cli": "0.3.34",
+        "@nut-project/cli": "0.3.35",
         "@typescript-eslint/eslint-plugin": "^1.10.2",
         "@typescript-eslint/parser": "2.3.0",
         "babel-eslint": "^10.0.1",
