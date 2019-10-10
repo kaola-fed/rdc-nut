@@ -6,7 +6,7 @@ module.exports = {
         to: 'src',
     }],
     docker: {
-        tag: 'rdebase/rdc-nut:0.0.1-alpha.11',
+        tag: 'rdebase/rdc-nut:0.0.1-alpha.12',
         ports: [
             '8080:8080',
             '3210:3210',
