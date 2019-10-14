@@ -11,3 +11,4 @@ app/.gitversion
 .history
 .DS_Store
 .integrate
+build
