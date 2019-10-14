@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const path = require('path');
-const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
+const SentryCliPlugin = require('@ali/sentry-webpack-plugin');
 const rm = require('rimraf');
 const webpack = require('webpack');
 

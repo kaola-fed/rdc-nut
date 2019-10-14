@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { AdvancedLayout } from '@kaola-sc/scm-layout';
+import { AdvancedLayout } from '@ali/scm-layout';
 
 import { API } from '../common/api';
 
