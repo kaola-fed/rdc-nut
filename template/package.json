@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "ui": "klm-ui-tools --rde",
+        "ui": "klcube —rde",
         "serve": "nut",
         "build": "nut --prod",
         "build:prod": "cross-env app_env=prod nut --prod",
@@ -23,6 +23,7 @@
         "vue-property-decorator": "^8.1.1"
     },
     "devDependencies": {
+        "@kaola/cube.cli": "0.0.7",
         "@ali/sentry-webpack-plugin": "^0.0.1",
         "@nut-project/cli": "0.3.35",
         "@typescript-eslint/eslint-plugin": "^1.10.2",
