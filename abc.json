@@ -1,3 +1,10 @@
 {
-    "type": "kaola"
+    "type": "kaola",
+    "assets": {
+        "type": "builder",
+        "builder": {
+            "name": "@ali/builder-rde",
+            "options": {}
+        }
+    }
 }
