@@ -10,7 +10,7 @@
         "lint": "eslint -c ./.eslintrc.js --fix --ext .js,.vue,.ts"
     },
     "dependencies": {
-        "@kaola-sc/scm-layout": "1.0.1-alpha.4",
+        "@ali/scm-layout": "0.0.1",
         "@sentry/browser": "^5.4.0",
         "dayjs": "1.8.14",
         "echarts": "4.1.0",
@@ -23,8 +23,7 @@
         "vue-property-decorator": "^8.1.1"
     },
     "devDependencies": {
-        "@kaola/kl-material-ui-tools": "0.0.2-beta.2",
-        "@kaola/sentry-webpack-plugin": "^1.0.2",
+        "@ali/sentry-webpack-plugin": "^0.0.1",
         "@nut-project/cli": "0.3.35",
         "@typescript-eslint/eslint-plugin": "^1.10.2",
         "@typescript-eslint/parser": "2.3.0",
