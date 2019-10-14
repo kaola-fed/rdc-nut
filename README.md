@@ -13,11 +13,7 @@ Project Powered by RDE
 <!-- usage -->
 ```sh-session
 * [安装node](https://nodejs.org)
-* [安装docker](https://docs.docker.com/install/)
-* [安装docker-compose](https://docs.docker.com/compose/install/)
-* 启动docker
 
-$ docker pull node
 $ npm i -g rde
 $ rde serve
 ```
