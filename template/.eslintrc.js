@@ -32,6 +32,7 @@ module.exports = {
         'prefer-const': ["error", {"destructuring": "all"}],
         'no-var': ['error'],
         'prefer-arrow-callback': ['error'],
+        'no-plusplus': 0,
         'class-methods-use-this': 0,
         'no-underscore-dangle': 0,
         'import/no-extraneous-dependencies': 0,
