@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { BasicLayout } from '@kaola-sc/scm-layout';
+import { BasicLayout } from '@kaola/sc.scm-layout';
 
 import { API } from '../common/api';
 
