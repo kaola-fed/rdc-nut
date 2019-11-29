@@ -4,119 +4,115 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-  <title></title>
   <base href="https:&#x2F;&#x2F;kaola-fed.github.io&#x2F;rdc-nut&#x2F;">
-  <link rel="icon" href="https://haitao.nos.netease.com/410707d1-d6aa-4fa6-b6cb-4f29ee7d8670_128_128.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="https://haitao.nos.netease.com/410707d1-d6aa-4fa6-b6cb-4f29ee7d8670_128_128.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/mono-blue.min.css">
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1183501_stmalbigu4h.css">
 
-<style>
-  :root {
-    --font-size: 14px;
-    --font-color: #666;
-    --primary-color: #68BAEB;
-    --link-color: #0398FF;
+  <style>
+    :root {
+      --font-size: 14px;
+      --font-color: #666;
+      --primary-color: #68BAEB;
+      --link-color: #0398FF;
 
-    --header-height: 68px;
-    --sidebar-width: 240px;
-  }
+      --header-height: 68px;
+      --sidebar-width: 240px;
+    }
 
-  .simplebar-scrollbar:before { background: #C8C9CD!important; }
+    .simplebar-scrollbar:before { background: #C8C9CD!important; }
 
-  html, body { width: 100%; height: 100%; font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif; color: var(--font-color); font-size: var(--font-size); }
-  body { overflow: hidden; }
+    html, body { width: 100%; height: 100%; font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif; color: var(--font-color); font-size: var(--font-size); }
+    body { overflow: hidden; }
 
-  #rde-docs { position: relative; width: 1200px; height: 100%; margin: 0 auto; }
-  #rde-page { position: absolute; left: var(--sidebar-width); top: var(--header-height); right: calc((1200px - 100vw)/2); bottom: 0; padding: 48px calc((100vw - 1200px)/2) 48px 60px; }
+    #rde-docs { position: relative; width: 1200px; height: 100%; margin: 0 auto; }
+    #rde-page { position: absolute; left: var(--sidebar-width); top: var(--header-height); right: calc((1200px - 100vw)/2); bottom: 0; padding: 48px calc((100vw - 1200px)/2) 48px 60px; }
 
-  /* header */
-  .rde-header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-height); background: linear-gradient(to right,#68BAEB 10%,#0ac6c2);  }
-  .rde-header__wrap { width: 1080px; margin: 0 auto; }
-  .rde-header-logo { display: flex; float: left; height: 100%; margin: 0; color: #fff; align-items: center; font-size: 32px; font-weight: lighter;
-    font-family: Courier New, serif; }
-  .rde-header-logo__img { display: block; float: left; margin-left: 12px; margin-right: 20px; width: 72px; height: 72px; font-size: 0; background: url(https://haitao.nos.netease.com/6f8e6539-cfca-4d4b-869c-dc6bf9bc4c65_323_329.png) center center no-repeat #fff; background-size: 54px;  }
+    /* header */
+    .rde-header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-height); background: var(--primary-color);  }
+    .rde-header__wrap { width: 1080px; margin: 0 auto; }
+    .rde-header-logo { display: flex; float: left; height: 100%; margin: 0; color: #fff; align-items: center; font-size: 32px; font-weight: lighter;
+      font-family: Courier New, serif; }
+    .rde-header-logo__img { display: block; float: left; margin-left: 12px; margin-right: 20px; width: 72px; height: 72px; font-size: 0; background: url(https://haitao.nos.netease.com/6f8e6539-cfca-4d4b-869c-dc6bf9bc4c65_323_329.png) center center no-repeat #fff; background-size: 54px;  }
 
-  .rde-header-navs { float: right; height: 100%;  list-style: none; margin:0; padding: 0; }
-  .rde-header-navs__item { float: left; height: 100%; }
-  .rde-header-navs__item a { position: relative; display: flex; align-items: center; height: 100%; text-decoration: none; padding: 0 22px; font-size: 14px; color: rgba(255,255,255,.75); transition: color .3s; }
-  .rde-header-navs__item a:hover { text-decoration: none; color: #fff; padding: 0 22px; }
-  .rde-header-navs__item--crt a { color: #fff; }
-  .rde-header-navs__item--crt a:after { content: ''; display: inline-block; position: absolute; bottom: 0; left: 22px; width: calc(100% - 44px); height: 2px; background: var(--primary-color) }
+    .rde-header-navs { float: right; height: 100%;  list-style: none; margin:0; padding: 0; }
+    .rde-header-navs__item { float: left; height: 100%; }
+    .rde-header-navs__item a { position: relative; display: flex; align-items: center; height: 100%; text-decoration: none; padding: 0 22px; font-size: 14px; color: rgba(255,255,255,.75); transition: color .3s; }
+    .rde-header-navs__item a:hover { text-decoration: none; color: #fff; padding: 0 22px; }
+    .rde-header-navs__item--crt a { color: #fff; }
+    .rde-header-navs__item--crt a:after { content: ''; display: inline-block; position: absolute; bottom: 0; left: 22px; width: calc(100% - 44px); height: 2px; background: var(--primary-color) }
 
-  /* sidebar */
-  .rde-sidebar-wrap { position: absolute; top: var(--header-height); left: 0; bottom: 0; width: var(--sidebar-width); }
-  .rde-sidebar-pagewrap { list-style: none; padding-left: 40px; }
-  .rde-sidebar { box-sizing: border-box; height: 100%; font-size: 14px; padding: 20px 10px 100px 10px; border-right: 1px solid #ececec; }
-  .rde-sidebar a { text-decoration: none; }
-  .rde-sidebar ul { list-style: none; }
-  .rde-sidebar__category { height: 40px; line-height: 40px; margin: 14px 0; font-size: 14px; color: #999; }
-  .rde-sidebar__page i, .rde-sidebar__category i { margin-left: 2px; font-style: normal; color: #999; }
-  .rde-sidebar__nav { display: block; height: 40px; line-height: 40px;  color: #999; font-size: 14px; font-weight: 400; }
+    /* sidebar */
+    .rde-sidebar-wrap { position: absolute; top: var(--header-height); left: 0; bottom: 0; width: var(--sidebar-width); }
+    .rde-sidebar-pagewrap { padding-left: 40px; }
+    .rde-sidebar { box-sizing: border-box; height: 100%; font-size: 14px; padding: 20px 10px 100px 10px; border-right: 1px solid #ececec; }
+    .rde-sidebar a { text-decoration: none; }
+    .rde-sidebar__category { height: 40px; line-height: 40px; margin: 14px 0; font-size: 14px; color: #999; }
+    .rde-sidebar__page i, .rde-sidebar__category i { margin-left: 2px; font-style: normal; color: #999; }
+    .rde-sidebar__nav { display: block; height: 40px; line-height: 40px;  color: #999; font-size: 14px; font-weight: 400; }
 
 
-  .rde-sidebar__page { height: 30px; line-height: 30px; font-size: 13px; color: #666; }
-  .rde-sidebar__page--main { display: block; height: 40px; line-height: 40px; margin: 14px 0; }
-  .rde-sidebar__page--crt, .rde-sidebar__page--crt i { color: var(--primary-color); }
-  .rde-sidebar__page:hover, .rde-sidebar__page:hover i { color: var(--primary-color); }
-</style>
+    .rde-sidebar__page { height: 30px; line-height: 30px; font-size: 13px; color: #333; }
+    .rde-sidebar__page--main { display: block; height: 40px; line-height: 40px; margin: 14px 0; }
+    .rde-sidebar__page--crt, .rde-sidebar__page--crt i { color: var(--primary-color); }
+    .rde-sidebar__page:hover, .rde-sidebar__page:hover i { color: var(--primary-color); }
+  </style>
 
-<style>
-  /* style md */
-  .rde-h1, .rde-h2, .rde-h3, .rde-h4, .rde-h5, .rde-h6, .rde-h7, .rde-h8 { font-weight: 400; color: #1f2f3d; margin: 15px 0; }
-  .rde-h1 { font-size: 28px; }
-  .rde-h2 { font-size: 28px; }
-  .rde-h3 { font-size: 22px; margin-top: 40px; }
-  .rde-h4 { font-size: 18px; }
-  .rde-h5 { font-size: 14px; }
-  .rde-h6, .rde-h7, .rde-h8 { font-size: 12px; }
+  <style>
+    /* style md */
+    .rde-h1, .rde-h2, .rde-h3, .rde-h4, .rde-h5 { font-weight: 400; color: #1f2f3d; margin: 15px 0; }
+    .rde-h1 { font-size: 28px; }
+    .rde-h2 { font-size: 28px; }
+    .rde-h3 { font-size: 22px; margin-top: 40px; }
+    .rde-h4 { font-size: 18px; }
+    .rde-h5 { font-size: 14px; }
 
-  .rde-p { line-height: 1.5em; }
-  .rde-p + .rde-p { margin-top: 20px; }
+    .rde-p { line-height: 1.5em; }
+    .rde-p + .rde-p { margin-top: 20px; }
 
-  .rde-a { color: var(--link-color); text-decoration: none; }
-  code { padding: 0 4px; }
+    .rde-a { color: var(--link-color); text-decoration: none; }
+    code { padding: 0 4px; }
 
-  /* rde-component box */
-  .rde-component { margin: 16px 0; border: 1px solid #e1e6ec; border-radius: 4px; }
-  .rde-component:hover { box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5); }
+    /* rde-component box */
+    .rde-component { margin: 16px 0; border: 1px solid #e1e6ec; border-radius: 4px; }
+    .rde-component:hover { box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5); }
 
-  .rde-component__example, .rde-component__code { padding: 16px 24px; }
-  .rde-component__example, .rde-component__code { border-bottom: 1px solid #e1e6ec; }
-  .rde-component__code { font-size: 12px; }
+    .rde-component__example, .rde-component__code { padding: 16px 24px; }
+    .rde-component__example, .rde-component__code { border-bottom: 1px solid #e1e6ec; }
+    .rde-component__code { font-size: 12px; }
 
-  .rde-component-control { display: flex; align-items: center; justify-content: center; height: 40px; line-height: 40px; padding: 0 24px; font-size: 12px; }
-  .rde-component-control__collapse, .rde-component-control__run { color: var(--link-color); text-decoration: none; }
-  .rde-component-control__collapse { flex: 1; text-align: center; }
-  .rde-component-control__collapse a { display: inline-block; }
-  .rde-component-control__run { margin-left: auto; }
+    .rde-component-control { display: flex; align-items: center; justify-content: center; height: 40px; line-height: 40px; padding: 0 24px; font-size: 12px; }
+    .rde-component-control__collapse, .rde-component-control__run { color: var(--link-color); text-decoration: none; }
+    .rde-component-control__collapse { flex: 1; text-align: center; }
+    .rde-component-control__collapse a { display: inline-block; }
+    .rde-component-control__run { margin-left: auto; }
 
-  /* rde-component api */
-  .rde-api { margin: 16px 0; }
-  .rde-api__tt { font-family: monospace; font-size: 17px; margin:8px 0; padding: 16px 24px; border-left: 4px solid var(--primary-color); }
-  .rde-api__subtt { font-size: 16px; margin:8px 0; padding: 16px 0; border-bottom: 1px solid #e1e6ec; }
-  .rde-api__desc { margin: 24px 0 0 0; font-size: 15px; color: #999; }
+    /* rde-component api */
+    .rde-api { margin: 16px 0; }
+    .rde-api__tt { font-family: monospace; font-size: 17px; margin:8px 0; padding: 16px 24px; border-left: 4px solid var(--primary-color); }
+    .rde-api__subtt { font-size: 16px; margin:8px 0; padding: 16px 0; border-bottom: 1px solid #e1e6ec; }
+    .rde-api__desc { margin: 24px 0 0 0; font-size: 15px; color: #999; }
 
-  /* rde-component api */
-  .rde-table { font-size: 12px; width: 100%; margin: 8px 0; }
-  .rde-table th { background: #eef1f4; border-bottom: 1px solid #ecf2f9; color: #666; text-align: left; }
-  .rde-table td, .rde-table th { line-height: 1.5em; padding: 0.5em 1.4em; border: none; }
-  .rde-table td { border-bottom: 1px solid #ecf2f9; }
-  .rde-table tr:nth-child(2n-1) { background: #fff; }
-  .rde-table tr:nth-child(2n) { background: #f6f9fc; }
-</style>
+    /* rde-component api */
+    .rde-table { font-size: 12px; width: 100%; margin: 8px 0; }
+    .rde-table th { background: #eef1f4; border-bottom: 1px solid #ecf2f9; color: #666; text-align: left; }
+    .rde-table td, .rde-table th { line-height: 1.5em; padding: 0.5em 1.4em; border: none; }
+    .rde-table td { border-bottom: 1px solid #ecf2f9; }
+    .rde-table tr:nth-child(2n-1) { background: #fff; }
+    .rde-table tr:nth-child(2n) { background: #f6f9fc; }
+  </style>
 
-<style>
-  code { background: #eaeef3; }
-  blockquote { font-weight: bold; margin: 20px 0; padding-left: 20px; border-left: 2px solid var(--primary-color); }
+  <style>
+    code { background: #eaeef3; }
+    blockquote { font-weight: bold; margin: 20px 0; padding-left: 20px; border-left: 2px solid var(--primary-color); }
 
-  .hljs { font-family: Menlo,Monaco,Consolas,Courier,monospace; line-height: 1.8; font-size: 13px; padding: 12px 20px; margin: 8px 0; }
+    .hljs { font-family: Menlo,Monaco,Consolas,Courier,monospace; line-height: 1.8; font-size: 13px; padding: 12px 20px; margin: 8px 0; }
 
-  .hljs code { font-size: 12px; color: #333; background: none; border: none; }
-  .hljs-keyword, .hljs-attribute, .hljs-selector-tag, .hljs-meta-keyword, .hljs-doctag, .hljs-name { color: var(--primary-color); }
-  .hljs-type, .hljs-string, .hljs-number, .hljs-selector-id, .hljs-selector-class, .hljs-quote, .hljs-template-tag, .hljs-deletion { color: #D4595C; }
-</style>
+    .hljs code { font-size: 12px; color: #333; background: none; border: none; }
+    .hljs-keyword, .hljs-attribute, .hljs-selector-tag, .hljs-meta-keyword, .hljs-doctag, .hljs-name { color: var(--primary-color); }
+    .hljs-type, .hljs-string, .hljs-number, .hljs-selector-id, .hljs-selector-class, .hljs-quote, .hljs-template-tag, .hljs-deletion { color: #D4595C; }
+  </style>
   <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
 
   <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
@@ -126,56 +122,58 @@
 <body>
   <div id="rde-docs">
     <div id="rde-layout">
-<header class="rde-header">
-  <div class="rde-header__wrap">
-    <h1 class="rde-header-logo">
-      <span class="rde-header-logo__img"></span>
-      &nbsp;
-    </h1>
+      <header class="rde-header">
+        <div class="rde-header__wrap">
+          <h1 class="rde-header-logo">
+            <span class="rde-header-logo__img"></span>
+            &nbsp;
+          </h1>
 
-    <ul class="rde-header-navs">
-      <li v-for="nav in navs"
-          class="rde-header-navs__item" :class="{'rde-header-navs__item--crt': isCrtNav(nav)}">
+          <ul class="rde-header-navs">
+            <li v-for="nav in navs"
+                class="rde-header-navs__item" :class="{'rde-header-navs__item--crt': isCrtNav(nav)}">
 
-        <a :href="nav.url || 'index.html'">{{nav.title}}</a>
-      </li>
-    </ul>
-  </div>
-</header>
+              <a :href="nav.url || 'index.html'">{{nav.title}}</a>
+            </li>
+          </ul>
+        </div>
+      </header>
 
-<aside class="rde-sidebar-wrap">
-  <div style="height: 100%" ref="sidebarWrap">
-    <ul class="rde-sidebar">
-      <li v-for="page in pages">
-        <div v-if="page.children">
-          <p class="rde-sidebar__category">
-            {{page.title}}
-            <i>{{page.subTitle}}</i>
-          </p>
+      <aside class="rde-sidebar-wrap">
+        <div style="height: 100%" ref="sidebarWrap">
+          <ul class="rde-sidebar">
+            <li v-for="page in pages">
+              <ul v-if="page.children">
+                <li>
+                  <p class="rde-sidebar__category">
+                    {{page.title}}
+                    <i>{{page.subTitle}}</i>
+                  </p>
 
-          <ul class="rde-sidebar-pagewrap">
-            <li v-for="child in page.children" class="rde-sidebar__page">
-              <a :href="child.url"
-                 class="rde-sidebar__page"
-                 :class="{'rde-sidebar__page--crt': isCrtPage(child)}">
-                {{child.title}}
-                <i>{{child.subTitle}}</i>
+                  <ul class="rde-sidebar-pagewrap">
+                    <li v-for="child in page.children" class="rde-sidebar__page">
+                      <a :href="child.url"
+                         class="rde-sidebar__page"
+                         :class="{'rde-sidebar__page--crt': isCrtPage(child)}">
+                        {{child.title}}
+                        <i>{{child.subTitle}}</i>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+              <a v-else
+                 :href="page.url"
+                 class="rde-sidebar__page rde-sidebar__page--main"
+                 :class="{'rde-sidebar__page--crt': isCrtPage(page)}">
+                {{page.title}}
+                <i>{{page.subTitle}}</i>
               </a>
             </li>
           </ul>
         </div>
-
-        <a v-else
-           :href="page.url"
-           class="rde-sidebar__page rde-sidebar__page--main"
-           :class="{'rde-sidebar__page--crt': isCrtPage(page)}">
-          {{page.title}}
-          <i>{{page.subTitle}}</i>
-        </a>
-      </li>
-    </ul>
-  </div>
-</aside>
+      </aside>
     </div>
 
     <div id="rde-page">
@@ -189,9 +187,9 @@
 |   |   |-- __demo__/
 |   |   |   |-- regular/
 |   |   |   |   |-- index/
-|   |   |   |   |   |-- api.js
+|   |   |   |   |   |-- api.ts
 |   |   |   |   |   |-- index.html
-|   |   |   |   |   |-- index.js
+|   |   |   |   |   |-- index.ts
 |   |   |   |   |   |-- index.scss
 |   |   |   |-- vue/
 |   |   |   |   |-- index/
@@ -199,9 +197,9 @@
 |   |   |   |   |   |   |-- list.action.ts
 |   |   |   |   |   |-- api.ts
 |   |   |   |   |   |-- index.html
-|   |   |   |   |   |-- index.js
+|   |   |   |   |   |-- index.ts
 |   |   |   |   |   |-- index.scss
-|   |-- app.js（可选）
+|   |-- entry.ts
 |   |-- ...
 |-- rda.config.js
 </code></pre>
@@ -209,11 +207,11 @@
 <h4 class="rde-h4">pages（待补充物料生成规范）</h4>
 <p class="rde-p">pages 为页面级别目录，pages下文件会自动生成路由。</p>
 <p class="rde-p">例如上方结构中的regular和 demo 页面会自动生成路由 <code>/pags/__demo__/regular/index/index</code> 和 <code>/pages/__demo__/vue/index/index</code>。</p>
-<p class="rde-p">如果需要自定义路由名，可以在<code>app/app.js</code>中设置路由别名，下面会详细介绍 app.js。</p>
+<p class="rde-p">如果需要自定义路由名，可以在<code>app/entry.ts</code>中设置路由别名，下面会详细介绍 entry.ts。</p>
 <p class="rde-p"> </p>
 <h4 class="rde-h4">app.js</h4>
 <p class="rde-p">app.js 文件会在工程启动时自动被<a class="rde-a" href="https://nut.js.org/">nut</a>加载，文件中可以设置应用级别的配置。例如：设置首页、设置路由别名、以及监听rdc-nut暴露出的事件。</p>
-<pre class="hljs"><code><span class="hljs-comment">// app.js</span>
+<pre class="hljs"><code><span class="hljs-comment">// entry.ts</span>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">app</span>(<span class="hljs-params">ctx</span>) </span>{
     <span class="hljs-comment">// 设置 首页</span>
     ctx.api.homepage.set(<span class="hljs-string">'pages/__demo__/regular/index/index'</span>);
@@ -227,17 +225,6 @@
     <span class="hljs-comment">// 监听 rdc-nut 暴露出的 退出登录事件</span>
     ctx.events.on(<span class="hljs-string">'layout:logout'</span>, () =&gt; {
         location.href = <span class="hljs-string">`/api/login?redirect=<span class="hljs-subst">${<span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-built_in">window</span>.location.href)}</span>`</span>;
-    });
-
-    <span class="hljs-comment">// 监听 rdc-nut 暴露出的 请求失败事件</span>
-    ctx.events.on(<span class="hljs-string">'layout:requestError'</span>, (res) =&gt; {
-        <span class="hljs-keyword">if</span>(res &amp;&amp; res.code === <span class="hljs-number">10000</span> || res.code === <span class="hljs-number">10007</span> || res.retcode === <span class="hljs-number">10007</span>) {
-            <span class="hljs-comment">// 未登录</span>
-            location.href = <span class="hljs-string">`/api/login?redirect=<span class="hljs-subst">${<span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-built_in">window</span>.location.href)}</span>`</span>;
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (res &amp;&amp; res.code === <span class="hljs-number">403</span>) {
-            <span class="hljs-comment">// 无权限</span>
-            ctx.events.emit(<span class="hljs-string">'route:unauthorized'</span>);
-        }
     });
 }
 
@@ -276,33 +263,6 @@
     };
 };
 
-</code></pre>
-<p class="rde-p"> </p>
-<h4 class="rde-h4">插件</h4>
-<p class="rde-p">虽然 rdc-nut 内置了rds-vue 和 nek-ui，但是各个业务线在实际开发过程中，往往会沉淀出各自的通用组件、函数、样式等，我们将之统一称作套件。由于rdc-nut并没有直接暴露出入口文件，那如何全局引入并注册这些套件呢？为此，我们提供了插件机制。</p>
-<ul>
-<li><p class="rde-p">在 app目录下新建js文件，并在该文件中执行相应的引入、注册等操作。</li>
-<li><p class="rde-p">在rda.config.js 中 plugins下，将该文件路径 写到plugins数组中（注意：文件路径是相对于app目录的绝对路径）。</li>
-</ul>
-<p class="rde-p">例如：引入elementUI。</p>
-<pre class="hljs"><code><span class="hljs-comment">// app/install.js</span>
-<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>;
-<span class="hljs-keyword">import</span> ElementUI <span class="hljs-keyword">from</span> <span class="hljs-string">'element-ui'</span>;
-
-Vue.use(ElementUI);
-</code></pre>
-<pre class="hljs"><code><span class="hljs-comment">// rda.config.js</span>
-<span class="hljs-built_in">module</span>.exports = {
-  <span class="hljs-attr">container</span>: {
-    <span class="hljs-attr">name</span>: <span class="hljs-string">'rdebase/rdc-nut:{{version}}'</span>,
-    <span class="hljs-attr">render</span>: {
-        <span class="hljs-attr">plugins</span>: [
-            <span class="hljs-string">'/install.js'</span>
-        ]
-    },
-  },
-  ...
-};
 </code></pre>
 <p class="rde-p"> </p>
 <h4 class="rde-h4">别名</h4>
@@ -349,7 +309,7 @@ Vue.use(ElementUI);
 </tr>
 <tr>
   <td>request.js</td>
-  <td>~/widget/request.js</td>
+  <td>~/request.js</td>
 </tr>
 </table>
 
@@ -381,7 +341,7 @@ Vue.use(ElementUI);
       },
       methods: {
         isCrtNav(nav) {
-          if (!nav.main && location.pathname.endsWith(nav.url)) {
+          if (!nav.main && nav.url === location.pathname) {
             return true;
           }
 
@@ -390,11 +350,10 @@ Vue.use(ElementUI);
           }
         },
         isCrtPage(page) {
-          return location.pathname.endsWith(page.url);
+          return page.url === location.pathname;
         },
       },
     });
-
   </script>
 </body>
 </html>
