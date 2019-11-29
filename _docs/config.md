@@ -12,14 +12,19 @@ rde create 创建的工程，是一个简单的工程模板，因而工程创建
 ```javascript
 module.exports = {
   container: {
-    name: 'rdebase/rdc-nut:{{version}}',
+    name: 'rdc-nut@{{version}}',
     render: {
         ...渲染时需要的变量
     },
+    variables: {
+        ...配置 代理、请求、rdsVue
+    }
   },
   ...
 };
 ```
+
+### render 配置
 
 &emsp;
 > port 配置
@@ -174,6 +179,8 @@ Layout 内部发起的请求，可配置url
 | 默认开启
 ```
 
+### variables 配置
+
 &emsp;
 > proxy 配置
 ```table
@@ -199,8 +206,8 @@ proxyRules 数据结构：
 备注
 |- prefix
 | ●
-| 需要代理的请求前缀，多个时使用英文逗号分隔`,`
-| 例：'/api'、'/api,/sc-workdesk'
+| 需要代理的请求前缀，数组
+| 例：['/api',/sc-workdesk']
 |- target
 | -
 | 配置代理的后端服务，默认target为网关
@@ -210,49 +217,42 @@ proxyRules 数据结构：
 &emsp;
 > rdsVue 配置
 
-RDC-NUT 内置rds-vue 套件，可传入rds-vue的配置，输入一个数组，数组里每一项结构如下：
+RDC-NUT 内置rds-vue 套件，可传入rds-vue的配置
 ```table
 配置项 [@th width:80px]
 是否必填 [@th width:80px]
 说明
 备注
-|- key
+|- authUrl
 | ●
-| rds-vue 的配置项字段
-| -
-|- value
+| rds-vue 的权限检查url
+| 例：'/sc-workdesk/api/url/isDisplayLinkUrl'
+|- selectUrl
 | ●
-| rds-vue 该配置项对应的值
-| 传入函数时需用` ` 模板字符串包裹，可参考下方示例
+| 统一配置下拉接口url，传入函数
+| () => { return '/api/selectList'}
+|- remoteSelectUrl
+| ●
+| 统一配置下远程搜索下拉接口url，传入函数
+| () => { return '/api/selectListList'}
 ```
 
 &emsp;
-> plugins 配置
 
-当需要全局注册某些组件或者需要在入口加载某些文件时，可以配置plugins
-
-```table
-配置项 [@th width:80px]
-是否必填 [@th width:80px]
-说明
-备注
-|- plugins
-| -
-| 在工程入口加载全局使用的文件，用于注册组件、filter等
-| Array，相对于app目录下的绝对路径，`app/install.js`，则填写`/install.js`
-```
 
 ### 示例
 ```javascript
 {
     render: {
-        port: 8080,
         layout: 'kaola-advanced',
         head: {
             title: '考拉供应链管理系统',
             styles: [
                 '//at.alicdn.com/t/font_393438_2tbubgazdlxo5hfr.css'
             ],
+        },
+        build: {
+            publicPath: '/app/sc-supplier/public/'
         },
         api: {
             getUserInfo: '/api/common/getUserInfo',
@@ -271,31 +271,29 @@ RDC-NUT 内置rds-vue 套件，可传入rds-vue的配置，输入一个数组，
             dsn: 'https://xxxx@sentry.kaola.com/xx',
             token: 'xxxx',
         },
+    },
+    variables: {
         proxy: {
             host: 'ms.kaola.com',
-            rules: [
-                {
-                    prefix: '/api,/sc-workdesk',
-                },
-                {
-                    prefix: '/sc-other',
-                    target: 'http://10.198.172.253:8009'
-                },
-            ]
+            rules: [{
+                prefix: ['/sc-workdest', '/sc-supplier']
+            }]
         },
-        rdsVue: [
-            {
-                key: 'authUrl', value: '"/api/common/auth"'
+        request: {
+            handleRequestError: (res) => {}
+        },
+        rdsVue: {
+            authUrl: '/sc-workdesk/api/url/isDisplayLinkUrl',
+                selectUrl: () => {
+                const [,, prefix = ''] = window.location.href.match(/\/(v2|pages)\/(.*?)\//) || [];
+                return `/${prefix}/api/selectList`;
             },
-            {
-                key: 'selectUrl', value: `function() {
-                    return '/api/regular/selectList';
-                }`
-            }
-        ],
-        plugins: [
-            '/install.js'
-        ]
+            remoteSelectUrl: () => {
+                const [,, prefix = ''] = window.location.href.match(/\/(v2|pages)\/(.*?)\//) || [];
+                return `/${prefix}/api/selectListLike`;
+            },
+            transferAuthResult: result => result.mutilDisplayRequestUrl.displayRequestUrls,
+        }
     }
 }
 ```
