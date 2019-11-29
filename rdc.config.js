@@ -13,7 +13,7 @@ module.exports = {
         ext: ['.js', '.vue', '.ts']
     },
     docs: {
-        url: 'http://localhost:3000/',
+        url: 'https://kaola-fed.github.io/rdc-nut/',
         userStyles: '//haitao.nos.netease.com/cf345824-9e1a-47ec-86fe-3455af8bfb96.css',
     },
     render: {
