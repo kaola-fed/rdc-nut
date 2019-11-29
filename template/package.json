@@ -3,7 +3,6 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "ui": "klm-ui-tools --rde",
         "serve": "nut",
         "build": "nut --prod",
         "build:prod": "cross-env app_env=prod nut --prod",
@@ -23,10 +22,9 @@
         "vue-property-decorator": "^8.1.1"
     },
     "devDependencies": {
-        "@kaola/kl-material-ui-tools": "0.0.2-beta.2",
         "@kaola/sentry-webpack-plugin": "^1.0.2",
         "@nut-project/cli": "0.3.35",
-        "@typescript-eslint/eslint-plugin": "^1.10.2",
+        "@typescript-eslint/eslint-plugin": "2.3.0",
         "@typescript-eslint/parser": "2.3.0",
         "babel-eslint": "^10.0.1",
         "babel-helper-vue-jsx-merge-props": "^2.0.3",
@@ -47,6 +45,7 @@
         "html-loader": "^0.5.5",
         "qs": "^6.6.0",
         "strip-json-comments": "3.0.1",
-        "style-resources-loader": "1.2.1"
+        "style-resources-loader": "1.2.1",
+        "typescript": "3.5.2"
     }
 }

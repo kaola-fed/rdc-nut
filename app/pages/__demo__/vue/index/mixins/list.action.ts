@@ -13,7 +13,6 @@ export default class ListActionMixin extends Vue {
         try {
             const { result } = await API.exportList((this as any).getExtraParam());
             if (result) {
-                // @ts-ignore
                 utils.download(result);
                 return;
             }
