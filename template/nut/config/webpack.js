@@ -6,14 +6,13 @@ const rm = require('rimraf');
 const webpack = require('webpack');
 
 const devServer = require('./dev-server');
-const getGitVersion = require('./git-version');
 
 // eslint-disable-next-line import/no-unresolved
 const variables = require('../../../.cache/rdc.variables.js');
 
 const APP_ENV = process.env.app_env;
 const IS_ONLINE = /^(pre|prod)$/.test(APP_ENV);
-const APP_GIT_VERSION = getGitVersion(APP_ENV);
+const APP_GIT_VERSION = process.env.BUILD_GIT_COMMITID || '';
 
 function getPublicPath() {
     const buildArgv = process.env.BUILD_ARGV || [];
