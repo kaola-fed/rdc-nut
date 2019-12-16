@@ -15,7 +15,7 @@ const IS_ONLINE = /^(pre|prod)$/.test(APP_ENV);
 const APP_GIT_VERSION = process.env.BUILD_GIT_COMMITID || '';
 
 function getPublicPath() {
-    const buildArgv = process.env.BUILD_ARGV || [];
+    const buildArgv = JSON.parse(process.env.BUILD_ARGV || '[]');
 
     const buildArgvMap = {};
     buildArgv.forEach(str => {
