@@ -15,9 +15,36 @@ const APP_ENV = process.env.app_env;
 const IS_ONLINE = /^(pre|prod)$/.test(APP_ENV);
 const APP_GIT_VERSION = getGitVersion(APP_ENV);
 
+function getPublicPath() {
+    const buildArgv = process.env.BUILD_ARGV || [];
+
+    const buildArgvMap = {};
+    buildArgv.forEach(str => {
+        const arr = str.split('=');
+
+        buildArgvMap[arr[0].slice(2)] = arr[1] || '';
+    });
+
+    // cdn 区分 日常 和 线上
+    // 注意：在 DEF 上开启 线上构建，否则无 def_publish_env 变量
+    const cdnHost = buildArgvMap['def_publish_env'] === 'daily' ? 'https://dev.g.alicdn.com' : 'https://g.alicdn.com';
+
+    const gitBranch = process.env.BUILD_GIT_BRANCH || '';
+    // 从 git 分支名获取 前端版本号
+    const publicVersion = gitBranch.split('/')[1];
+
+    // git 分组
+    const gitGroup = process.env.BUILD_GIT_GROUP || '';
+    // git 工程名
+    const gitProject = process.env.BUILD_GIT_PROJECT || '';
+
+    // publicPath: cdnHost + git分组 + git工程名 + 版本号
+    return `${cdnHost}/${gitGroup}/${gitProject}/${publicVersion}/`
+}
+
 const resolve = (pathname) => path.resolve(__dirname, '../../', pathname);
 const distDir = resolve('../app/dist');
-const publicPath = process.env.NODE_ENV === 'development' ? '/' : '///{build.publicPath}///' || '/public/';
+const publicPath = process.env.NODE_ENV === 'development' ? '/' : getPublicPath();
 
 // noinspection WebpackConfigHighlighting
 module.exports = {
