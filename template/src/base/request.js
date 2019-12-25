@@ -8,6 +8,16 @@ const variables = require('../../../.cache/rdc.variables.js');
 const request = variables && variables.request || {};
 const timeout = request.timeout || 0;
 
+const filterEmpty = (obj) => {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            if (!obj[key] && obj[key] !== 0 && obj[key] !== false || (this.isArray(obj[key]) && obj[key].length === 0)) {
+                delete obj[key];
+            }
+        }
+    }
+};
+
 const RAWAXIOS = axios.create({
     timeout,
     headers: {
@@ -21,8 +31,11 @@ const JSONAXIOS = axios.create({
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/json;charset=utf-8',
     },
+    transformRequest: [function(data) {
+        return JSON.stringify(filterEmpty(data));
+    }],
     paramsSerializer(params) {
-        return qs.stringify(params);
+        return qs.stringify(filterEmpty(params));
     },
 });
 
@@ -32,7 +45,7 @@ const FORMAXIOS = axios.create({
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     },
-    transformRequest: [data => qs.stringify(data, { arrayFormat: 'repeat' })],
+    transformRequest: [data => qs.stringify(filterEmpty(data), { arrayFormat: 'repeat' })],
 });
 
 const FORMDATAAXIOS = axios.create({
@@ -49,14 +62,18 @@ function _responseSuccessInterceptor(response) {
         return Promise.resolve(data);
     }
 
-    const err = new Error(`code: ${data.code}; message: ${data.message}; url: ${response.config.url}`);
+    const message = data && data.message || '';
+
+    const err = new Error(`code: ${data.code}; message: ${message}; url: ${response.config.url}`);
     err.name = '后端请求错误';
 
+    let alertMessage = false;
+
     if (request.handleRequestError) {
-        request.handleRequestError(data, err);
+        alertMessage = request.handleRequestError(data, err);
     }
 
-    KLModal.alert((data && data.message) || '返回异常');
+    !alertMessage && message && KLModal.alert(message);
 
     return Promise.reject(data);
 }
