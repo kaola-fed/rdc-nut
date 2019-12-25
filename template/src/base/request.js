@@ -9,10 +9,14 @@ const request = variables && variables.request || {};
 const timeout = request.timeout || 0;
 const isFilterEmpty = !!request.isFilterEmpty;
 
+const isArray = (arr) => {
+    return Object.prototype.toString.call(arr).slice(8, -1) === 'Array';
+};
+
 const filterEmpty = (obj) => {
     for (const key in obj) {
         if (obj.hasOwnProperty(key)) {
-            if (!obj[key] && obj[key] !== 0 && obj[key] !== false || (this.isArray(obj[key]) && obj[key].length === 0)) {
+            if (!obj[key] && obj[key] !== 0 && obj[key] !== false || (isArray(obj[key]) && obj[key].length === 0)) {
                 delete obj[key];
             }
         }
@@ -33,14 +37,14 @@ const JSONAXIOS = axios.create({
         'Content-Type': 'application/json;charset=utf-8',
     },
     transformRequest: [function(data) {
-        if (isFilterEmpty && !data._noFilterEmpty) {
+        if (isFilterEmpty && data && !data._noFilterEmpty) {
             delete data._noFilterEmpty;
             filterEmpty(data);
         }
         return JSON.stringify(data);
     }],
     paramsSerializer(params) {
-        if (isFilterEmpty && !params._noFilterEmpty) {
+        if (isFilterEmpty && params && !params._noFilterEmpty) {
             delete params._noFilterEmpty;
             filterEmpty(params);
         }
@@ -55,7 +59,7 @@ const FORMAXIOS = axios.create({
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     },
     transformRequest: [function(data) {
-        if (isFilterEmpty && !data._noFilterEmpty) {
+        if (isFilterEmpty && data && !data._noFilterEmpty) {
             delete data._noFilterEmpty;
             filterEmpty(data);
         }
