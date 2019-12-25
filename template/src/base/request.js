@@ -7,6 +7,7 @@ const variables = require('../../../.cache/rdc.variables.js');
 
 const request = variables && variables.request || {};
 const timeout = request.timeout || 0;
+const isFilterEmpty = !!request.isFilterEmpty;
 
 const filterEmpty = (obj) => {
     for (const key in obj) {
@@ -32,10 +33,18 @@ const JSONAXIOS = axios.create({
         'Content-Type': 'application/json;charset=utf-8',
     },
     transformRequest: [function(data) {
-        return JSON.stringify(filterEmpty(data));
+        if (isFilterEmpty && !data._noFilterEmpty) {
+            delete data._noFilterEmpty;
+            filterEmpty(data);
+        }
+        return JSON.stringify(data);
     }],
     paramsSerializer(params) {
-        return qs.stringify(filterEmpty(params));
+        if (isFilterEmpty && !params._noFilterEmpty) {
+            delete params._noFilterEmpty;
+            filterEmpty(params);
+        }
+        return qs.stringify(params);
     },
 });
 
@@ -45,7 +54,13 @@ const FORMAXIOS = axios.create({
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     },
-    transformRequest: [data => qs.stringify(filterEmpty(data), { arrayFormat: 'repeat' })],
+    transformRequest: [function(data) {
+        if (isFilterEmpty && !data._noFilterEmpty) {
+            delete data._noFilterEmpty;
+            filterEmpty(data);
+        }
+        return qs.stringify(data, { arrayFormat: 'repeat' });
+    }],
 });
 
 const FORMDATAAXIOS = axios.create({
