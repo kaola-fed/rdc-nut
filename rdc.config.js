@@ -7,7 +7,7 @@ module.exports = {
     }],
     npm: {
         name: 'rdc-nut',
-        version: '0.0.1-beta.26',
+        version: '0.0.1-beta.27',
     },
     lint: {
         ext: ['.js', '.vue', '.ts']
@@ -89,8 +89,8 @@ module.exports = {
                     location.href = 'pages/unauthorized/index@common-pages';
                 } else {
                     // eslint-disable-next-line @typescript-eslint/no-var-requires
-                    const { KLModal } = require('nek-ui');
-                    KLModal.alert((res && res.message) || '返回异常');
+                    // const { KLModal } = require('nek-ui');
+                    // KLModal.alert((res && res.message) || '返回异常');
                 }
             }
         },

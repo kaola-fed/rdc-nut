@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-import { KLModal } from 'nek-ui';
+import { MessageBox } from 'element-ui';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const variables = require('../../../.cache/rdc.variables.js');
@@ -92,13 +92,17 @@ function _responseSuccessInterceptor(response) {
         alertMessage = request.handleRequestError(data, err);
     }
 
-    !alertMessage && message && KLModal.alert(message);
+    !alertMessage && message && MessageBox.alert(message, '提示', {
+        type: 'error'
+    });
 
     return Promise.reject(data);
 }
 
 function _responseErrorInterceptor(error) {
-    KLModal.alert('请求失败');
+    MessageBox.alert('请求失败', '提示', {
+        type: 'error'
+    });
     return Promise.reject(error);
 }
 
