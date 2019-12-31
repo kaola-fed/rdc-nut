@@ -2,11 +2,39 @@ import axios from 'axios';
 import qs from 'qs';
 import { KLModal } from 'nek-ui';
 
+// 由于request出错时，使用的KLModal.alert， 在vue页面， elmenet-ui的弹窗是2000+， 所以会遮挡错误提示
+const alertErrorMessage = (content, title, okButton, cancelButton) => {
+    new KLModal({
+        data: {
+            content,
+            title,
+            okButton,
+            cancelButton: cancelButton || true,
+            class: 'kl-modal-reqError'
+        }
+    });
+};
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const variables = require('../../../.cache/rdc.variables.js');
 
 const request = variables && variables.request || {};
 const timeout = request.timeout || 0;
+const isFilterEmpty = !!request.isFilterEmpty;
+
+const isArray = (arr) => {
+    return Object.prototype.toString.call(arr).slice(8, -1) === 'Array';
+};
+
+const filterEmpty = (obj) => {
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            if (!obj[key] && obj[key] !== 0 && obj[key] !== false || (isArray(obj[key]) && obj[key].length === 0)) {
+                delete obj[key];
+            }
+        }
+    }
+};
 
 const RAWAXIOS = axios.create({
     timeout,
@@ -21,7 +49,18 @@ const JSONAXIOS = axios.create({
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/json;charset=utf-8',
     },
+    transformRequest: [function(data) {
+        if (isFilterEmpty && data && !data._noFilterEmpty) {
+            delete data._noFilterEmpty;
+            filterEmpty(data);
+        }
+        return JSON.stringify(data);
+    }],
     paramsSerializer(params) {
+        if (isFilterEmpty && params && !params._noFilterEmpty) {
+            delete params._noFilterEmpty;
+            filterEmpty(params);
+        }
         return qs.stringify(params);
     },
 });
@@ -32,7 +71,13 @@ const FORMAXIOS = axios.create({
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     },
-    transformRequest: [data => qs.stringify(data, { arrayFormat: 'repeat' })],
+    transformRequest: [function(data) {
+        if (isFilterEmpty && data && !data._noFilterEmpty) {
+            delete data._noFilterEmpty;
+            filterEmpty(data);
+        }
+        return qs.stringify(data, { arrayFormat: 'repeat' });
+    }],
 });
 
 const FORMDATAAXIOS = axios.create({
@@ -49,20 +94,24 @@ function _responseSuccessInterceptor(response) {
         return Promise.resolve(data);
     }
 
-    const err = new Error(`code: ${data.code}; message: ${data.message}; url: ${response.config.url}`);
+    const message = data && data.message || '';
+
+    const err = new Error(`code: ${data.code}; message: ${message}; url: ${response.config.url}`);
     err.name = '后端请求错误';
 
+    let alertMessage = false;
+
     if (request.handleRequestError) {
-        request.handleRequestError(data, err);
+        alertMessage = request.handleRequestError(data, err);
     }
 
-    KLModal.alert((data && data.message) || '返回异常');
+    !alertMessage && message && alertErrorMessage(message);
 
     return Promise.reject(data);
 }
 
 function _responseErrorInterceptor(error) {
-    KLModal.alert('请求失败');
+    alertErrorMessage('请求失败');
     return Promise.reject(error);
 }
 
