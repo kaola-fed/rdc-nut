@@ -9,14 +9,15 @@
         "lint": "eslint -c ./.eslintrc.js --fix --ext .js,.vue,.ts"
     },
     "dependencies": {
-        "@kaola/sc.scm-layout": "~1.0.1-alpha.10",
+        "@kaola/sc.scm-layout": "~1.0.1-alpha.11",
         "@sentry/browser": "^5.4.0",
         "dayjs": "1.8.14",
         "echarts": "4.1.0",
         "element-ui-verify": "^1.1.8",
         "element-ui": "2.11.1",
         "lodash": "^4.17.11",
-        "nek-ui": "0.6.3-beta.8",
+        "regularjs": "0.4.3",
+        "nek-ui": "0.6.3-beta.19",
         "rds-vue": "~0.0.20",
         "vue-class-component": "^7.1.0",
         "vue-property-decorator": "^8.1.1"

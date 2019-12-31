@@ -1,6 +1,19 @@
 import axios from 'axios';
 import qs from 'qs';
-import { MessageBox } from 'element-ui';
+import { KLModal } from 'nek-ui';
+
+// 由于request出错时，使用的KLModal.alert， 在vue页面， elmenet-ui的弹窗是2000+， 所以会遮挡错误提示
+const alertErrorMessage = (content, title, okButton, cancelButton) => {
+    new KLModal({
+        data: {
+            content,
+            title,
+            okButton,
+            cancelButton: cancelButton || true,
+            class: 'kl-modal-reqError'
+        }
+    });
+};
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const variables = require('../../../.cache/rdc.variables.js');
@@ -92,17 +105,13 @@ function _responseSuccessInterceptor(response) {
         alertMessage = request.handleRequestError(data, err);
     }
 
-    !alertMessage && message && MessageBox.alert(message, '提示', {
-        type: 'error'
-    });
+    !alertMessage && message && alertErrorMessage(message);
 
     return Promise.reject(data);
 }
 
 function _responseErrorInterceptor(error) {
-    MessageBox.alert('请求失败', '提示', {
-        type: 'error'
-    });
+    alertErrorMessage('请求失败');
     return Promise.reject(error);
 }
 
