@@ -42,7 +42,7 @@ html, body {
 }
 
 // 由于request出错时，使用的KLModal.alert， 在vue页面， elmenet-ui的弹窗是2000+， 所以会遮挡错误提示
-.kl-modal-reqError { z-index: 3000!important; }
+.kl-modal.kl-modal-reqError { z-index: 3000!important; }
 
 .m-table {
     table-layout: fixed;
