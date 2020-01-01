@@ -2,9 +2,7 @@
 
 const path = require('path');
 const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
-const PorgressBarPlugin = require('progress-bar-webpack-plugin');
 const rm = require('rimraf');
-const chalk = require('chalk');
 const webpack = require('webpack');
 
 const devServer = require('./dev-server');
@@ -83,20 +81,11 @@ module.exports = {
         }
     },
     chainWebpack(config) {
-        config.plugins.delete('webpackbar');
-
         config.plugin('define-plugin').use(
             new webpack.DefinePlugin({
                 APP_GIT_VERSION: JSON.stringify(APP_GIT_VERSION),
                 IS_ONLINE,
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-            })
-        );
-
-        config.plugin('process-bar').use(
-            new PorgressBarPlugin({
-                format: 'build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
-                clear: false
             })
         );
 

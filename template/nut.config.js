@@ -36,8 +36,8 @@ const config = {
     },
     hooks: {
         filterPage({ page }) {
-            // modals、modules、components、mixins、common、_common、api 不生成路由
-            if (/\/(modals|modules|mixins|components|common|_common)\//.test(page)) {
+            // modals、modules、components、comonent\mixins、common、_common、api 不生成路由
+            if (/\/(modals|modules|mixins|components|component|common|_common)\//.test(page)) {
                 return false;
             }
             // api.js、api.ts 不生成路由
