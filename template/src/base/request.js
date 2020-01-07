@@ -111,7 +111,10 @@ function _responseSuccessInterceptor(response) {
 }
 
 function _responseErrorInterceptor(error) {
-    alertErrorMessage('请求失败');
+    const { data = {} } = error.response || {};
+    const message = data && data.message || '';
+
+    alertErrorMessage(message || '请求失败');
     return Promise.reject(error);
 }
 
