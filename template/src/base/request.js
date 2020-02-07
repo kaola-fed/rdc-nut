@@ -61,7 +61,7 @@ const JSONAXIOS = axios.create({
             delete params._noFilterEmpty;
             filterEmpty(params);
         }
-        return qs.stringify(params);
+        return qs.stringify(params, { arrayFormat: 'comma' });
     },
 });
 
@@ -78,6 +78,13 @@ const FORMAXIOS = axios.create({
         }
         return qs.stringify(data, { arrayFormat: 'repeat' });
     }],
+    paramsSerializer(params) {
+        if (isFilterEmpty && params && !params._noFilterEmpty) {
+            delete params._noFilterEmpty;
+            filterEmpty(params);
+        }
+        return qs.stringify(params, { arrayFormat: 'comma' });
+    },
 });
 
 const FORMDATAAXIOS = axios.create({
