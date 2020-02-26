@@ -52,10 +52,6 @@ module.exports = {
         '@typescript-eslint/explicit-member-accessibility': 0,
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/ban-ts-ignore': 0,
-        '@ali/common-rules/leap-year-formulae': 2,
-        '@ali/common-rules/no-builtin-date-parse': 2,
-        '@ali/common-rules/no-builtin-date-set': 2,
-        '@ali/common-rules/no-literal-date-numbers': 2,
     },
     parser: 'vue-eslint-parser',
     parserOptions: {
