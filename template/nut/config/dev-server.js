@@ -54,7 +54,7 @@ if (!variables.proxy) {
             return {
                 context,
                 target: rule.target || proxyTarget,
-                // changeOrigin: true,
+                changeOrigin: true,
                 headers: {
                     'X-Gateway-Host': host
                 }
