@@ -12,7 +12,7 @@ args.forEach(arg => {
 });
 
 const gateway = {
-    test: 'http://10.198.166.181:8009',
+    test: 'http://commongw.kaola.taobao.net',
     pre: '',
     online: ''
 };
