@@ -18,7 +18,7 @@
         "lodash": "^4.17.11",
         "regularjs": "0.4.3",
         "nek-ui": "~0.6.3-beta.20",
-        "rds-vue": "~0.0.20",
+        "rds-vue": "~0.0.36",
         "vue-class-component": "^7.1.0",
         "vue-property-decorator": "^8.1.1"
     },
