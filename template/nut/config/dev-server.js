@@ -28,6 +28,7 @@ if (!variables.proxy) {
     const host = proxy.host || '';
 
     const devServer = {
+        https: true,
         host: DEV_SERVER_HOST,
         port: DEV_SERVER_PORT,
         before: (app) => {
