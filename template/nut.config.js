@@ -10,8 +10,8 @@ const resolve = (pathname) => path.resolve(__dirname, pathname);
 const nutConfig = variables.nut || {};
 
 const config = {
-    host: '0.0.0.0',
-    port: '///port///' || 8080,
+    host: webpack.devServer.host,
+    port: '///port///' || webpack.devServer.port,
     layout: '///layout///' || 'kaola-advanced',
     plugins: {
         'kaola-advanced': {

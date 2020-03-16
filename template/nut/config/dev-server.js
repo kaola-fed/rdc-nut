@@ -2,6 +2,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const variables = require('../../../.cache/rdc.variables.js');
 const mock = require('./mock');
+const DEV_SERVER_HOST = process.env.HOST || '127.0.0.1';
+const DEV_SERVER_PORT = process.env.PORT || 8080;
 
 const args = process.argv.slice(2);
 let proxyArgv = null;
@@ -26,6 +28,8 @@ if (!variables.proxy) {
     const host = proxy.host || '';
 
     const devServer = {
+        host: DEV_SERVER_HOST,
+        port: DEV_SERVER_PORT,
         before: (app) => {
             if (!proxyArgv) {
                 mock(app);
@@ -56,7 +60,8 @@ if (!variables.proxy) {
                 target: rule.target || proxyTarget,
                 changeOrigin: true,
                 headers: {
-                    'X-Gateway-Host': host
+                    'X-Gateway-Host': host,
+                    'X-Dev-Host': `${DEV_SERVER_HOST}:${DEV_SERVER_PORT}`
                 }
             };
         });
