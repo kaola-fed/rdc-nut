@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const path = require('path');
-const SentryCliPlugin = require('@kaola/sentry-webpack-plugin');
 const PorgressBarPlugin = require('progress-bar-webpack-plugin');
-const rm = require('rimraf');
 const chalk = require('chalk');
 const webpack = require('webpack');
 
@@ -40,7 +38,7 @@ function getPublicPath() {
     const gitProject = process.env.BUILD_GIT_PROJECT || '';
 
     // publicPath: cdnHost + git分组 + git工程名 + 版本号
-    return `${cdnHost}/${gitGroup}/${gitProject}/${publicVersion}/`
+    return `${cdnHost}/${gitGroup}/${gitProject}/${publicVersion}/`;
 }
 
 const resolve = (pathname) => path.resolve(__dirname, '../../', pathname);
@@ -128,30 +126,5 @@ module.exports = {
 
         const nutConfig = variables.nut || {};
         nutConfig.chainWebpack && nutConfig.chainWebpack(config);
-
-        if (IS_ONLINE) {
-            ///^sentry.disable///
-            config.plugin('sentry-cli-plugin')
-                .use(
-                    new SentryCliPlugin({
-                        release: APP_GIT_VERSION,
-                        include: distDir, // 上传文件所在目录
-                        ignore: ['node_modules', 'chunk-vendors.*'], // 不需要上传的文件，一般大文件也避免上传
-                        configFile: resolve('.sentrycli.rc'), // 包含组织、项目、auth信息
-                        urlPrefix: '', // 根据include的设置、以及实际访问路径调整，urlPrefix与include结合后与实际访问路径匹配即可
-                        afterUpload: (resolve, reject) => {
-                            // 上传完成后删除sourcemap，避免源码泄漏
-                            const p = path.join(distDir, '*.?(css|js).map');
-                            rm(p, (err) => {
-                                if (err) {
-                                    return reject(err);
-                                }
-                                resolve();
-                            });
-                        }
-                    })
-                );
-            ////sentry.disable///
-        }
     }
 };

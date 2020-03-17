@@ -45,14 +45,23 @@ export default Vue.extend({
                 window.userInfo = result || {};
                 this.userInfo = window.userInfo;
 
-                if (window.DATracker && window.DATracker.login) {
-                    window.DATracker.login(window.userInfo.nickName || window.userInfo.nickname);
+                ///#aem///
+                if (window.AES && window.AES.setConfig) {
+                    window.AES.setConfig({
+                        pid: '///{aem.pid}///',
+                        uid: window.userInfo.userId,
+                        username: window.userInfo.nickName || window.userInfo.nickname,
+                    });
                 }
+                ////aem///
 
-                // 背景水印
-                if (!this.isHideLayout) {
-                    window.feedback && window.feedback('nickname');
-                }
+                ///#xfeedback///
+                window.xf && window.xf.setUser({
+                    id: window.userInfo.userId,
+                    name: window.userInfo.nickName || window.userInfo.nickname,
+                    type: 101 // 请参考 https://lark.alipay.com/nue/xfeedback/api#setuser()
+                });
+                ////xfeedback///
             } catch (err) {
                 console.error(err);
             }

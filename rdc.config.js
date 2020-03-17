@@ -7,7 +7,7 @@ module.exports = {
     }],
     npm: {
         name: 'rdc-nut',
-        version: '0.0.1-beta.44',
+        version: '0.0.1-beta.49',
     },
     lint: {
         ext: ['.js', '.vue', '.ts']

@@ -7,15 +7,6 @@ import ElementUIVerify from 'element-ui-verify';
 import RdsVue from 'rds-vue';
 ////rdsVue.disable///
 
-///^hubble.disable///
-import './hubble';
-////hubble.disable///
-
-///^sentry.disable///
-import './sentry';
-////sentry.disable///
-
-
 // @ts-ignore
 // eslint-disable-next-line import/no-unresolved
 import variables from '../../.cache/rdc.variables';

@@ -1,7 +1,0 @@
-[defaults]
-url = https://sentry.kaola.com/
-org = ///sentry.org///
-project = ///sentry.project///
-
-[auth]
-token = ///sentry.token///
