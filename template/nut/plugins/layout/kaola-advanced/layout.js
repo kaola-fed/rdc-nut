@@ -53,21 +53,22 @@ export default Vue.extend({
                     ///#aem///
                     if (window.AES && window.AES.setConfig) {
                         window.AES.setConfig({
+                            env: IS_ONLINE ? 'prod' : 'daily',
                             pid: '///{aem.pid}///',
                             uid: window.userInfo.userId,
                             username: window.userInfo.nickName || window.userInfo.nickname,
                         });
                     }
                     ////aem///
-
-                    ///#xfeedback///
-                    window.xf && window.xf.setUser({
-                        id: window.userInfo.userId,
-                        name: window.userInfo.nickName || window.userInfo.nickname,
-                        type: 101 // 请参考 https://lark.alipay.com/nue/xfeedback/api#setuser()
-                    });
-                    ////xfeedback///
                 }
+                ///#xfeedback///
+                window.xf && window.xf.setUser({
+                    id: window.userInfo.userId,
+                    name: window.userInfo.nickName || window.userInfo.nickname,
+                    type: 101 // 请参考 https://lark.alipay.com/nue/xfeedback/api#setuser()
+                });
+                ////xfeedback///
+
                 /* eslint-enable */
             } catch (err) {
                 console.error(err);

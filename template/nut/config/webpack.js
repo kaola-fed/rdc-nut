@@ -2,6 +2,7 @@
 
 const path = require('path');
 const PorgressBarPlugin = require('progress-bar-webpack-plugin');
+const rm = require('rimraf');
 const chalk = require('chalk');
 const webpack = require('webpack');
 
