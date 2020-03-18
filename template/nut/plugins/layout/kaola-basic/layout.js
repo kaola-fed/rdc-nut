@@ -47,18 +47,17 @@ export default Vue.extend({
 
                 /* eslint-disable */
                 // @ts-ignore
-                if (IS_ONLINE) {
-                    ///#aem///
-                    if (window.AES && window.AES.setConfig) {
-                        window.AES.setConfig({
-                            env: IS_ONLINE ? 'prod' : 'daily',
-                            pid: '///{aem.pid}///',
-                            uid: window.userInfo.userId,
-                            username: window.userInfo.nickName || window.userInfo.nickname,
-                        });
-                    }
-                    ////aem///
+                ///#aem///
+                if (window.AES && window.AES.setConfig) {
+                    window.AES.setConfig({
+                        env: IS_ONLINE ? 'prod' : 'daily',
+                        pid: '///{aem.pid}///',
+                        uid: window.userInfo.userId,
+                        username: window.userInfo.nickName || window.userInfo.nickname,
+                    });
                 }
+
+                ////aem///
                 ///#xfeedback///
                 window.xf && window.xf.setUser({
                     id: window.userInfo.userId,
