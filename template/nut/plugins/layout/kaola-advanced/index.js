@@ -43,6 +43,30 @@ export default {
                     node.appendChild(el);
                     layout.$mount(el);
                 }
+
+                setTimeout(() => {
+                    const findRelatedComponent = (el) => {
+                        while (!el.__vue__ && el.parentElement) {
+                            el = el.parentElement;
+                        }
+                        return el.__vue__;
+                    };
+                    let parent = findRelatedComponent(layout.$refs.$$mount);
+                    const child = layout.$refs.$$mount.firstChild.__vue__;
+
+                    // regular页面
+                    if (!child) {
+                        return;
+                    }
+
+                    while (parent.$options.abstract && parent.$parent) {
+                        parent = parent.$parent;
+                    }
+                    parent.$children.push(child);
+
+                    child.$parent = parent;
+                    child.$root = parent ? parent.$root : child;
+                }, 0);
             },
 
             unmount(node) {
