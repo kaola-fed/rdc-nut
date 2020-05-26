@@ -1,7 +1,4 @@
 interface Window {
-    feedback: (id: string) => {};
-    DATracker: {
-        init: (appKey: string, opts: {}) => {};
-        track: any;
-    };
+    AES: any;
+    xf: any;
 }

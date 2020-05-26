@@ -17,9 +17,9 @@ order: 8
 |   |   |-- __demo__/
 |   |   |   |-- regular/
 |   |   |   |   |-- index/
-|   |   |   |   |   |-- api.js
+|   |   |   |   |   |-- api.ts
 |   |   |   |   |   |-- index.html
-|   |   |   |   |   |-- index.js
+|   |   |   |   |   |-- index.ts
 |   |   |   |   |   |-- index.scss
 |   |   |   |-- vue/
 |   |   |   |   |-- index/
@@ -27,9 +27,9 @@ order: 8
 |   |   |   |   |   |   |-- list.action.ts
 |   |   |   |   |   |-- api.ts
 |   |   |   |   |   |-- index.html
-|   |   |   |   |   |-- index.js
+|   |   |   |   |   |-- index.ts
 |   |   |   |   |   |-- index.scss
-|   |-- app.js（可选）
+|   |-- entry.ts
 |   |-- ...
 |-- rda.config.js
 ```
@@ -42,7 +42,7 @@ pages 为页面级别目录，pages下文件会自动生成路由。
 
 例如上方结构中的regular和 demo 页面会自动生成路由 `/pags/__demo__/regular/index/index` 和 `/pages/__demo__/vue/index/index`。
 
-如果需要自定义路由名，可以在`app/app.js`中设置路由别名，下面会详细介绍 app.js。
+如果需要自定义路由名，可以在`app/entry.ts`中设置路由别名，下面会详细介绍 entry.ts。
 
 &emsp;
 
@@ -51,7 +51,7 @@ pages 为页面级别目录，pages下文件会自动生成路由。
 app.js 文件会在工程启动时自动被[nut](https://nut.js.org/)加载，文件中可以设置应用级别的配置。例如：设置首页、设置路由别名、以及监听rdc-nut暴露出的事件。
 
 ```javascript
-// app.js
+// entry.ts
 export default async function app(ctx) {
     // 设置 首页
     ctx.api.homepage.set('pages/__demo__/regular/index/index');
@@ -65,17 +65,6 @@ export default async function app(ctx) {
     // 监听 rdc-nut 暴露出的 退出登录事件
     ctx.events.on('layout:logout', () => {
         location.href = `/api/login?redirect=${encodeURIComponent(window.location.href)}`;
-    });
-
-    // 监听 rdc-nut 暴露出的 请求失败事件
-    ctx.events.on('layout:requestError', (res) => {
-        if(res && res.code === 10000 || res.code === 10007 || res.retcode === 10007) {
-            // 未登录
-            location.href = `/api/login?redirect=${encodeURIComponent(window.location.href)}`;
-        } else if (res && res.code === 403) {
-            // 无权限
-            ctx.events.emit('route:unauthorized');
-        }
     });
 }
 
@@ -123,38 +112,6 @@ module.exports = function(params) {
 
 &emsp;
 
-#### 插件
-
-虽然 rdc-nut 内置了rds-vue 和 nek-ui，但是各个业务线在实际开发过程中，往往会沉淀出各自的通用组件、函数、样式等，我们将之统一称作套件。由于rdc-nut并没有直接暴露出入口文件，那如何全局引入并注册这些套件呢？为此，我们提供了插件机制。
-
-- 在 app目录下新建js文件，并在该文件中执行相应的引入、注册等操作。
-- 在rda.config.js 中 plugins下，将该文件路径 写到plugins数组中（注意：文件路径是相对于app目录的绝对路径）。
-
-例如：引入elementUI。
-```javascript
-// app/install.js
-import Vue from 'vue';
-import ElementUI from 'element-ui';
-
-Vue.use(ElementUI);
-```
-
-```javascript
-// rda.config.js
-module.exports = {
-  container: {
-    name: 'rdebase/rdc-nut:{{version}}',
-    render: {
-        plugins: [
-            '/install.js'
-        ]
-    },
-  },
-  ...
-};
-```
-
-&emsp;
 
 #### 别名
 

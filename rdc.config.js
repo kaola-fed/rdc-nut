@@ -7,13 +7,14 @@ module.exports = {
     }],
     npm: {
         name: 'rdc-nut',
-        version: '0.0.1-alpha.7',
+        version: '0.0.1-beta.55',
     },
     lint: {
         ext: ['.js', '.vue', '.ts']
     },
     docs: {
-        url: 'https://kaola-fed.github.io/rdc-nut/'
+        url: 'https://kaola-fed.github.io/rdc-nut/',
+        userStyles: '//kaola-haitao.oss.kaolacdn.com/cf345824-9e1a-47ec-86fe-3455af8bfb96.css',
     },
     render: {
         includes: [
@@ -54,7 +55,7 @@ module.exports = {
                 token: '29ccec3e738b46d19fa1157f889c6ab9a0927556c1934bfa9d8460dae14a5ae4',
             },
             rdsVue: {
-                disable: true
+                disable: false
             }
         }
     },
@@ -88,8 +89,8 @@ module.exports = {
                     location.href = 'pages/unauthorized/index@common-pages';
                 } else {
                     // eslint-disable-next-line @typescript-eslint/no-var-requires
-                    const { KLModal } = require('nek-ui');
-                    KLModal.alert((res && res.message) || '返回异常');
+                    // const { KLModal } = require('nek-ui');
+                    // KLModal.alert((res && res.message) || '返回异常');
                 }
             }
         },
